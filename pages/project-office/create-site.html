@@ -31,54 +31,24 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <!-- config files-->
-  <!-- config files-->
-  <script src="../../config/header-config.js"></script>
-  <script src="../../config/footer-config.js"></script>
+    <!-- config files-->
+    <script src="../../config/header-config.js"></script>
+    <script src="../../config/sidenav-config.js"></script>
+    <script src="../../config/footer-config.js"></script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
         <!-- Main Header -->
-            <!-- Main Header -->
+        <!-- Main Header -->
         <div id="qii_header">
-      
+
         </div>
-        <aside class="main-sidebar">
+        <div id="qii_sidenav">
+            <!-- Left side column. contains the logo and sidebar -->
 
-            <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
-
-                <!-- Sidebar user panel (optional) -->
-
-
-                <!-- search form (Optional) -->
-
-                <!-- /.search form -->
-
-                <!-- Sidebar Menu -->
-                <ul class="sidebar-menu" data-widget="tree">
-
-                    <!-- Optionally, you can add icons to the links -->
-                    <li class="active"><a href="../home/index.html"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-                    <li><a href="project-office.html"><i class="fa fa-link"></i> <span>Project Office</span></a></li>
-                    <li class="treeview">
-                        <a href="#"><i class="fa fa-link"></i> <span>Purchase Office</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="#">Project Office</a></li>
-                            <li><a href="#">Purchase Office</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><i class="fa fa-link"></i> <span>Organization</span></a></li>
-                </ul>
-                <!-- /.sidebar-menu -->
-            </section>
-            <!-- /.sidebar -->
-        </aside>
+        </div>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -175,7 +145,7 @@
                                     <!-- /.box-body -->
                                     <div class="box box-danger box-solid">
                                         <div class="box-header with-border">
-                                            <h3 class="box-title">Dynamic Template Details</h3>
+                                            <h3 class="box-title">Other Details</h3>
                                         </div>
                                         <!-- /.box-header -->
                                         <!-- form start -->
@@ -324,9 +294,13 @@
     <script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 
     <script src="../../components/header/header.js"></script>
+    <script src="../../components/sidenav/sidenav.js"></script>
     <script src="../../components/footer/footer.js"></script>
+
     <script>
         $("#qii_header").qiiHeader();
+        $("#qii_sidenav").qiiSidenav({ activeLinks: ["qii_menu_project_office","qii_menu_site"] ,openTrees:["qii_menu_project_office"]});
+
         $("#qii_footer").qiiFooter();
     </script>
     <script>
