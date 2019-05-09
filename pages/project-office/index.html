@@ -76,7 +76,8 @@
                             <!-- form start -->
                             <div class="box-body">
                                 <form class="form-horizontal">
-                                    <div class="form-group">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
                                         <label for="inputEmail3" class="col-sm-3 control-label">Customer
                                             Code</label>
 
@@ -84,8 +85,8 @@
                                             <input type="text" class="form-control" id="inputEmail3"
                                                 placeholder="Type Customer Code">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
+                                        </div>
+                                        <div class="form-group">
                                         <label for="inputPassword3" class="col-sm-3 control-label">Customer
                                             Name</label>
 
@@ -93,8 +94,10 @@
                                             <input type="text" class="form-control" id="inputPassword3"
                                                 placeholder="Type Customer Name">
                                         </div>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                        <div class="form-group">
                                         <label class="col-sm-3 control-label">Customer Type</label>
                                         <div class="col-sm-9">
                                             <select class="customer-type-select form-control" style="width: 100%;"
@@ -104,8 +107,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Customer Tagging</label>
+                                        <div class="form-group">
+                                        <label class="col-sm-3 control-label">Customer Tag</label>
                                         <div class="col-sm-9">
                                             <select class="customer-type-select form-control" style="width: 100%;"
                                                 name="CustomerTagging" tabindex="-1">
@@ -113,12 +116,15 @@
                                                 <option>Tag_2</option>
                                             </select>
                                         </div>
+                                        </div>
                                     </div>
                                     <!-- /.box-body -->
-                                    <div class="box-footer">
-                                        <button type="button" class="btn btn-info pull-right">Create New</button>
-                                        <button type="button" class="btn btn-default"
-                                            onclick="ShowResult()">Search</button>
+                                    <div class="col-md-12">
+                                        <div class="box-footer">
+                                            <button type="button" class="btn btn-info pull-right">Create New</button>
+                                            <button type="button" class="btn btn-default"
+                                                onclick="ShowResult()">Search</button>
+                                        </div>
                                     </div>
                                     <!-- /.box-footer -->
                                 </form>
@@ -132,9 +138,14 @@
                         <div class="box box-success box-solid">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Search Result</h3>
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
                             </div>
                             <!-- /.box-header -->
-                            <div class="box-body">
+                            <div class="box-body" id="search_result_boxbody">
 
                                 <div class="col-sm-12">
                                     <table id="example1"
@@ -148,46 +159,114 @@
                                                     colspan="1" aria-label="Customer Name">Name</th>
                                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
                                                     colspan="1" aria-label="Customer Type">Type</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+                                                    colspan="1" aria-label="Customer Type"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr role="row" class="odd"
-                                                onclick="location.href = 'site-definition.html';">
-                                                <td>Customer_1</td>
+                                            <tr role="row" class="odd">
+                                                <td>
+                                                    <a href="site-definition.html">Customer_1</a>
+                                                </td>
                                                 <td>Customer Name 1</td>
                                                 <td>Commercial
-                                                    <a href="customer_details.html">
-                                                        <i class="fa fa-edit"></i>
-                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <i class="fa fa-edit" onclick="edit_customer()" data-widget="collapse"></i>
                                                 </td>
                                             </tr>
-                                            <tr role="row" class="even"
-                                                onclick="location.href = 'site-definition.html';">
-                                                <td>Customer_2</td>
+                                            <tr role="row" class="even">
+                                                <td>
+                                                    <a href="site-definition.html">Customer_2</a>
+                                                </td>
                                                 <td>Customer Name 2</td>
                                                 <td>Residential
-                                                    <a href="customer_details.html">
-                                                        <i class="fa fa-edit"></i>
-                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <i class="fa fa-edit" onclick="edit_customer()" data-widget="collapse"></i>
                                                 </td>
                                             </tr>
-                                            <tr role="row" class="odd"
-                                                onclick="location.href = 'site-definition.html';">
-                                                <td>Customer_3</td>
+                                            <tr role="row" class="odd">
+                                                <td>
+                                                    <a href="site-definition.html">Customer_3</a>
+                                                </td>
                                                 <td>Customer Name 3</td>
                                                 <td>Commercial
-                                                    <a href="customer_details.html">
-                                                        <i class="fa fa-edit"></i>
-                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <i class="fa fa-edit" onclick="edit_customer()" data-widget="collapse"></i>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                                 <!-- /.box-body -->
+
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row" id="edit_customer" style="display:none">
+                        <div class="col-md-12">
+                                <div class="nav-tabs-custom tab-success">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#address" data-toggle="tab" aria-expanded="true">Address</a>
+                                        </li>
+                                        <li class=""><a href="#legal" data-toggle="tab" aria-expanded="false">Legal</a>
+                                        </li>
+                                        <li class=""><a href="#additional" data-toggle="tab" aria-expanded="false">Additional
+                                                Information</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="address">
+                                            <div id="address_table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="address_table_length"><label>Show <select name="address_table_length" aria-controls="address_table" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-6"><div id="address_table_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="address_table"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="address_table" class="table table-bordered table-striped table-hover dataTable no-footer" role="grid" aria-describedby="address_table_info">
+                                                <thead>
+                                                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="address_table" rowspan="1" colspan="1" aria-label="Type: activate to sort column descending" aria-sort="ascending" style="width: 354px;">Type</th><th class="sorting" tabindex="0" aria-controls="address_table" rowspan="1" colspan="1" aria-label="Address: activate to sort column ascending" style="width: 376px;">Address</th><th class="sorting" tabindex="0" aria-controls="address_table" rowspan="1" colspan="1" aria-label="Default: activate to sort column ascending" style="width: 221px;">Default</th></tr>
+                                                </thead>
+                                                <tbody>   
+                                                <tr role="row" class="odd">
+                                                        <td class="sorting_1">Mailing Address</td>
+                                                        <td>XYZ Avenue, Kolkata</td>
+                                                        <td>
+                                                            <input type="checkbox">
+                                                        </td>
+                                                    </tr><tr role="row" class="even">
+                                                        <td class="sorting_1">Office Address</td>
+                                                        <td>XYZ Avenue, Kolkata</td>
+                                                        <td>
+                                                            <input type="checkbox">
+                                                        </td>
+                                                    </tr><tr role="row" class="odd">
+                                                        <td class="sorting_1">Registered Address</td>
+                                                        <td>ABC Street, Kolkata</td>
+                                                        <td>
+                                                            <input type="checkbox" checked="checked">
+                                                        </td>
+                                                    </tr></tbody>
+                                            </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="address_table_info" role="status" aria-live="polite">Showing 1 to 3 of 3 entries</div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="address_table_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="address_table_previous"><a href="#" aria-controls="address_table" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="address_table" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="address_table_next"><a href="#" aria-controls="address_table" data-dt-idx="2" tabindex="0">Next</a></li></ul></div></div></div></div>
+                                        </div>
+                                        <div class="tab-pane" id="legal">
+                                            <div id="legal_table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="legal_table_length"><label>Show <select name="legal_table_length" aria-controls="legal_table" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-6"><div id="legal_table_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="legal_table"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="legal_table" class="table table-bordered table-striped table-hover dataTable no-footer" role="grid" aria-describedby="legal_table_info">
+                                                <thead>
+                                                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="legal_table" rowspan="1" colspan="1" aria-label="Type: activate to sort column descending" aria-sort="ascending" style="width: 0px;">Type</th><th class="sorting" tabindex="0" aria-controls="legal_table" rowspan="1" colspan="1" aria-label="Number: activate to sort column ascending" style="width: 0px;">Number</th></tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr role="row" class="odd">
+                                                        <td class="sorting_1">GST</td>
+                                                        <td>ABCD1234XYZ1</td>
+                                                    </tr><tr role="row" class="even">
+                                                        <td class="sorting_1">PAN</td>
+                                                        <td>ABCD1234X</td>
+                                                    </tr></tbody>
+                                            </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="legal_table_info" role="status" aria-live="polite">Showing 1 to 2 of 2 entries</div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="legal_table_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="legal_table_previous"><a href="#" aria-controls="legal_table" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="legal_table" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="legal_table_next"><a href="#" aria-controls="legal_table" data-dt-idx="2" tabindex="0">Next</a></li></ul></div></div></div></div>
+                                        </div>
+                                        <div class="tab-pane" id="additional">
+                                            No Additional Info
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                 </div>
             </section>
             <!-- /.content -->
@@ -297,6 +376,11 @@
 
         function ShowResult() {
             $("#search_result").removeAttr("style");
+        }
+
+        function edit_customer(){
+            $("#search_result_boxbody").slideToggle('slow');
+            $("#edit_customer").removeAttr("style");
         }
     </script>
     <script>
