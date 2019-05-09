@@ -34,6 +34,7 @@
     <!-- config files-->
     <script src="../../config/header-config.js"></script>
     <script src="../../config/footer-config.js"></script>
+    <script src="../../config/sidenav-config.js"></script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -42,42 +43,10 @@
         <!-- Main Header -->
         <div id="qii_header">
       
-            </div>
-        <aside class="main-sidebar">
+        </div>
+        <div id="qii_sidenav">
 
-            <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
-
-                <!-- Sidebar user panel (optional) -->
-
-
-                <!-- search form (Optional) -->
-
-                <!-- /.search form -->
-
-                <!-- Sidebar Menu -->
-                <ul class="sidebar-menu" data-widget="tree">
-
-                    <!-- Optionally, you can add icons to the links -->
-                    <li class="active"><a href="index.html"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-                    <li><a href="project-office.html"><i class="fa fa-link"></i> <span>Project Office</span></a></li>
-                    <li class="treeview">
-                        <a href="#"><i class="fa fa-link"></i> <span>Purchase Office</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="#">Project Office</a></li>
-                            <li><a href="#">Purchase Office</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><i class="fa fa-link"></i> <span>Organization</span></a></li>
-                </ul>
-                <!-- /.sidebar-menu -->
-            </section>
-            <!-- /.sidebar -->
-        </aside>
+        </div>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -410,9 +379,11 @@
 
     <script src="../../components/footer/footer.js"></script>
     <script src="../../components/header/header.js"></script>
+    <script src="../../components/sidenav/sidenav.js"></script>
     <script>
         $("#qii_header").qiiHeader();
         $("#qii_footer").qiiFooter();
+        $("#qii_sidenav").qiiSidenav();
     </script>
 </body>
 
