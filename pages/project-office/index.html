@@ -26,7 +26,8 @@
                     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
                     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
                     <![endif]-->
-
+    <!--Option js -->
+    <script src="../../config/option.js"></script>
     <!-- Google Font -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -42,11 +43,9 @@
 
         <!-- Main Header -->
         <div id="qii_header">
-
         </div>
-        <div id="qii_sidenav">
-                <!-- Left side column. contains the logo and sidebar -->
-                
+        <!-- Sidenav Bar-->
+        <div id="qii_sidenav">     
         </div>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -100,20 +99,18 @@
                                         <div class="form-group">
                                         <label class="col-sm-3 control-label">Customer Type</label>
                                         <div class="col-sm-9">
-                                            <select class="customer-type-select form-control" style="width: 100%;"
+                                            <select class="customer-type-select form-control select_option" style="width: 100%;"
                                                 name="CustomerType" tabindex="-1">
-                                                <option selected="selected">Commercial</option>
-                                                <option>Residential</option>
+                                                
                                             </select>
                                         </div>
                                     </div>
                                         <div class="form-group">
                                         <label class="col-sm-3 control-label">Customer Tag</label>
                                         <div class="col-sm-9">
-                                            <select class="customer-type-select form-control" style="width: 100%;"
+                                            <select class="customer-type-select form-control select_option" style="width: 100%;"
                                                 name="CustomerTagging" tabindex="-1">
-                                                <option selected="selected">Tag_1</option>
-                                                <option>Tag_2</option>
+                                                
                                             </select>
                                         </div>
                                         </div>
@@ -208,74 +205,176 @@
                 </div>
                 <div class="row" id="edit_customer" style="display:none">
                         <div class="col-md-12">
-                                <div class="nav-tabs-custom tab-success">
-                                    <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#address" data-toggle="tab" aria-expanded="true">Address</a>
-                                        </li>
-                                        <li class=""><a href="#legal" data-toggle="tab" aria-expanded="false">Legal</a>
-                                        </li>
-                                        <li class=""><a href="#additional" data-toggle="tab" aria-expanded="false">Additional
-                                                Information</a>
-                                        </li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="address">
-                                            <div id="address_table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="address_table_length"><label>Show <select name="address_table_length" aria-controls="address_table" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-6"><div id="address_table_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="address_table"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="address_table" class="table table-bordered table-striped table-hover dataTable no-footer" role="grid" aria-describedby="address_table_info">
-                                                <thead>
-                                                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="address_table" rowspan="1" colspan="1" aria-label="Type: activate to sort column descending" aria-sort="ascending" style="width: 354px;">Type</th><th class="sorting" tabindex="0" aria-controls="address_table" rowspan="1" colspan="1" aria-label="Address: activate to sort column ascending" style="width: 376px;">Address</th><th class="sorting" tabindex="0" aria-controls="address_table" rowspan="1" colspan="1" aria-label="Default: activate to sort column ascending" style="width: 221px;">Default</th></tr>
-                                                </thead>
-                                                <tbody>   
-                                                <tr role="row" class="odd">
-                                                        <td class="sorting_1">Mailing Address</td>
-                                                        <td>XYZ Avenue, Kolkata</td>
-                                                        <td>
-                                                            <input type="checkbox">
-                                                        </td>
-                                                    </tr><tr role="row" class="even">
-                                                        <td class="sorting_1">Office Address</td>
-                                                        <td>XYZ Avenue, Kolkata</td>
-                                                        <td>
-                                                            <input type="checkbox">
-                                                        </td>
-                                                    </tr><tr role="row" class="odd">
-                                                        <td class="sorting_1">Registered Address</td>
-                                                        <td>ABC Street, Kolkata</td>
-                                                        <td>
-                                                            <input type="checkbox" checked="checked">
-                                                        </td>
-                                                    </tr></tbody>
-                                            </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="address_table_info" role="status" aria-live="polite">Showing 1 to 3 of 3 entries</div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="address_table_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="address_table_previous"><a href="#" aria-controls="address_table" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="address_table" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="address_table_next"><a href="#" aria-controls="address_table" data-dt-idx="2" tabindex="0">Next</a></li></ul></div></div></div></div>
+                            <div class="box box-success box-solid">
+                                    <div class="box-body">
+                                            <div class="nav-tabs-custom tab-success">
+                                                <ul class="nav nav-tabs">
+                                                    <li class="active"><a href="#address" data-toggle="tab" aria-expanded="true">Address</a>
+                                                    </li>
+                                                    <li class=""><a href="#legal" data-toggle="tab" aria-expanded="false">Legal</a>
+                                                    </li>
+                                                    <li class=""><a href="#additional" data-toggle="tab" aria-expanded="false">Additional
+                                                                Information</a>
+                                                    </li>
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <div class="tab-pane active" id="address">
+                                                        <table id="address_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
+                                                            <thead>
+                                                                <tr role="row">
+                                                                    <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address Type">Type</th>
+                                                                    <th class="sorting col-sm-5" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address">Address</th>
+                                                                    <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Default</th>
+                                                                    <th class="sorting col-sm-1" tabinex="0" aria-control="example1" rowspan="1" colspan="1" aria-label="remove"></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr role="row" class="odd">
+                                                                    <td>Registered Address</td>
+                                                                    <td>ABC Street, Kolkata</td>
+                                                                    <td>
+                                                                        <input type="checkbox" checked="checked">
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
+                                                                            <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
+                                                                                    style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
+                                                                            <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
+                                                                            <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
+                                                                            <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr role="row" class="even">
+                                                                    <td>Office Address</td>
+                                                                    <td>XYZ Avenue, Kolkata</td>
+                                                                    <td>
+                                                                        <input type="checkbox">
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
+                                                                            <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
+                                                                                    style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
+                                                                            <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
+                                                                            <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
+                                                                            <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr role="row" class="odd">
+                                                                    <td>Mailing Address</td>
+                                                                    <td>XYZ Avenue, Kolkata</td>
+                                                                    <td>
+                                                                        <input type="checkbox">
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
+                                                                            <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
+                                                                                    style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
+                                                                            <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
+                                                                            <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
+                                                                            <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="tab-pane" id="legal">
+                                                        <table id="legal_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
+                                                            <thead>
+                                                                <tr role="row">
+                                                                    <th class="sorting col-sm-5" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Info Type">Type</th>
+                                                                    <th class="sorting col-sm-5" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number">Number</th>
+                                                                    <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number"></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr role="row" class="odd">
+                                                                    <td>GST</td>
+                                                                    <td>ABCD1234XYZ1</td>
+                                                                    <td>
+                                                                        <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
+                                                                            <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
+                                                                                    style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
+                                                                            <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
+                                                                            <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
+                                                                            <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr role="row" class="even">
+                                                                    <td>PAN</td>
+                                                                    <td>ABCD1234X</td>
+                                                                    <td>
+                                                                        <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
+                                                                            <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
+                                                                                    style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
+                                                                            <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
+                                                                            <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
+                                                                            <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr role="row" class="even">
+                                                                    <td>CIN</td>
+                                                                    <td>ABCD1235T</td>
+                                                                    <td>
+                                                                        <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
+                                                                            <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
+                                                                                    style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
+                                                                            <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
+                                                                            <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
+                                                                            <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr role="row" class="even">
+                                                                    <td>TAN</td>
+                                                                    <td>ABCD1238J</td>
+                                                                    <td>
+                                                                        <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
+                                                                            <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
+                                                                                    style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
+                                                                            <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
+                                                                            <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
+                                                                            <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="tab-pane" id="additional">
+                                                        <table id="legal_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
+                                                            <thead>
+                                                                <tr role="row">
+                                                                    <th class="sorting col-sm-6" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number"></th>
+                                                                    <th class="sorting col-sm-6" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number"></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr role="row" class="odd">
+                                                                    <td><input type="textbox"></td>
+                                                                    <td><input type="textbox"></td>
+            
+                                                                </tr>
+                                                            </tbody>
+                                                            </table>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="tab-pane" id="legal">
-                                            <div id="legal_table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="legal_table_length"><label>Show <select name="legal_table_length" aria-controls="legal_table" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-6"><div id="legal_table_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="legal_table"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="legal_table" class="table table-bordered table-striped table-hover dataTable no-footer" role="grid" aria-describedby="legal_table_info">
-                                                <thead>
-                                                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="legal_table" rowspan="1" colspan="1" aria-label="Type: activate to sort column descending" aria-sort="ascending" style="width: 0px;">Type</th><th class="sorting" tabindex="0" aria-controls="legal_table" rowspan="1" colspan="1" aria-label="Number: activate to sort column ascending" style="width: 0px;">Number</th></tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr role="row" class="odd">
-                                                        <td class="sorting_1">GST</td>
-                                                        <td>ABCD1234XYZ1</td>
-                                                    </tr><tr role="row" class="even">
-                                                        <td class="sorting_1">PAN</td>
-                                                        <td>ABCD1234X</td>
-                                                    </tr></tbody>
-                                            </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="legal_table_info" role="status" aria-live="polite">Showing 1 to 2 of 2 entries</div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="legal_table_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="legal_table_previous"><a href="#" aria-controls="legal_table" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="legal_table" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="legal_table_next"><a href="#" aria-controls="legal_table" data-dt-idx="2" tabindex="0">Next</a></li></ul></div></div></div></div>
-                                        </div>
-                                        <div class="tab-pane" id="additional">
-                                            No Additional Info
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </div>        
+                        </div>
                 </div>
+                
             </section>
-            <!-- /.content -->
         </div>
+            <!-- /.content -->
         <!-- /.content-wrapper -->
-
         <!-- Main Footer -->
         <div id="qii_footer">
-            Footer should come here
         </div>
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
@@ -361,7 +460,7 @@
     <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.js"></script>
-
+    <!-- Data table-->
     <script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
@@ -387,6 +486,9 @@
         $(function () {
             $('#example1').DataTable()
         })
+        $.each(option, function(i, data){
+            $(".select_option").append('<option>' + data.name + '</option>');
+        });
     </script>
 </body>
 
