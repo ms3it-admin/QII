@@ -28,6 +28,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="../../dist/css/skins/skin-blue.min.css">
     <!--treeview js-->
     <script src="treeview.js"></script>
+    <script src="option.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -207,11 +208,8 @@ desired effect
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label">Organization Level</label>
                                                 <div class="col-sm-8 control-label">
-                                                    <select class="customer-type-select form-control" style="width:100%">
-                                                        <option>option1</option>
-                                                        <option>option1</option>
-                                                        <option>option1</option>
-                                                        <option>option1</option>
+                                                    <select class="customer-type-select form-control select_option" style="width:100%">
+                                                        
                                                     </select>
                                                 </div>
                                             </div>
@@ -232,33 +230,24 @@ desired effect
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label">Country Code</label>
                                                 <div class="col-sm-8 control-label">
-                                                    <select class="customer-type-select form-control" style="width:100%">
-                                                        <option>option1</option>
-                                                        <option>option1</option>
-                                                        <option>option1</option>
-                                                        <option>option1</option>
+                                                    <select class="customer-type-select form-control select_option" style="width:100%">
+                                                        
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label">Default Language</label>
                                                 <div class="col-sm-8 control-label">
-                                                    <select class="customer-type-select form-control" style="width:100%">
-                                                        <option>option1</option>
-                                                        <option>option1</option>
-                                                        <option>option1</option>
-                                                        <option>option1</option>
+                                                    <select class="customer-type-select form-control select_option" style="width:100%">
+                                                        
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label">Default Currency</label>
                                                 <div class="col-sm-8 control-label">
-                                                    <select class="customer-type-select form-control" style="width:100%">
-                                                        <option>option1</option>
-                                                        <option>option1</option>
-                                                        <option>option1</option>
-                                                        <option>option1</option>
+                                                    <select class="customer-type-select form-control select_option" style="width:100%">
+                                                        
                                                     </select>
                                                 </div>
                                             </div>
@@ -453,7 +442,9 @@ desired effect
         <!-- /.content-wrapper -->
 
         <!-- Main Footer -->
+        <!--<div id="qii_footer">
 
+        </div>-->
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark ">
             <!-- Create the tabs -->
@@ -587,13 +578,14 @@ desired effect
         });
     </script>
     <script>
-        function getJs() {
-            return data;
-        }
         $(document).ready(function() {
-            console.log(tree);
+            //console.log(tree);
             $("#company_hierarchy").treeview({
                 data: tree
+            });
+            //console.log(option)
+            $.each(option, function(i, data){
+                $(".select_option").append('<option>' + data.name + '</option>');
             });
         });
     </script>
