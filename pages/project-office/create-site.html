@@ -332,6 +332,101 @@
         });
         //console.log(site);
     </script>
+    <!-- WebSql -->
+    <script>
+        //accessing websql-database instance 
+        var myDb = openDatabase('dbsitetemplate', '1.0', 'database for site template', 2*1024*1024);
+        //check database instance
+        if(!myDb){
+            alert("oops failed to create websql database!")
+        }else{
+            console.log(myDb.version);
+            var version = myDb.version;
+            //var name = "Sibi";
+            //var id = "1";
+            //var MailID = "sibikv4u@gmail.com";
+            myDb.transaction(function (tran) {
+                tran.executeSql('CREATE TABLE IF NOT EXISTS Template (id unique, templateName, field_one, field_two, field_three, field_four)');
+                //tran.executeSql('insert into Users (id, Name, MailID) values (?,?,?)', [id, name, MailID]);
+                tran.executeSql('insert into Template (id, templateName, field_one, field_two, field_three, field_four) values (1, "Residential Apartment", "Earth Excavation", "Undergroud Parking", "Sports & Recreation", "Water Supply")');
+                tran.executeSql('insert into Template (id, templateName, field_one, field_two, field_three, field_four) values (2, "Shopping Complex", "Parking Lot", "Centralized AC", "Earth Excavation", "Security")');
+                tran.executeSql('insert into Template (id, templateName, field_one, field_two, field_three, field_four) values (3, "School Building", "Play Ground", "Structure & Beams", "Garden", "Water Supply")');
+                tran.executeSql('insert into Template(id, templateName, field_one, field_two, field_three, field_four)' + 'VALUES' +
+                '(4, "Manufacturing Plant", "Earth Excavation", "Road Construction", "Assembly Line", "Water Supply")');
+                tran.executeSql('insert into Template(id, templateName, field_one, field_two, field_three, field_four)' + 'VALUES' +
+                '(5, "Solar Unit", "Earth Excavation", "Road Contruction", "Solar Panel", "Water Supply")');
+            });
+            myDb.transaction(function (tran) {
+                //var html = '<table><thead><th>Mail ID </th><th>ID</th><th>Name </th></thead><tbody>';
+                tran.executeSql('SELECT * FROM Template', [], function (tran, data) {
+                    for (i = 0; i < data.rows.length; i++) {
+                        //html += '<tr><td>'
+                        //    + '<a ' + 'href="mailto:' + data.rows[i].MailID + '">' + data.rows[0].MailID + '</a>' +
+                        //'</td><td>' + data.rows[i].id + '</td><td>' + data.rows[i].Name + '</td></tr>';
+                        //console.log(data.rows.length);
+                        //console.log(data.rows[i].templateName);
+                        //console.log(data.rows[i].field_one);
+                        //console.log(data.rows[i].field_two);
+                        //console.log(data.rows[i].field_three);
+                        //console.log(data.rows[i].field_four);
+                    };
+                    //html += '</tbody></table>';
+                    //$('#myTab').html(html);
+                });
+            });
+        }
+
+        //get seleted option
+        $("#site_template").change(function(){
+            var selectedOption = $(this).children('option:selected').val();
+            console.log('this is selected option' + selectedOption);
+            //console.log(selectedOption === "Residential Apartment")
+            if(selectedOption === "Residential Apartment"){
+                //then make query to th Db --> SELECT field_one, field_two, field_three, field_four FROM 
+                //Template WHERE templateName = 'Resdiential Complex'
+                console.log('true')
+                myDb.transaction(function(tran){
+                    tran.executeSql('SELECT field_one, field_two, field_three, field_four FROM Template WHERE templateName="Residential Apartment"', [], function(tran, data){
+                        console.log('executing query');
+                        console.log('Residential Apartment is selected and the field are ' + data.rows[0].field_one);
+                        //now set the field values to input tag
+                        ////get the tags using their ids
+                    });
+                });
+                
+            }else if(selectedOption == "Shopping Complex"){
+                console.log('true')
+                myDb.transaction(function(tran){
+                    tran.executeSql('SELECT field_one, field_two, field_three, field_four FROM Template WHERE templateName="Shopping Complex"', [], function(tran, data){
+                        console.log('executing query');
+                        console.log('Shopping complex is selected and the field are ' + data.rows[0].field_one);
+                    });
+                });   
+            }else if(selectedOption === "School Building"){
+                console.log('true')
+                myDb.transaction(function(tran){
+                    tran.executeSql('SELECT field_one, field_two, field_three, field_four FROM Template WHERE templateName="School Building"', [], function(tran, data){
+                        console.log('executing query');
+                        console.log('School Building is selected and the field are ' + data.rows[0].field_one);
+                    });
+                });
+            }else if(selectedOption === "Manufacturing Plant"){
+                myDb.transaction(function(tran){
+                    tran.executeSql('SELECT field_one, field_two, field_three, field_four FROM Template WHERE templateName="Manufacturing Plant"', [], function(tran, data){
+                        console.log('executing query');
+                        console.log('Manufacturing Plant is selected and the field are ' + data.rows[0].field_one);
+                    });
+                });
+            }else{
+                myDb.transaction(function(tran){
+                    tran.executeSql('SELECT field_one, field_two, field_three, field_four FROM Template WHERE templateName="Solar Unit"', [], function(tran, data){
+                        console.log('executing query');
+                        console.log('solar unit is selected and the field are ' + data.rows[0].field_one);
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
