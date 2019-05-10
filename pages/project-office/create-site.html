@@ -35,6 +35,7 @@
     <script src="../../config/header-config.js"></script>
     <script src="../../config/sidenav-config.js"></script>
     <script src="../../config/footer-config.js"></script>
+    <script src="../../config/sitetemplate.js"></script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -106,13 +107,9 @@
                                                 <div class="form-group">
                                         <label class="col-sm-3 control-label">Site Template</label>
                                         <div class="col-sm-9">
-                                            <select class="customer-type-select form-control" style="width: 100%;"
+                                            <select id="site_template" class="customer-type-select form-control" style="width: 100%;"
                                                 name="CustomerType" tabindex="-1">
-                                                <option selected="selected">Shopping Complex</option>
-                                                <option>Residential Apartment</option>
-                                                <option>School Building</option>
-                                                <option>Manufacturing Plant</option>
-                                                <option>Solar Unit</option>
+                                                
                                             </select>
                                         </div>
                                                 </div>
@@ -328,6 +325,12 @@
             autoclose: true,
             format: 'dd/mm/yyyy',
         })
+    </script>
+    <script>
+        $.each(site, function(i, data){
+            $("#site_template").append('<option>' + data.name + '</option>');
+        });
+        //console.log(site);
     </script>
 </body>
 
