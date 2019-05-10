@@ -28,7 +28,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="../../dist/css/skins/skin-blue.min.css">
     <!--treeview js-->
     <script src="treeview.js"></script>
-    <script src="option.js"></script>
+    <script src="../../config/option.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -427,6 +427,7 @@ desired effect
 
                                                     </tr>
                                                 </tbody>
+                                                </table>
                                         </div>
                                     </div>
                                 </div>
@@ -442,9 +443,9 @@ desired effect
         <!-- /.content-wrapper -->
 
         <!-- Main Footer -->
-        <!--<div id="qii_footer">
+        <div id="qii_footer">
 
-        </div>-->
+        </div>
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark ">
             <!-- Create the tabs -->
@@ -583,7 +584,7 @@ desired effect
             $("#company_hierarchy").treeview({
                 data: tree
             });
-            //console.log(option)
+            //console.log(option);
             $.each(option, function(i, data){
                 $(".select_option").append('<option>' + data.name + '</option>');
             });
