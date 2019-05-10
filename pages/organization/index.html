@@ -137,19 +137,19 @@ desired effect
                                 <form class="form-horizontal">
                                     <div class="col-md-12">
                                         <div class="col-md-6">
-                                            <div class="form-group">
+                                            <div class="form-group" style="margin-bottom:0px">
                                                 <label class="col-sm-4 control-label">Organization Level</label>
                                                 <div class="col-sm-4 control-label">
                                                     <p id="organization_level" class="pull-left">Organization Level</p>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group" style="margin-bottom:0px">
                                                 <label for="inputEmail3" class="col-sm-4 control-label">Company Code</label>
                                                 <div class="col-sm-4 control-label">
                                                     <p id="company_code" class="pull-left">Company Code</p>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group" style="margin-bottom:0px">
                                                 <label for="inputPassword3" class="col-sm-4 control-label">Company Name</label>
 
                                                 <div class="col-sm-4 control-label">
@@ -158,19 +158,19 @@ desired effect
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group">
+                                            <div class="form-group" style="margin-bottom:0px">
                                                 <label class="col-sm-4 control-label">Country Code</label>
                                                 <div class="col-sm-4 control-label">
                                                     <p id="country_code" class="pull-left">Country Code</p>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group" style="margin-bottom:0px">
                                                 <label class="col-sm-4 control-label">Default Language</label>
                                                 <div class="col-sm-4 control-label">
                                                     <p id="default_language" class="pull-left">Default Language</p>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group" style="margin-bottom:0px">
                                                 <label class="col-sm-4 control-label">Default Currency</label>
                                                 <div class="col-sm-4 control-label">
                                                     <p id="default_currency" class="pull-left"> Default Currency</p>
@@ -416,18 +416,17 @@ desired effect
                                             <table id="legal_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
-                                                        <th class="sorting col-sm-6" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number"></th>
-                                                        <th class="sorting col-sm-6" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number"></th>
+                                                        <th class="sorting col-sm-6" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number">Type</th>
+                                                        <th class="sorting col-sm-6" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number">Number</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr role="row" class="odd">
-                                                        <td><input type="textbox"></td>
-                                                        <td><input type="textbox"></td>
-
+                                                        <td><input type="textbox" placeholder="Type"></td>
+                                                        <td><input type="textbox" placeholder="Number"></td>
                                                     </tr>
                                                 </tbody>
-                                                </table>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -585,7 +584,7 @@ desired effect
                 data: tree
             });
             //console.log(option);
-            $.each(option, function(i, data){
+            $.each(option, function(i, data) {
                 $(".select_option").append('<option>' + data.name + '</option>');
             });
         });
