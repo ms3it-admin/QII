@@ -94,7 +94,21 @@ var qiiSidenav = {
                     iconClass: "fa fa-link",
                     href: "/pages/inventory-management/materialmaster.html",
                     children: []
-                }
+                },
+                {
+                    id: "qii_menu_assetinventory",
+                    name: "Asset Inventory",
+                    iconClass: "fa fa-link",
+                    href: "/pages/inventory-management/assetinventory.html",
+                    children: []
+                },
+                {
+                    id: "qii_menu_materialinventory",
+                    name: "Material Inventory",
+                    iconClass: "fa fa-link",
+                    href: "/pages/inventory-management/materialinventory.html",
+                    children: []
+                },
             ]
         }
     ]
