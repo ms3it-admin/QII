@@ -60,10 +60,13 @@
             <!-- Main content -->
             <section class="content container-fluid">
                     <div class="col-md-12 callout callout-info">
-                        <span class="col-md-6">
+                        <span class="col-md-4">
+                            Customer : <b>Customer1</b>
+                        </span>
+                        <span class="col-md-4">
                             Site Name : <b>Site 1</b>
                         </span>
-                        <span class="col-md-6">
+                        <span class="col-md-4">
                             Site Description : <b>This is a building for powerplant</b>
                         </span>
                     </div>
@@ -72,16 +75,16 @@
                             <!-- form start -->
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="box box-primary box-solid">
+                                        <div class="box box-primary box-solid collapsed-box">
                                             <div class="box-header with-border">
                                             <h4 class="box-title">Site Plan</h4>
                                             <div class="box-tools pull-right">
                                                     <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                                                        <i class="fa fa-minus"></i>
+                                                        <i class="fa fa-plus"></i>
                                                     </button>
                                                 </div>
                                             </div>
-                                            <div class="box-body">
+                                            <div class="box-body" id="site_plan">
                                                     <div class="col-md-12">
                                                             <!-- general form elements -->
                                                             <div class="box box-primary box-solid">
@@ -94,7 +97,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.box-header -->
-                                                                <div class="box-body">
+                                                                <div class="box-body site_plan_field">
                                                                     <!-- general form elements -->
                                                                     <div class="box box-success box-solid">
                                                                         <div class="box-header with-border">
@@ -215,7 +218,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.box-header -->
-                                                                <div class="box-body">
+                                                                <div class="box-body site_plan_field">
                                                                     <div class="box box-success box-solid">
                                                                         <div class="box-header with-border">
                                                                             <h3 class="box-title">Earth Filling</h3>
@@ -286,7 +289,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.box-header -->
-                                                                <div class="box-body">
+                                                                <div class="box-body site_plan_field">
                                                                     <form class="form-horizontal">
                                                                         <div class="form-group">
                                                                             <label for="inputEmail3" class="col-sm-6 control-label">Estimated Lump Sum
@@ -458,6 +461,7 @@
         function ShowResult() {
             $("#search_result").removeAttr("style");
         }
+        $("#site_plan").boxWidget("collapse");
     </script>
     <script>
         $(function () {
