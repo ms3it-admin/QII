@@ -62,6 +62,11 @@
 
             <!-- Main content -->
             <section class="content container-fluid">
+                <div class="col-md-12 callout callout-info">
+                    <span class="col-md-6">
+                        Creating new site<b></b>
+                    </span>
+                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <!-- general form elements -->
@@ -162,7 +167,7 @@
                                                     Field1</label>
 
                                                 <div class="col-sm-6">
-                                                    <input type="text" class="form-control" id="inputPassword3"
+                                                    <input type="text" class="form-control" id="field1"
                                                         placeholder="Type Area" value="Earth Excavation">
                                                 </div>
                                             </div>
@@ -171,7 +176,7 @@
                                                     Field2</label>
 
                                                 <div class="col-sm-6">
-                                                    <input type="text" class="form-control" id="inputPassword3"
+                                                    <input type="text" class="form-control" id="field2"
                                                         placeholder="Type Area" value="Foundation & Filling">
                                                 </div>
                                             </div>
@@ -180,7 +185,7 @@
                                                     Field3</label>
 
                                                 <div class="col-sm-6">
-                                                    <input type="text" class="form-control" id="inputPassword3"
+                                                    <input type="text" class="form-control" id="field3"
                                                         placeholder="Type Area" value="Structure & Beams">
                                                 </div>
                                             </div>
@@ -189,9 +194,21 @@
                                                     Field4</label>
 
                                                 <div class="col-sm-6">
-                                                    <input type="text" class="form-control" id="inputPassword3"
+                                                    <input type="text" class="form-control" id="field4"
                                                         placeholder="Type Area">
                                                 </div>
+                                            </div>
+                                            <div class="form-group">
+                                                    <label for="inputPassword3" class="col-sm-3 control-label">Template
+                                                            Field4</label>
+        
+                                                    <div class="col-sm-6">
+                                                        <input type="text" class="form-control" id="field5"
+                                                                placeholder="Type Area">
+                                                    </div>
+                                            </div>
+                                            <div class="box-footer">
+                                                <button type="button" class="btn btn-info pull-right" onclick="add_field()">Add field</button>
                                             </div>
                                         </div>
                                         </div>
@@ -327,6 +344,120 @@
             $("#site_template").append('<option>' + data.name + '</option>');
         });
         //console.log(site);
+    </script>
+    <script>
+        function add_field(){
+            
+            //grab the other details box-body
+            //append the new form-group div ro it
+            
+        }
+    </script>
+    <script>
+        //accessing websql-database instance 
+        var myDb = openDatabase('dbsitetemplate', '1.0', 'database for site template', 2*1024*1024);
+        //check database instance
+        if(!myDb){
+            alert("oops failed to create websql database!")
+        }else{
+            console.log(myDb.version);
+            var version = myDb.version;
+            //var name = "Sibi";
+            //var id = "1";
+            //var MailID = "sibikv4u@gmail.com";
+            myDb.transaction(function (tran) {
+                tran.executeSql('CREATE TABLE IF NOT EXISTS Template (id unique, templateName, field_one, field_two, field_three, field_four)');
+                //tran.executeSql('insert into Users (id, Name, MailID) values (?,?,?)', [id, name, MailID]);
+                tran.executeSql('insert into Template (id, templateName, field_one, field_two, field_three, field_four) values (1, "Residential Apartment", "Earth Excavation", "Undergroud Parking", "Sports & Recreation", "Water Supply")');
+                tran.executeSql('insert into Template (id, templateName, field_one, field_two, field_three, field_four) values (2, "Shopping Complex", "Parking Lot", "Centralized AC", "Earth Excavation", "Security")');
+                tran.executeSql('insert into Template (id, templateName, field_one, field_two, field_three, field_four) values (3, "School Building", "Play Ground", "Structure & Beams", "Garden", "Water Supply")');
+                tran.executeSql('insert into Template(id, templateName, field_one, field_two, field_three, field_four)' + 'VALUES' +
+                '(4, "Manufacturing Plant", "Earth Excavation", "Road Construction", "Assembly Line", "Water Supply")');
+                tran.executeSql('insert into Template(id, templateName, field_one, field_two, field_three, field_four)' + 'VALUES' +
+                '(5, "Solar Unit", "Earth Excavation", "Road Contruction", "Solar Panel", "Water Supply")');
+            });
+            myDb.transaction(function (tran) {
+                //var html = '<table><thead><th>Mail ID </th><th>ID</th><th>Name </th></thead><tbody>';
+                tran.executeSql('SELECT * FROM Template', [], function (tran, data) {
+                    for (i = 0; i < data.rows.length; i++) {
+                        //html += '<tr><td>'
+                        //    + '<a ' + 'href="mailto:' + data.rows[i].MailID + '">' + data.rows[0].MailID + '</a>' +
+                        //'</td><td>' + data.rows[i].id + '</td><td>' + data.rows[i].Name + '</td></tr>';
+                        //console.log(data.rows.length);
+                        //console.log(data.rows[i].templateName);
+                        //console.log(data.rows[i].field_one);
+                        //console.log(data.rows[i].field_two);
+                        //console.log(data.rows[i].field_three);
+                        //console.log(data.rows[i].field_four);
+                    };
+                    //html += '</tbody></table>';
+                    //$('#myTab').html(html);
+                });
+            });
+        }
+        //get seleted option
+        $("#site_template").change(function(){
+            var selectedOption = $(this).children('option:selected').val();
+            console.log('this is selected option' + selectedOption);
+            //console.log(selectedOption === "Residential Apartment")
+            //grab the input fields usinf their ids and set the value accordingly
+            if(selectedOption === "Residential Apartment"){
+                //then make query to th Db --> SELECT field_one, field_two, field_three, field_four FROM 
+                //Template WHERE templateName = 'Resdiential Complex
+                myDb.transaction(function(tran){
+                    tran.executeSql('SELECT field_one, field_two, field_three, field_four FROM Template WHERE templateName="Residential Apartment"', [], function(tran, data){
+                        $("#field1").val(data.rows[0].field_one);
+                        $("#field2").val(data.rows[0].field_two);
+                        $("#field3").val(data.rows[0].field_three);
+                        $("#field4").val(data.rows[0].field_four);
+                        
+                    });
+                });
+                
+            }else if(selectedOption == "Shopping Complex"){
+                myDb.transaction(function(tran){
+                    tran.executeSql('SELECT field_one, field_two, field_three, field_four FROM Template WHERE templateName="Shopping Complex"', [], function(tran, data){
+                        $("#field1").val(data.rows[0].field_one);
+                        $("#field2").val(data.rows[0].field_two);
+                        $("#field3").val(data.rows[0].field_three);
+                        $("#field4").val(data.rows[0].field_four);
+                        
+                    });
+                });   
+            }else if(selectedOption === "School Building"){
+                myDb.transaction(function(tran){
+                    tran.executeSql('SELECT field_one, field_two, field_three, field_four FROM Template WHERE templateName="School Building"', [], function(tran, data){
+                        $("#field1").val(data.rows[0].field_one);
+                        $("#field2").val(data.rows[0].field_two);
+                        $("#field3").val(data.rows[0].field_three);
+                        $("#field4").val(data.rows[0].field_four);
+                        
+                    });
+                });
+            }else if(selectedOption === "Manufacturing Plant"){
+                myDb.transaction(function(tran){
+                    tran.executeSql('SELECT field_one, field_two, field_three, field_four FROM Template WHERE templateName="Manufacturing Plant"', [], function(tran, data){
+                        $("#field1").val(data.rows[0].field_one);
+                        $("#field2").val(data.rows[0].field_two);
+                        $("#field3").val(data.rows[0].field_three);
+                        $("#field4").val(data.rows[0].field_four);
+                        
+                    });
+                });
+            }else{
+                myDb.transaction(function(tran){
+                    tran.executeSql('SELECT field_one, field_two, field_three, field_four FROM Template WHERE templateName="Solar Unit"', [], function(tran, data){
+                        $("#field1").val(data.rows[0].field_one);
+                        $("#field2").val(data.rows[0].field_two);
+                        $("#field3").val(data.rows[0].field_three);
+                        $("#field4").val(data.rows[0].field_four);
+                        
+                    });
+                });
+            }
+        });
+
+
     </script>
 </body>
 
