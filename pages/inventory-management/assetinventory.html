@@ -104,363 +104,331 @@ desired effect
                             <!-- form start -->
                             <div class="box-body">
                                 <form class="form-horizontal">
-                                    <div class="col-md-12">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="col-sm-4 control-label">Asset Name</label>
-                                                <div class="col-sm-8 control-label">
-                                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Type Asset Name">
-                                                </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Asset Name</label>
+                                            <div class="col-sm-8 control-label">
+                                                <input type="text" class="form-control" id="inputEmail3" placeholder="Type Asset Name">
                                             </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-4 control-label">Asset Code</label>
-                                                <div class="col-sm-8">
-                                                    <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Asset Code</label>
+                                            <div class="col-sm-8">
+                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
                                     <option selected="selected">Choose Your Asset Code </option>
                                     <option></option>
                                     <option></option>
                                     <option></option>
                                 </select>
-                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="col-sm-4 control-label">Store Location</label>
-                                                <div class="col-sm-8">
-                                                    <select class="customer-type-select form-control" style="width: 100%;" name="CustomerTagging" tabindex="-1">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Store Location</label>
+                                            <div class="col-sm-8">
+                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerTagging" tabindex="-1">
                                     <option selected="selected">Choose Your Store Location</option>
                                     <option></option>
                                     <option></option>
                                     <option></option>
                                 </select>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <!-- /.box-body -->
-                                        <div class="col-md-12">
-                                            <div class="box-footer">
-                                                <button type="button" class="btn btn-default" onclick="ShowResult()">Search</button>
                                             </div>
                                         </div>
-                                        <!-- /.box-footer -->
-                                </form>
-                                </div>
-                            </div>
-                            <!-- /.box -->
-                        </div>
-                    </div>
-                    <div class="row" id="search_result" style="display:none;">
 
-                        <div class="col-md-12">
-                            <div class="box box-success box-solid">
-                                <div class="box-header with-border">
-                                    <h3 class="box-title">Search Result</h3>
-                                    <div class="box-tools pull-right">
-                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                    class="fa fa-minus"></i>
-                            </button>
-                                    </div>
-                                </div>
-                                <!-- /.box-header -->
-                                <div class="box-body">
-
-                                    <div class="col-sm-12">
-                                        <table id="address_table" class="table table-bordered table-striped table-hover dataTable" role="grid" aria-describedby="example1_info">
-                                            <thead>
-                                                <tr role="row">
-                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Vendor Name</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Preffered Vendor</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code"></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr role="row" class="odd">
-
-                                                    <td>Vendor 1</td>
-                                                    <td>
-                                                        <input type="checkbox">
-                                                    </td>
-                                                    <td>
-                                                        <a href="#">
-                                                            <i class="fa fa-edit" onclick="ShowEdit()"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr role="row" class="odd">
-
-                                                    <td>Vendor 2</td>
-                                                    <td>
-                                                        <input type="checkbox">
-                                                    </td>
-                                                    <td>
-                                                        <a href="#">
-                                                            <i class="fa fa-edit" onclick="ShowEdit()"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr role="row" class="odd">
-
-                                                    <td>Vendor 3</td>
-                                                    <td>
-                                                        <input type="checkbox">
-                                                    </td>
-                                                    <td>
-                                                        <a href="#">
-                                                            <i class="fa fa-edit" onclick="ShowEdit()"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
                                     </div>
                                     <!-- /.box-body -->
+                                    <div class="col-md-12">
+                                        <div class="box-footer">
+                                            <button type="button" class="btn btn-default" onclick="ShowResult()">Search</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.box-footer -->
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                </div>
+                <div class="row" id="search_result" style="display:none;">
+
+                    <div class="col-md-12">
+                        <div class="box box-success box-solid">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Search Result</h3>
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                    class="fa fa-minus"></i>
+                            </button>
                                 </div>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+
+                                <div class="col-sm-12">
+                                    <table id="address_table" class="table table-bordered table-striped table-hover dataTable" role="grid" aria-describedby="example1_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Asset Code</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Asset Name</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Quantity</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Store Location</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Available</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Assign</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr role="row" class="odd">
+
+                                                <td>Asset001</td>
+                                                <td>Earth Mover</td>
+                                                <td>1</td>
+                                                <td>Orissa-Paradeep</td>
+                                                <td>0</td>
+                                                <td><button type="submit">Assign</button></td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>Asset002</td>
+                                                <td>Dumper</td>
+                                                <td>10</td>
+                                                <td>
+                                                    <div class="box-body">
+                                                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                                                        <i class="fa fa-arrows"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal fade" id="modal-default" style="display: none;">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span></button>
+                                                                    <h4 class="modal-title">Store Location</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-info pull-right" data-dismiss="modal">Select</button>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.modal-content -->
+                                                        </div>
+                                                        <!-- /.modal-dialog -->
+                                                    </div>
+                                                    <div class="modal modal-primary fade" id="modal-primary">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span></button>
+                                                                    <h4 class="modal-title">Primary Modal</h4>
+                                                                </div>
+
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-outline">Save changes</button>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.modal-content -->
+                                                        </div>
+                                                        <!-- /.modal-dialog -->
+                                                    </div>
+                                                </td>
+                                                <td>2</td>
+                                                <td><button type="submit">Assign</button></td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>Asset003</td>
+                                                <td>Spade</td>
+                                                <td>1500</td>
+                                                <td>
+                                                    <div class="box-body">
+                                                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                                                        <i class="fa fa-arrows"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal fade" id="modal-default" style="display: none;">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span></button>
+                                                                    <h4 class="modal-title">Store Location</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-info pull-right" data-dismiss="modal">Select</button>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.modal-content -->
+                                                        </div>
+                                                        <!-- /.modal-dialog -->
+                                                    </div>
+                                                    <div class="modal modal-primary fade" id="modal-primary">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span></button>
+                                                                    <h4 class="modal-title">Primary Modal</h4>
+                                                                </div>
+
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-outline">Save changes</button>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.modal-content -->
+                                                        </div>
+                                                        <!-- /.modal-dialog -->
+                                                    </div>
+                                                </td>
+                                                <td>100</td>
+                                                <td><button type="submit">Assign</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.box-body -->
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!--------------------------
+                <!--------------------------
       | Your Page Content Here |
       -------------------------->
-
-
-                    <!-- /.col -->
-
-                    <!------------------------------- Edit result ------------------------------------->
-                    <div class="row" id="edit_result" style="display:none">
-                        <div class="col-md-12">
-                            <div class="nav-tabs-custom tab-success">
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#address" data-toggle="tab" aria-expanded="true">Address</a>
-                                    </li>
-                                    <li class=""><a href="#legal" data-toggle="tab" aria-expanded="false">Legal</a>
-                                    </li>
-                                    <li class=""><a href="#additional" data-toggle="tab" aria-expanded="false">Supplier Profile</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="address">
-                                        <table id="edit_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
-                                            <thead>
-                                                <tr role="row">
-                                                    <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address Type">Type</th>
-                                                    <th class="sorting col-sm-8" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address">Address</th>
-                                                    <th class="sorting col-sm-1" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Default</th>
-                                                    <th class="sorting col-sm-1" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default"></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr role="row" class="odd">
-                                                    <td>Registered Address</td>
-                                                    <td>ABC Street, Kolkata</td>
-                                                    <td>
-                                                        <input type="checkbox" checked="checked">
-                                                    </td>
-                                                    <td>
-                                                        <a href="#">
-                                                            <i class="fa fa-edit"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr role="row" class="even">
-                                                    <td>Office Address</td>
-                                                    <td>XYZ Avenue, Kolkata</td>
-                                                    <td>
-                                                        <input type="checkbox">
-                                                    </td>
-                                                    <td>
-                                                        <a href="#">
-                                                            <i class="fa fa-edit"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr role="row" class="odd">
-                                                    <td>Mailing Address</td>
-                                                    <td>XYZ Avenue, Kolkata</td>
-                                                    <td>
-                                                        <input type="checkbox">
-                                                    </td>
-                                                    <td>
-                                                        <a href="#">
-                                                            <i class="fa fa-edit"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="tab-pane" id="legal">
-                                        <table id="legal_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
-                                            <thead>
-                                                <tr role="row">
-                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Info Type">Type</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number">Number</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr role="row" class="odd">
-                                                    <td>GST</td>
-                                                    <td>ABCD1234XYZ1</td>
-                                                </tr>
-                                                <tr role="row" class="even">
-                                                    <td>PAN</td>
-                                                    <td>ABCD1234X</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="tab-pane" id="additional">
-                                        <table id="supplier_profile" class="table table-bordered table-striped table-hover dataTable" role="grid">
-                                            <thead>
-                                                <tr role="row">
-                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Info Type">Material</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number"></th>
-                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number"></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr role="row" class="odd">
-                                                    <td>Cement</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr role="row" class="even">
-                                                    <td>Iron rod</td>
-                                                    <td></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
             </section>
             <!-- /.content -->
-            </div>
-            <!-- /.content-wrapper -->
+        </div>
+        <!-- /.content-wrapper -->
 
-            <!------------------------------- Main Footer ------------------------------------->
-            <div id="qii_footer">
-            </div>
-            <!------------------------------ Control Sidebar ---------------------------------->
-            <aside class="control-sidebar control-sidebar-dark ">
-                <!-- Create the tabs -->
-                <ul class="nav nav-tabs nav-justified control-sidebar-tabs ">
-                    <li class="active "><a href="#control-sidebar-home-tab " data-toggle="tab "><i class="fa fa-home "></i></a></li>
-                    <li><a href="#control-sidebar-settings-tab " data-toggle="tab "><i class="fa fa-gears "></i></a></li>
-                </ul>
-                <!-- Tab panes -->
-                <div class="tab-content ">
-                    <!-- Home tab content -->
-                    <div class="tab-pane active " id="control-sidebar-home-tab ">
-                        <h3 class="control-sidebar-heading ">Recent Activity</h3>
-                        <ul class="control-sidebar-menu ">
-                            <li>
-                                <a href="javascript:; ">
-                                    <i class="menu-icon fa fa-birthday-cake bg-red "></i>
+        <!------------------------------- Main Footer ------------------------------------->
+        <div id="qii_footer">
+        </div>
+        <!------------------------------ Control Sidebar ---------------------------------->
+        <aside class="control-sidebar control-sidebar-dark ">
+            <!-- Create the tabs -->
+            <ul class="nav nav-tabs nav-justified control-sidebar-tabs ">
+                <li class="active "><a href="#control-sidebar-home-tab " data-toggle="tab "><i class="fa fa-home "></i></a></li>
+                <li><a href="#control-sidebar-settings-tab " data-toggle="tab "><i class="fa fa-gears "></i></a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content ">
+                <!-- Home tab content -->
+                <div class="tab-pane active " id="control-sidebar-home-tab ">
+                    <h3 class="control-sidebar-heading ">Recent Activity</h3>
+                    <ul class="control-sidebar-menu ">
+                        <li>
+                            <a href="javascript:; ">
+                                <i class="menu-icon fa fa-birthday-cake bg-red "></i>
 
-                                    <div class="menu-info ">
-                                        <h4 class="control-sidebar-subheading ">Langdon's Birthday</h4>
+                                <div class="menu-info ">
+                                    <h4 class="control-sidebar-subheading ">Langdon's Birthday</h4>
 
-                                        <p>Will be 23 on April 24th</p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- /.control-sidebar-menu -->
+                                    <p>Will be 23 on April 24th</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
 
-                        <h3 class="control-sidebar-heading ">Tasks Progress</h3>
-                        <ul class="control-sidebar-menu ">
-                            <li>
-                                <a href="javascript:; ">
-                                    <h4 class="control-sidebar-subheading ">
-                                        Custom Template Design
-                                        <span class="pull-right-container ">
+                    <h3 class="control-sidebar-heading ">Tasks Progress</h3>
+                    <ul class="control-sidebar-menu ">
+                        <li>
+                            <a href="javascript:; ">
+                                <h4 class="control-sidebar-subheading ">
+                                    Custom Template Design
+                                    <span class="pull-right-container ">
                     <span class="label label-danger pull-right ">70%</span>
-                                        </span>
-                                    </h4>
+                                    </span>
+                                </h4>
 
-                                    <div class="progress progress-xxs ">
-                                        <div class="progress-bar progress-bar-danger " style="width: 70% "></div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- /.control-sidebar-menu -->
+                                <div class="progress progress-xxs ">
+                                    <div class="progress-bar progress-bar-danger " style="width: 70% "></div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
 
-                    </div>
-                    <!-- /.tab-pane -->
-                    <!-- Stats tab content -->
-                    <div class="tab-pane " id="control-sidebar-stats-tab ">Stats Tab Content</div>
-                    <!-- /.tab-pane -->
-                    <!-- Settings tab content -->
-                    <div class="tab-pane " id="control-sidebar-settings-tab ">
-                        <form method="post ">
-                            <h3 class="control-sidebar-heading ">General Settings</h3>
+                </div>
+                <!-- /.tab-pane -->
+                <!-- Stats tab content -->
+                <div class="tab-pane " id="control-sidebar-stats-tab ">Stats Tab Content</div>
+                <!-- /.tab-pane -->
+                <!-- Settings tab content -->
+                <div class="tab-pane " id="control-sidebar-settings-tab ">
+                    <form method="post ">
+                        <h3 class="control-sidebar-heading ">General Settings</h3>
 
-                            <div class="form-group ">
-                                <label class="control-sidebar-subheading ">
+                        <div class="form-group ">
+                            <label class="control-sidebar-subheading ">
                 Report panel usage
                 <input type="checkbox " class="pull-right " checked>
               </label>
 
-                                <p>
-                                    Some information about this general settings option
-                                </p>
-                            </div>
-                            <!-- /.form-group -->
-                        </form>
-                    </div>
-                    <!-- /.tab-pane -->
+                            <p>
+                                Some information about this general settings option
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+                    </form>
                 </div>
-            </aside>
-            <!-- /.control-sidebar -->
-            <!-- Add the sidebar's background. This div must be placed
-  immediately after the control sidebar -->
-            <div class="control-sidebar-bg "></div>
+                <!-- /.tab-pane -->
             </div>
-            <!-- ./wrapper -->
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+  immediately after the control sidebar -->
+        <div class="control-sidebar-bg "></div>
+    </div>
+    <!-- ./wrapper -->
 
-            <!-- REQUIRED JS SCRIPTS -->
+    <!-- REQUIRED JS SCRIPTS -->
 
-            <!-- jQuery 3 -->
-            <script src="../../bower_components/jquery/dist/jquery.min.js "></script>
-            <!-- Bootstrap 3.3.7 -->
-            <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js "></script>
-            <!-- AdminLTE App -->
-            <script src="../../dist/js/adminlte.min.js "></script>
-            <script src="../../components/footer/footer.js "></script>
-            <script src="../../components/header/header.js "></script>
-            <script src="../../components/sidenav/sidenav.js "></script>
-            <!-- Data tables js-->
-            <script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-            <script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-            <!-- Optionally, you can add Slimscroll and FastClick plugins.
+    <!-- jQuery 3 -->
+    <script src="../../bower_components/jquery/dist/jquery.min.js "></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js "></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js "></script>
+    <script src="../../components/footer/footer.js "></script>
+    <script src="../../components/header/header.js "></script>
+    <script src="../../components/sidenav/sidenav.js "></script>
+    <!-- Data tables js-->
+    <script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
-            <script>
-                $("#qii_header ").qiiHeader();
-                $("#qii_sidenav ").qiiSidenav({
-                    activeLinks: ["qii_menu_inventory_management", "qii_menu_assetinventory "],
-                    openTrees: ["qii_menu_inventory_management"]
-                });
-                $("#qii_footer ").qiiFooter();
+    <script>
+        $("#qii_header ").qiiHeader();
+        $("#qii_sidenav ").qiiSidenav({
+            activeLinks: ["qii_menu_inventory_management", "qii_menu_assetinventory "],
+            openTrees: ["qii_menu_inventory_management"]
+        });
+        $("#qii_footer ").qiiFooter();
 
-                function ShowResult() {
-                    $("#search_result ").removeAttr("style ");
-                }
+        function ShowResult() {
+            $("#search_result ").removeAttr("style ");
+        }
 
-                function ShowEdit() {
-                    $("#edit_result ").removeAttr("style ");
-                }
-                $(function() {
-                    $("#address_table").DataTable();
-                    $("#edit_table").DataTable();
-                    $("#legal_table").DataTable();
-                    $("#supplier_profile").DataTable();
-                });
-            </script>
+        function ShowEdit() {
+            $("#edit_result ").removeAttr("style ");
+        }
+        $(function() {
+            $("#address_table").DataTable();
+            $("#edit_table").DataTable();
+            $("#legal_table").DataTable();
+            $("#supplier_profile").DataTable();
+        });
+    </script>
 </body>
 
 </html>
