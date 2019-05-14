@@ -112,7 +112,7 @@
                                     <!-- /.box-body -->
                                     <div class="col-md-12">
                                         <div class="box-footer">
-                                                <button type="button" class="btn btn-info pull-right" onclick="create_new()">Create New</button>
+                                                <button type="button" class="btn btn-info pull-right" onclick="create_new()">Add Customer</button>
                                                 <button type="button" class="btn btn-default" onclick="ShowResult()">Search</button>
                                         </div>
                                     </div>
@@ -123,6 +123,7 @@
                         <!-- /.box -->
                     </div>
                 </div>
+                <!-- Add new customer -->
                 <div class="row" id="new_customer">
                     <div class="col-md-12">
                         <div class="box box-primary box-solid">
@@ -172,8 +173,8 @@
                                     <!-- /.box-body -->
                                     <div class="col-md-12">
                                         <div class="box-footer">
-                                            <button type="button" class="btn btn-success pull-right" onclick="save_customer()">Save</button>
-                                            <button type="button" class="btn btn-danger" onclick="cancel_customer()">Cancel</button>
+                                            <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" onclick="save_customer()">Save</button>
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">Cancel</button>
                                         </div>
                                     </div>
                                     <!-- /.box-footer -->
@@ -182,6 +183,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- customer search result-->
                 <div class="row" id="search_result" style="display:none;">
                     <div class="col-md-12">
                         <div class="box box-success box-solid">
@@ -249,6 +251,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- edit a custome's details-->
                 <div class="row" id="edit_customer" style="display:none">
                     <div class="col-md-12">
                         <div class="box box-warning box-solid">
@@ -327,6 +330,9 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
+                                            <div class="box-footer">
+                                                <button type="button" class="btn btn-info pull-right">Add Address</button>
+                                            </div>
                                         </div>
                                         <div class="tab-pane" id="legal">
                                             <table id="legal_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
@@ -416,7 +422,43 @@
                         </div>
                     </div>
                 </div>
-
+                <!--Opens when new customer is added, - to add customer address, legal, and additional information -->
+                <!-- Success modal-->
+                <div class="modal modal-success fade" id="modal-success" style="display: none;">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                              <h4 class="modal-title">Saved!</h4>
+                              <p>successfully saved new customer.</p>
+                            </div>
+                          </div>
+                          <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                </div>
+                <!--danger modal-->
+                <div class="modal modal-danger fade" id="modal-danger">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                              <h4 class="modal-title">Warning Modal</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p>One fine body…</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-outline">Save changes</button>
+                            </div>
+                          </div>
+                          <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                </div>
             </section>
         </div>
         <!-- /.content -->
@@ -511,7 +553,11 @@
     <!-- Data table-->
     <script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-
+    <!--jQuery UI-->
+    <script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
     <script src="../../components/footer/footer.js"></script>
     <script src="../../components/sidenav/sidenav.js"></script>
     <script src="../../components/header/header.js"></script>
@@ -540,14 +586,10 @@
         function create_new() {
             $("#new_customer").show(1000);
         }
-
         function save_customer() {
-            $("#new_customer").slideUp(1000);
+            $("#new_customer").slideUp();
         }
 
-        function cancel_customer() {
-            $("#new_customer").hide(1000);
-        }
     </script>
     <script>
         $(function() {
