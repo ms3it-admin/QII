@@ -26,6 +26,7 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+    <!--confirm js css-->
 
     <!-- Google Font -->
     <link rel="stylesheet"
@@ -173,7 +174,7 @@
                                         </div>
                                         <!-- /.box-header -->
                                         <!-- form start -->
-                                        <div class="box-body">
+                                        <div class="box-body" id="other_details">
                                             <div class="form-group">
                                                 <label for="inputPassword3" class="col-sm-3 control-label">Template
                                                     Field1</label>
@@ -219,13 +220,14 @@
                                                                 placeholder="Type Area">
                                                     </div>
                                             </div>
-                                            <div class="box-footer">
+                                            <div class="box-footer" id="other_details_boxfooter">
                                                 <button type="button" class="btn btn-info pull-right" onclick="add_field()">Add field</button>
                                             </div>
                                         </div>
                                         </div>
                                         <div class="box-footer">
-                                            <button type="button" class="btn btn-success pull-right">Save</button>
+                                            <button id="save_site" type="button" class="btn btn-success pull-right" onclick="save_site()">Save</button>
+                                            <button type="button" class="btn btn-danger">Cancel</button>
                                         </div>
                                         </div>
                                     </div>
@@ -330,7 +332,8 @@
     <script src="../../dist/js/adminlte.js"></script>
 
     <script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-
+    <!--confirm js 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>-->
     <script src="../../components/header/header.js"></script>
     <script src="../../components/sidenav/sidenav.js"></script>
     <script src="../../components/footer/footer.js"></script>
@@ -358,12 +361,9 @@
         //console.log(site);
     </script>
     <script>
-        function add_field(){
-            
-            //grab the other details box-body
-            //append the new form-group div ro it
-            
-        }
+        $("#save_site").on("click", function(){
+            location.href = "site-plan.html";
+        });
     </script>
     <script>
         //accessing websql-database instance 
