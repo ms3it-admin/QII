@@ -104,18 +104,18 @@ desired effect
                             </div>
                             <!-- /.box-header -->
                             <!-- form start -->
-                            <div class="box-body">
+                            <div class="box-body" id="hide" data-widget="collapse">
                                 <div id="company_hierarchy">
 
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="box-footer">
-                                            <button type="button" class="btn btn-default btn1" onclick="view()">View</button>
-                                            <button type="button" class="btn btn-info pull-right" onclick="editFields()">Add Company</button>
-                                        </div>
+
+                                <div class="col-md-12">
+                                    <div class="box-footer">
+                                        <button type="button" class="btn btn-default btn1" onclick="view()">View</button>
+                                        <button type="button" class="btn btn-info pull-right" onclick="editFields()">Add Company</button>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -146,14 +146,14 @@ desired effect
                                             <div class="form-group" style="margin-bottom:0px">
                                                 <label for="inputEmail3" class="col-sm-4 control-label">Company Code</label>
                                                 <div class="col-sm-4 control-label">
-                                                    <p id="company_code" class="pull-left">Company Code</p>
+                                                    <p id="company_code" class="pull-left">10723</p>
                                                 </div>
                                             </div>
                                             <div class="form-group" style="margin-bottom:0px">
                                                 <label for="inputPassword3" class="col-sm-4 control-label">Company Name</label>
 
                                                 <div class="col-sm-4 control-label">
-                                                    <p id="company_name" class="pull-left">Company Name</p>
+                                                    <p id="company_name" class="pull-left">MSQUBE</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -161,19 +161,19 @@ desired effect
                                             <div class="form-group" style="margin-bottom:0px">
                                                 <label class="col-sm-4 control-label">Country Code</label>
                                                 <div class="col-sm-4 control-label">
-                                                    <p id="country_code" class="pull-left">Country Code</p>
+                                                    <p id="country_code" class="pull-left">112</p>
                                                 </div>
                                             </div>
                                             <div class="form-group" style="margin-bottom:0px">
                                                 <label class="col-sm-4 control-label">Default Language</label>
                                                 <div class="col-sm-4 control-label">
-                                                    <p id="default_language" class="pull-left">Default Language</p>
+                                                    <p id="default_language" class="pull-left">English</p>
                                                 </div>
                                             </div>
                                             <div class="form-group" style="margin-bottom:0px">
                                                 <label class="col-sm-4 control-label">Default Currency</label>
                                                 <div class="col-sm-4 control-label">
-                                                    <p id="default_currency" class="pull-left"> Default Currency</p>
+                                                    <p id="default_currency" class="pull-left">Indian Rupee</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -570,7 +570,8 @@ desired effect
             function view() {
                 $("#company_definition").removeAttr("style");
                 $("#company_demographics").removeAttr("style");
-                $("#company_hierarchy").slideToggle('slow');
+                $("#hide").slideToggle('slow');
+                $("#edit_form").hide();
             }
 
             function saveChanges() {
