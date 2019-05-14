@@ -210,24 +210,16 @@
                                                     <input type="text" class="form-control" id="field4"
                                                         placeholder="Type Area">
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                    <label for="inputPassword3" class="col-sm-3 control-label">Template
-                                                            Field4</label>
-        
-                                                    <div class="col-sm-6">
-                                                        <input type="text" class="form-control" id="field5"
-                                                                placeholder="Type Area">
-                                                    </div>
+                                                
                                             </div>
                                             <div class="box-footer" id="other_details_boxfooter">
-                                                <button type="button" class="btn btn-info pull-right" onclick="add_field()">Add field</button>
+                                                <button id="add_field" type="button" class="btn btn-info pull-right">Add field</button>
                                             </div>
                                         </div>
                                         </div>
                                         <div class="box-footer">
-                                            <button id="save_site" type="button" class="btn btn-success pull-right" onclick="save_site()">Save</button>
-                                            <button type="button" class="btn btn-danger">Cancel</button>
+                                            <button id="save_site" type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success">Save</button>
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">Cancel</button>
                                         </div>
                                         </div>
                                     </div>
@@ -236,6 +228,46 @@
                         </div>
                         <!-- /.box -->
                     </div>
+                </div>
+                <!--modal success-->
+                <div class="modal modal-success fade" id="modal-success">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                              <h4 class="modal-title">Saved!</h4>
+                              <p>successfully saved new site</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                              <button id="modal_siteplan" type="button" class="btn btn-outline">Visit site plan</button>
+                            </div>
+                          </div>
+                          <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                </div>
+                <!--modal danger-->
+                <div class="modal modal-danger fade" id="modal-danger">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                              <h4 class="modal-title">Danger Modal</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p>One fine body…</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-outline">Save changes</button>
+                            </div>
+                          </div>
+                          <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
                 </div>
             </section>
             <!-- /.content -->
@@ -361,7 +393,7 @@
         //console.log(site);
     </script>
     <script>
-        $("#save_site").on("click", function(){
+        $("#modal_siteplan").on("click", function(){
             location.href = "site-plan.html";
         });
     </script>
