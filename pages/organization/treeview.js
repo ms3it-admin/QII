@@ -2,6 +2,9 @@ var tree = [{
         text: "company1",
         color: "#3836bc",
         href: "",
+        state: {
+            expanded: false,
+        },
         nodes: [{
             text: "subsidiary1",
             color: "#3836bc",
@@ -23,6 +26,9 @@ var tree = [{
         text: "company2",
         color: "#3836bc",
         href: "",
+        state: {
+            expanded: false,
+        },
         nodes: [{
             text: "subsidiary2",
             color: "#3836bc",
