@@ -176,6 +176,11 @@
                                         <!-- /.box-header -->
                                         <!-- form start -->
                                         <div class="box-body" id="other_details">
+                                            <!--<div class="box-header">
+                                                <button type="button" class="btn btn-info pull-right" id="add_field">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                            </div>-->
                                             <div class="form-group">
                                                 <label for="inputPassword3" class="col-sm-3 control-label">Template
                                                     Field1</label>
@@ -184,6 +189,11 @@
                                                     <input type="text" class="form-control" id="field1"
                                                         placeholder="Type Area" value="Earth Excavation">
                                                 </div>
+                                                <div class="col-sm-3">
+                                                <button type="button" class="btn btn-info pull-right" id="add_field">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputPassword3" class="col-sm-3 control-label">Template
@@ -212,9 +222,6 @@
                                                         placeholder="Type Area">
                                                 </div>
                                                 
-                                            </div>
-                                            <div class="box-footer" id="other_details_boxfooter">
-                                                <button id="add_field" type="button" class="btn btn-info pull-right">Add field</button>
                                             </div>
                                         </div>
                                         </div>
@@ -396,6 +403,13 @@
     <script>
         $("#modal_siteplan").on("click", function(){
             location.href = "site-plan.html";
+        });
+    </script>
+    <script>
+        ////////////////////////////////////////
+        $("#add_field").on("click", function(){
+            $("#other_details").append('<div class="form-group"><label class="col-sm-3 control-label">Template Field5</label>'+ 
+                                        '<div class="col-sm-6"><input type="text" class="form-control"></div>'+'</div>');
         });
     </script>
     <script>
