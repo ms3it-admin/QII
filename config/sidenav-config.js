@@ -47,7 +47,7 @@ var qiiSidenav = {
                     children: []
                 },
                 {
-                    id: "qii_menu_purchasedemand",
+                    id: "qii_menu_purchaserequisition",
                     name: "Purchase Requisition",
                     iconClass: "fa fa-link",
                     href: "/pages/purchase-office/purchasedemand.html",
