@@ -60,6 +60,13 @@ var qiiSidenav = {
                     }]
                 },
                 {
+                    id:"qii_menu_vendorassignment",
+                    name:"Vendor Assignment",
+                    iconClass:"fa fa-link",
+                    href:"#",
+                    children:[]
+                },
+                {
                     id: "qii_menu_purchaseorder",
                     name: "Purchase Order",
                     iconClass: "fa fa-link",
