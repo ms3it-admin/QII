@@ -163,7 +163,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                             </div>
                             <!-- /.box-header -->
-                            <div class="box-body">
+                            <div class="box-body" id="search_result_boxbody">
 
                                 <div class="col-sm-12 table-responsive">
                                     <table id="address_table" class="table table-bordered table-striped table-hover dataTable" role="grid" aria-describedby="example1_info">
@@ -185,16 +185,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <td>1</td>
                                                 <td>Orissa-Paradeep</td>
                                                 <td>0</td>
-                                                <td><button type="submit" onclick="Assign()">Assign</button></td>
+                                                <td>
+                                                    <button type="submit" class="btn btn-info" onclick="Assign()" data-widget="collapse">
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
+                                                </td>
                                             </tr>
-                                            <tr role="row" class="odd">
+                                            <tr role="row" class="even">
                                                 <td>Asset002</td>
                                                 <td>Dumper</td>
                                                 <td>10</td>
                                                 <td>
                                                     <div class="box-body">
                                                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
-                                                        <i class="fa fa-arrows"></i>
+                                                        <i class="fa fa-expand"></i>
                                                         </button>
                                                     </div>
                                                     <div class="modal fade" id="modal-default" style="display: none;">
@@ -237,7 +241,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </div>
                                                 </td>
                                                 <td>2</td>
-                                                <td><button type="submit" onclick="Assign()">Assign</button></td>
+                                                <td>
+                                                    <button type="submit" class="btn btn-info" onclick="Assign()" data-widget="collapse">
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
+                                                </td>
                                             </tr>
                                             <tr role="row" class="odd">
                                                 <td>Asset003</td>
@@ -246,7 +254,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <td>
                                                     <div class="box-body">
                                                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
-                                                        <i class="fa fa-arrows"></i>
+                                                        <i class="fa fa-expand"></i>
                                                         </button>
                                                     </div>
                                                     <div class="modal fade" id="modal-default" style="display: none;">
@@ -289,7 +297,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                     </div>
                                                 </td>
                                                 <td>100</td>
-                                                <td><button type="submit" onclick="Assign()">Assign</button></td>
+                                                <td>
+                                                    <button type="submit" class="btn btn-info" onclick="Assign()" data-widget="collapse">
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
