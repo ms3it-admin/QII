@@ -571,7 +571,7 @@
         $("#qii_footer").qiiFooter();
 
         function ShowResult() {
-            $("#search_result").removeAttr("style");
+            $("#search_result").css("display", "block");
         }
 
         function edit_customer() {
@@ -580,11 +580,20 @@
         }
     </script>
     <script>
+        console.log($("#search_result").css("display"));
         //Initially the new customer form is hidden
         $("#new_customer").hide();
 
         function create_new() {
-            $("#new_customer").show(1000);
+            //if search_result div or edit customer's div style==block make is none
+           if(($("#search_result").css("display") === "block") || ($("#edit_customer").css("display") === "block")){
+               //make them invisible
+               $("#search_result").css("display", "none");
+               $("#edit_customer").css("display", "none");
+               $("#new_customer").show();
+           }else{
+               $("#new_customer").show();
+           }
         }
         function save_customer() {
             $("#new_customer").slideUp();
@@ -593,7 +602,8 @@
     </script>
     <script>
         $(function() {
-            $('#example1').DataTable()
+            $('#example1').DataTable({
+            });
         })
         $.each(option, function(i, data) {
             $(".select_option").append('<option>' + data.name + '</option>');
