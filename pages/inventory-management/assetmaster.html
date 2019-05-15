@@ -135,7 +135,7 @@ desired effect
                                     <!-- /.box-body -->
                                     <div class="col-md-12">
                                         <div class="box-footer">
-                                            <button type="button" class="btn btn-info pull-right" onclick="ShowResult()">Create New</button>
+                                            <button type="button" class="btn btn-info pull-right" onclick="ShowResult()">Add Asset</button>
                                             <button type="button" class="btn btn-default">Search</button>
                                         </div>
                                     </div>
@@ -146,12 +146,12 @@ desired effect
                         <!-- /.box -->
                     </div>
                 </div>
-                <div class="row" id="search_result" style="display:none;">
+                <div class="row" id="add_asset">
                     <div class="col-md-12">
                         <!-- general form elements -->
                         <div class="box box-success box-solid">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Asset Definition>>Create New</h3>
+                                <h3 class="box-title">Asset Definition>>Add Asset</h3>
                                 <div class="box-tools pull-right">
 
                                 </div>
@@ -218,13 +218,50 @@ desired effect
                                         </div>
                                     </div>
                                     <div class="box-footer">
-                                        <button type="button" class="btn btn-info pull-right" onclick="submit()"> Submit</button>
+                                            <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" onclick="save_asset()">Save</button>
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">Cancel</button>
                                     </div>
                                 </form>
                             </div>
 
                         </div>
 
+                    </div>
+                    <!--success modal-->
+                    <div class="modal modal-success fade" id="modal-success" style="display: none;">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span></button>
+                                  <h4 class="modal-title">Saved!</h4>
+                                  <p>successfully saved new asset.</p>
+                                </div>
+                              </div>
+                              <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                    </div>
+                    <!--danger modal-->
+                    <div class="modal modal-danger fade" id="modal-danger">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span></button>
+                                  <h4 class="modal-title">Warning Modal</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <p>One fine body…</p>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-outline">Save changes</button>
+                                </div>
+                              </div>
+                              <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
                     </div>
             </section>
             <!-- /.content -->
@@ -342,8 +379,16 @@ desired effect
                 autoclose: true
             });
 
+            
+        </script>
+        <script>
+            ////////////////////////
+            $("#add_asset").hide();
             function ShowResult() {
-                $("#search_result").removeAttr("style");
+                $("#add_asset").show();
+            }
+            function save_asset(){
+                //$("#add_asset").slideUp();
             }
         </script>
 </body>
