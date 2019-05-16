@@ -183,6 +183,81 @@
                         </div>
                     </div>
                 </div>
+                <!--New customer's details -->
+                <div class="row" id="new_customer_details">
+                    <div class="col-md-12">
+                        <div class="box box-warning box-solid">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">
+                                    New Customer
+                                </h3>
+                            </div>
+                            <div class="box-body">
+                                <div class="nav-tabs-custom tab-warning">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#address_new" data-toggle="tab" aria-expanded="true">Address</a>
+                                        </li>
+                                        <li class=""><a href="#legal_new" data-toggle="tab" aria-expanded="false">Legal</a>
+                                        </li>
+                                        <li class=""><a href="#additional_new" data-toggle="tab" aria-expanded="false">Additional Information</a>
+                                        </li> 
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="address_new">
+                                            <table id="address_table_new" class="table table-bordered table-striped table-hover dataTable" role="grid">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address Type">Type</th>
+                                                        <th class="sorting col-sm-5" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address">Address</th>
+                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Default</th>
+                                                        <th class="sorting col-sm-1" tabinex="0" aria-control="example1" rowspan="1" colspan="1" aria-label="remove"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr role="row" class="odd">
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="tab-pane active" id="legal_new">
+                                            <table id="legal_table_new" class="table table-bordered table-striped table-hover dataTable" role="grid">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address Type">Type</th>
+                                                        <th class="sorting col-sm-5" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address">Number</th>
+                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr role="row" class="even">
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="tab-pane active" id="additional_info_new">
+                                            <table id="additional_table_new" class="table table-bordered table-striped table-hover dataTable" role="grid">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address Type">Type</th>
+                                                        <th class="sorting col-sm-5" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address">Number</th>
+                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr role="row" class="odd">
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- customer search result-->
                 <div class="row" id="search_result" style="display:none;">
                     <div class="col-md-12">
@@ -403,15 +478,19 @@
                                             <table id="legal_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
-                                                        <th class="sorting col-sm-6" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number"></th>
-                                                        <th class="sorting col-sm-6" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number"></th>
+                                                        <th class="sorting col-sm-4" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number">Type</th>
+                                                        <th class="sorting col-sm-5" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number">Number</th>
+                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr role="row" class="odd">
-                                                        <td><input type="textbox"></td>
-                                                        <td><input type="textbox"></td>
-
+                                                        <td><input type="textbox" style="width:100%"></td>
+                                                        <td><input type="textbox" style="width: 100%"></td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-success"><i class="fa fa-check"></i></button>
+                                                            <button class="btn btn-sm btn-danger"><i class="fa fa-close"></i></button>
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -601,6 +680,9 @@
         $(function() {
             $('#example1').DataTable({
             });
+            $("address_table_new").DataTable();
+            $("#legal_table_new").DataTable();
+            $("#addtional_table_new").DataTable();
         })
         $.each(option, function(i, data) {
             $(".select_option").append('<option>' + data.name + '</option>');
