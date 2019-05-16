@@ -51,13 +51,21 @@ var qiiSidenav = {
                     name: "Purchase Requisition",
                     iconClass: "fa fa-link",
                     href: "/pages/purchase-office/purchasedemand.html",
-                    children: [{
-                        id:"qii_menu_approversview",
-                        name:"Approver's View",
-                        iconClass: "fa fa-link",
-                        href: "#",
-                        children:[]
-                    }]
+                    children: []
+                },
+                {
+                    id:"qii_menu_approversview",
+                    name:"Approver's View",
+                    iconClass: "fa fa-link",
+                    href: "/pages/purchase-office/approversview.html",
+                    children:[]
+                },
+                {
+                    id:"qii_menu_vendorassignment",
+                    name:"Vendor Assignment",
+                    iconClass:"fa fa-link",
+                    href:"/pages/purchase-office/vendorassignment.html",
+                    children:[]
                 },
                 {
                     id: "qii_menu_purchaseorder",
