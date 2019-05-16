@@ -136,7 +136,7 @@ desired effect
                                     <div class="col-md-12">
                                         <div class="box-footer">
                                             <button type="button" class="btn btn-info pull-right" onclick="ShowResult()">Add Asset</button>
-                                            <button type="button" class="btn btn-default">Search</button>
+                                            <button type="button" class="btn btn-default" onclick="ShowResult()">Search</button>
                                         </div>
                                     </div>
                                     <!-- /.box-footer -->
@@ -146,6 +146,44 @@ desired effect
                         <!-- /.box -->
                     </div>
                 </div>
+                <div class="row" id="search_result" style="display:none;">
+                        <div class="col-md-12">
+                            <div class="box box-success box-solid">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Search Result</h3>
+                                    <div class="box-tools pull-right">
+                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                        class="fa fa-minus"></i>
+                                </button>
+                                    </div>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body" id="search_result_boxbody">
+                    
+                                    <div class="col-sm-12 table-responsive">
+                                        <table id="address_table" class="table table-bordered table-striped table-hover dataTable" role="grid" aria-describedby="example1_info">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Asset Name</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Asset Code</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Asset Description</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr role="row" class="odd">
+                    
+                                                    <td>Earth Mover</td>
+                                                    <td>Asset001</td>
+                                                    <td>Abc</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <div class="row" id="add_asset">
                     <div class="col-md-12">
                         <!-- general form elements -->
@@ -389,6 +427,9 @@ desired effect
             }
             function save_asset(){
                 //$("#add_asset").slideUp();
+            }
+            function ShowResult() {
+                $("#search_result ").removeAttr("style ");
             }
         </script>
 </body>
