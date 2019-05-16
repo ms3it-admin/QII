@@ -64,7 +64,7 @@ var qiiSidenav = {
                     id:"qii_menu_vendorassignment",
                     name:"Vendor Assignment",
                     iconClass:"fa fa-link",
-                    href:"#",
+                    href:"/pages/purchase-office/vendorassignment.html",
                     children:[]
                 },
                 {
