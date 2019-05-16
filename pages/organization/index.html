@@ -140,7 +140,7 @@ desired effect
                                             <div class="form-group" style="margin-bottom:0px">
                                                 <label class="col-sm-4 control-label">Organization Level</label>
                                                 <div class="col-sm-4 control-label">
-                                                    <p id="organization_level" class="pull-left">Organization Level</p>
+                                                    <p id="organization_level" class="pull-left"> </p>
                                                 </div>
                                             </div>
                                             <div class="form-group" style="margin-bottom:0px">
@@ -602,6 +602,14 @@ desired effect
             }
 
             function view() {
+                //when view is clicked we should be able to see 
+                // the selected level company level
+                $("#company_hierarchy").on('nodeSelected', function(event, node){
+                    var level = node.text;
+                    //now set the level to organization level para
+                    ////get the organization level and set value
+                    $("#company_level").text(node.text);
+                });
                 $("#company_definition").removeAttr("style");
                 $("#company_demographics").removeAttr("style");
                 $("#hide").slideToggle('slow');
@@ -632,6 +640,15 @@ desired effect
                 $("#company_hierarchy").treeview({
                     data: tree
                 });
+                $("#company_hierarchy").on('nodeSelected', function(event, node){
+                    console.log('node event ' + event);
+                    console.log('node data ' + node.text);
+                    $("#organization_level").text(node.text);
+                    var parent = $("#company_hierarchy").treeview('getParent', node);
+                    console.log('selected node parent' + parent.text);
+                });
+
+
                 //console.log(option);
                 $.each(option, function(i, data) {
                     $(".select_option").append('<option>' + data.name + '</option>');
