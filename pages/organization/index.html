@@ -140,7 +140,7 @@ desired effect
                                             <div class="form-group" style="margin-bottom:0px">
                                                 <label class="col-sm-4 control-label">Organization Level</label>
                                                 <div class="col-sm-4 control-label">
-                                                    <p id="organization_level" class="pull-left">Organization Level</p>
+                                                    <p id="organization_level" class="pull-left"> </p>
                                                 </div>
                                             </div>
                                             <div class="form-group" style="margin-bottom:0px">
@@ -191,7 +191,7 @@ desired effect
                         <!-- /.box -->
                     </div>
                 </div>
-                <!-- edit organization demographics form-->
+                <!-- edit organization/ceate organization demographics form-->
                 <div class="row" id="edit_form" style="display: none">
                     <div class="col-md-12">
                         <!-- general form elements -->
@@ -208,9 +208,7 @@ desired effect
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label">Organization Level</label>
                                                 <div class="col-sm-8 control-label">
-                                                    <select class="customer-type-select form-control select_option" style="width:100%">
-                                                        
-                                                    </select>
+                                                    <p class="pull-left" id="edit_org_level"></p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -257,7 +255,7 @@ desired effect
                                     <div class="col-md-12">
                                         <div class="box-footer">
                                             <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" onclick="saveChanges()">Save</button>
-                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">Cancel</button> 
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">Cancel</button>
                                         </div>
                                     </div>
                                     <!-- /.box-footer -->
@@ -445,46 +443,46 @@ desired effect
                             </div>
                         </div>
                     </div>
-                    <div class="modal modal-success fade" id="modal-success" style="display: none;">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span></button>
-                                  <h4 class="modal-title">Saved!</h4>
-                                  <p>all changes are saved</p>
-                                </div>
-                              </div>
-                              <!-- /.modal-content -->
-                            </div>
-                            <!-- /.modal-dialog -->
-                    </div>
-                    <div class="modal modal-danger fade" id="modal-danger">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span></button>
-                                  <h4 class="modal-title">Warning Modal</h4>
-                                </div>
-                                <div class="modal-body">
-                                  <p>One fine body…</p>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-                                  <button type="button" class="btn btn-outline">Save changes</button>
-                                </div>
-                              </div>
-                              <!-- /.modal-content -->
-                            </div>
-                            <!-- /.modal-dialog -->
-                    </div>
+                </div>
+                
             </section>
 
             <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
-
+            <!--success modal-->
+            <div class="modal modal-success fade" id="modal-success">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                      <h4 class="modal-title">Saved!</h4>
+                      <p>successfully saved new customer.</p>
+                    </div>
+                  </div>
+                  <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!--dnger modal-->
+            <div class="modal modal-danger fade" id="modal-danger">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                      <h4 class="modal-title">Warning!</h4>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Discard</button>
+                      <button type="button" class="btn btn-outline">Save changes</button>
+                    </div>
+                  </div>
+                  <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
             <!-- Main Footer -->
             <div id="qii_footer">
 
@@ -602,6 +600,14 @@ desired effect
             }
 
             function view() {
+                //when view is clicked we should be able to see 
+                // the selected level company level
+                //$("#company_hierarchy").on('nodeSelected', function(event, node){
+                //    var level = node.text;
+                    //now set the level to organization level para
+                    ////get the organization level and set value
+                //    $("#company_level").text(node.text);
+                //});
                 $("#company_definition").removeAttr("style");
                 $("#company_demographics").removeAttr("style");
                 $("#hide").slideToggle('slow');
@@ -610,8 +616,8 @@ desired effect
 
             function saveChanges() {
                 $("#edit_form").hide();
-                $("#company_demographics").show(1000);
-                $("#company_definition").show(1000);
+                $("#company_demographics").show();
+                $("#company_definition").show();
             }
             $(function() {
                 $("#address_table").DataTable();
@@ -632,6 +638,16 @@ desired effect
                 $("#company_hierarchy").treeview({
                     data: tree
                 });
+                $("#company_hierarchy").on('nodeSelected', function(event, node){
+                    console.log('node event ' + event);
+                    console.log('node data ' + node.text);
+                    $("#organization_level").text(node.text);
+                    $("#edit_org_level").text(node.text);
+                    var parent = $("#company_hierarchy").treeview('getParent', node);
+                    console.log('selected node parent' + parent.text);
+                });
+
+
                 //console.log(option);
                 $.each(option, function(i, data) {
                     $(".select_option").append('<option>' + data.name + '</option>');
