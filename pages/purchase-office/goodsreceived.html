@@ -89,18 +89,18 @@ desired effect
                 <div class="row">
                     <div class="col-md-12">
                         <!-- general form elements -->
-                        <div class="box box-primary box-solid">
+                        <div class="box box-primary box-solid" id="srbox">
                             <div class="box-header with-border">
-                                <h3 class="box-title"></h3>
+                                <h3 class="box-title">Search Received</h3>
                                 <div class="box-tools pull-right">
                                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                  class="fa fa-minus"></i>
-                          </button>
+                                  class="fa fa-minus" id="srbodyicon"></i>
+                                    </button>
                                 </div>
                             </div>
                             <!-- /.box-header -->
                             <!-- form start -->
-                            <div class="box-body">
+                            <div class="box-body" id="sr_body" style="display:inline;">
                                 <form class="form-horizontal">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -142,10 +142,10 @@ desired effect
                                         </div>
                                     </div>
                                     <!-- /.box-body -->
-                                    <div class="col-md-12">
+                                    <div class="col-md-12" id="footer">
                                         <div class="box-footer">
-                                            <button type="button" class="btn btn-info pull-right">Create New</button>
-                                            <button type="button" class="btn btn-default" onclick="ShowResult()">Search</button>
+                                            
+                                            <button type="button" class="btn btn-light" onclick="ShowResult()">Search</button>
                                         </div>
                                         <!-- /.box-footer -->
                                     </div>
@@ -162,7 +162,9 @@ desired effect
                             <div class="box-header with-border">
                                 <h3 class="box-title">Goods Received</h3>
                                 <div class="box-tools pull-right">
-
+                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                            class="fa fa-minus"></i>
+                                              </button>
                                 </div>
                             </div>
                             <!-- /.box-header -->
@@ -203,7 +205,7 @@ desired effect
                                                     3000 sqft
                                                 </td>
                                                 <td>
-                                                    <a href="plus.html"> <i class="fa fa-plus"></i></a>
+                                                    <a href="#" id="plus_btn" onclick="invoice_actions()" > <i class="fa fa-plus"></i></a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -216,6 +218,109 @@ desired effect
                         </div>
 
                     </div>
+
+                    <div class="col-md-12" id="viewsinv" style="display: auto;">
+                            <div class="box box-primary box-solid">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">
+                                        Received History
+                                    </h3>
+                                    <div class="box-tools pull-right">
+                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                              class="fa fa-minus" id="viewicon"></i>
+                              </button>
+                                    </div>
+                                </div>
+                                <div class="box-body table-responsive">
+                                   <table class="table table-condensed" style="margin-bottom:2%;">
+                                       <th colspan="4" class="bg-info">
+                                            <button class="btn btn-sm btn-disabled">
+                                                PO - 0001 &nbsp; <span class="badge"> Sand </span>
+                                            </button>
+                                       </th>
+                                    <tr class="bg-info">
+                                        <td>Materials</td>
+                                        <td>Received Date</td>
+                                        <td>Received Quantity</td>
+                                        <td>Store Location</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Sand
+                                        </td>
+                                        <td>
+                                            <input type="date">
+                                        </td>
+                                        <td>
+                                            <input type="text">
+                                        </td>
+                                        <td>
+                                            <input type="text" list="storelist">
+                                            <datalist id="storelist">
+                                                <option>store 1 </option>
+                                                <option>store 2 </option>
+                                                <option>store 3 </option>
+                                            </datalist>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Upload Invoice:
+                                        </td>
+                                        <td>
+                                            <span id="invinfo">No Files Selected.</span>
+                                            <label for="upinv"><i class="fa fa-folder-open"></i></label>
+                                            <input type="file" id="upinv" name="upinv" style="display: none;" onchange="$('#invinfo').html(this.value);">
+                                        </td>
+                                        <td>
+    
+                                        </td>
+                                        <td>
+                                            <input type="submit" value="Submit" class="btn  btn-primary ">
+                                        </td>
+                                    </tr>
+                                   </table>
+    
+                                   <table class="table table-condensed">
+                                       <th colspan="5" class="bg-info">
+                                           <button class="btn btn-sm btn-disabled">
+                                               PO - Received History 
+                                               <span class="badge"> 2 </span>
+                                           </button>
+                                       </th>
+                                        <tr class="bg-info">
+                                            <td>Materials</td>
+                                            <td>Received date</td>
+                                            <td>Received Quantity</td>
+                                            <td>Store Location</td>
+                                            <td>View Invoice</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sand</td>
+                                            <td>12-12-2018</td>
+                                            <td>200 Kgs.</td>
+                                            <td>Store 3</td>
+                                            <td><a href="dummy.pdf">Invoice 0001</a></td>
+                                        </tr>
+                                        <tr>
+                                                <td>Sand</td>
+                                                <td>18-03-2019</td>
+                                                <td>130 Kgs.</td>
+                                                <td>Store 1</td>
+                                                <td><a href="dummy.pdf">Invoice 0002</a></td>
+                                            </tr>
+                                            <tr>
+                                                    <td>Sand</td>
+                                                    <td>23-03-2019</td>
+                                                    <td>20 Kgs.</td>
+                                                    <td>Store 1</td>
+                                                    <td><a href="dummy.pdf">Invoice 0003</a></td>
+                                                </tr>
+                                   </table>
+    
+                                </div>
+                            </div>
+                        </div>
             </section>
             <!-- /.content -->
             </div>
@@ -331,10 +436,18 @@ desired effect
 
             function ShowResult() {
                 $("#search_result").removeAttr("style");
+                $("#viewsinv").hide();
             }
             $(function() {
                 $("#goods_received").DataTable();
             });
+
+            function invoice_actions()
+            {
+                $('#viewsinv').show();
+                $('#srbodyicon').click();
+               
+            }
         </script>
 </body>
 
