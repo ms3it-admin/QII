@@ -191,7 +191,7 @@ desired effect
                         <!-- /.box -->
                     </div>
                 </div>
-                <!-- edit organization demographics form-->
+                <!-- edit organization/ceate organization demographics form-->
                 <div class="row" id="edit_form" style="display: none">
                     <div class="col-md-12">
                         <!-- general form elements -->
@@ -208,9 +208,7 @@ desired effect
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label">Organization Level</label>
                                                 <div class="col-sm-8 control-label">
-                                                    <select class="customer-type-select form-control select_option" style="width:100%">
-                                                        
-                                                    </select>
+                                                    <p class="pull-left" id="edit_org_level"></p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -604,12 +602,12 @@ desired effect
             function view() {
                 //when view is clicked we should be able to see 
                 // the selected level company level
-                $("#company_hierarchy").on('nodeSelected', function(event, node){
-                    var level = node.text;
+                //$("#company_hierarchy").on('nodeSelected', function(event, node){
+                //    var level = node.text;
                     //now set the level to organization level para
                     ////get the organization level and set value
-                    $("#company_level").text(node.text);
-                });
+                //    $("#company_level").text(node.text);
+                //});
                 $("#company_definition").removeAttr("style");
                 $("#company_demographics").removeAttr("style");
                 $("#hide").slideToggle('slow');
@@ -644,6 +642,7 @@ desired effect
                     console.log('node event ' + event);
                     console.log('node data ' + node.text);
                     $("#organization_level").text(node.text);
+                    $("#edit_org_level").text(node.text);
                     var parent = $("#company_hierarchy").treeview('getParent', node);
                     console.log('selected node parent' + parent.text);
                 });
