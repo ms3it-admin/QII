@@ -138,7 +138,7 @@ desired effect
                                     <div class="col-md-12">
                                         <div class="box-footer">
                                             <button type="button" class="btn btn-info pull-right" onclick="ShowResult()">Add Material</button>
-                                            <button type="button" class="btn btn-default">Search</button>
+                                            <button type="button" class="btn btn-default" onclick="ShowSearchResult()">Search</button>
                                         </div>
                                     </div>
                                     <!-- /.box-footer -->
@@ -149,13 +149,53 @@ desired effect
                     </div>
                 </div>
                 <div class="row" id="search_result" style="display:none;">
+                        <div class="col-md-12">
+                            <div class="box box-success box-solid">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Search Result</h3>
+                                    <div class="box-tools pull-right">
+                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                            class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body" id="search_result_boxbody">
+                    
+                                    <div class="col-sm-12 table-responsive">
+                                        <table id="address_table" class="table table-bordered table-striped table-hover dataTable" role="grid" aria-describedby="example1_info">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Material Name</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Material Code</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Material Description</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr role="row" class="odd">
+                    
+                                                    <td>Sand</td>
+                                                    <td>MAT001</td>
+                                                    <td>Xyz</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row" id="Add_material" style="display:none;">
                     <div class="col-md-12">
                         <!-- general form elements -->
                         <div class="box box-success box-solid">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Material Definition>>Add Material</h3>
                                 <div class="box-tools pull-right">
-
+                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                            class="fa fa-minus"></i>
+                                        </button>
                                 </div>
                             </div>
                             <!-- /.box-header -->
@@ -197,7 +237,7 @@ desired effect
                                         </div>
                                     </div>
                                     <div class="box-footer">
-                                        <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-success" >Save</button>
+                                        <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" >Save</button>
                                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">Cancel</button>
                                     </div>
                                 </form>
@@ -357,9 +397,16 @@ desired effect
             $("#date_picker").datepicker({
                 autoclose: true
             });
-
+        </script>
+        <script>
+            $("#Add_material").hide();
             function ShowResult() {
+                $("#Add_material").show();
+                $("#search_result").hide();
+            }
+            function ShowSearchResult() {
                 $("#search_result").removeAttr("style");
+                $("#Add_material").hide();
             }
         </script>
 </body>
