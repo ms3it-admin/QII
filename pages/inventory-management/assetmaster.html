@@ -273,7 +273,7 @@ desired effect
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideAddAsset()">
                                     <span aria-hidden="true">×</span></button>
                                   <h4 class="modal-title">Saved!</h4>
                                   <p>successfully saved new asset.</p>
@@ -434,6 +434,9 @@ desired effect
             }
             function ShowSearchResult() {
                 $("#search_result ").removeAttr("style ");
+                $("#add_asset").hide();
+            }
+            function hideAddAsset() {
                 $("#add_asset").hide();
             }
         </script>

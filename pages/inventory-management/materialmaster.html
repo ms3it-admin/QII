@@ -247,7 +247,7 @@ desired effect
 
                     </div>
                     <!--success modal-->
-                    <div class="modal modal-success fade" id="modal-success" style="display: none;">
+                    <div class="modal modal-success fade" id="modal-success" style="display: none;" onclick="hideAddMaterial()">
                         <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -406,6 +406,9 @@ desired effect
             }
             function ShowSearchResult() {
                 $("#search_result").removeAttr("style");
+                $("#Add_material").hide();
+            }
+            function hideAddMaterial() {
                 $("#Add_material").hide();
             }
         </script>
