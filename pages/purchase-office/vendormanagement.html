@@ -363,7 +363,7 @@ desired effect
                 </div>
 
                 <!------------------------------- New Vendor result ------------------------------------->
-                <div class="row" id="vendor_details" style="display: none">
+                <div class="row" id="vendor_detailing" style="display: none">
                     <div class="col-md-12">
                         <!-- general form elements -->
                         <div class="box box-success box-solid">
@@ -590,13 +590,13 @@ desired effect
 
         function ShowResult() {
             $("#search_result ").removeAttr("style");
-            $("#vendor_details").hide(1000);
+            $("#vendor_detailing").hide(1000);
         }
 
         function Result() {
             $("#search_result ").hide(1000);
             $("#edit_result ").hide(1000);
-            $("#vendor_details").show(1000);
+            $("#vendor_detailing").show(1000);
         }
 
         function ShowEdit() {
@@ -614,12 +614,12 @@ desired effect
         })
 
         function cancel() {
-            $("#vendor_details").hide(1000);
+            $("#vendor_detailing").hide(1000);
 
         }
 
         function closed() {
-            $("#vendor_details").hide(1000);
+            $("#vendor_detailing").hide(1000);
         }
     </script>
 </body>
