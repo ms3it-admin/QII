@@ -211,16 +211,13 @@
                                             <table id="address_table_new" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
-                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address Type">Type</th>
-                                                        <th class="sorting col-sm-5" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address">Address</th>
-                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Default</th>
-                                                        <th class="sorting col-sm-1" tabinex="0" aria-control="example1" rowspan="1" colspan="1" aria-label="remove"></th>
+                                                        <th class="sorting col-sm-3" tabindex="0"  rowspan="1" colspan="1" aria-label="Address Type">Type</th>
+                                                        <th class="sorting col-sm-5" tabindex="0"  rowspan="1" colspan="1" aria-label="Address">Address</th>
+                                                        <th class="sorting col-sm-3" tabindex="0"  rowspan="1" colspan="1" aria-label="Default">Default</th>
+                                                        <th class="sorting col-sm-1" tabinex="0"   rowspan="1" colspan="1" aria-label="remove"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr role="row" class="odd">
-
-                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -232,35 +229,30 @@
                                             <table id="legal_table_new" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
-                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address Type">Type</th>
-                                                        <th class="sorting col-sm-5" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address">Number</th>
-                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default"></th>
+                                                        <th class="sorting col-sm-3" tabindex="0"  rowspan="1" colspan="1" aria-label="Address Type">Type</th>
+                                                        <th class="sorting col-sm-5" tabindex="0"  rowspan="1" colspan="1" aria-label="Address">Number</th>
+                                                        <th class="sorting col-sm-3" tabindex="0"  rowspan="1" colspan="1" aria-label="Default"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr role="row" class="even">
-
-                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <!--additional info tab-->
-                                        <div class="tab-pane" id="additional_info_new">
-                                            <button id="additional_info_new_button" class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#modal-default-additional">
-
+                                        <!--dditional information tab-->
+                                        <div class="tab-pane" id="additional_new">
+                                            <button id="abbditiona_input_button" type="button" class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#modal-default-additional-info">
+                                                <i class="fa fa-plus"></i>
                                             </button>
                                             <table id="additional_table_new" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
-                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address Type">Type</th>
-                                                        <th class="sorting col-sm-5" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address">Number</th>
-                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default"></th>
+                                                        <th class="sorting col-sm-3" tabindex="0"  rowspan="1" colspan="1" aria-label="Address Type">Type</th>
+                                                        <th class="sorting col-sm-5" tabindex="0"  rowspan="1" colspan="1" aria-label="Address">Number</th>
+                                                        <th class="sorting col-sm-3" tabindex="0"  rowspan="1" colspan="1" aria-label="Default"></th> 
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr role="row" class="odd">
 
-                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -622,14 +614,33 @@
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span></button>
-                          <h4 class="modal-title">Default Modal</h4>
+                          <h4 class="modal-title">Legal Information Form</h4>
                         </div>
                         <div class="modal-body">
-                          
+                          <form class="form-horizontal">
+                                <div class="form-group">
+                                        <label class="control-label col-sm-3">Type</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control customer-type-select" style="width:100%">
+                                                <option selected="selected">choose address type</option>
+                                                <option>PAN</option>
+                                                <option>TAN</option>
+                                                <option>CIN</option>
+                                                <option>GST</option>
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">Number</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" placeholder="number">
+                                    </div>
+                                </div>
+                          </form>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+                          <button type="button" class="btn btn-success">Save changes</button>
                         </div>
                       </div>
                       <!-- /.modal-content -->
@@ -637,20 +648,33 @@
                     <!-- /.modal-dialog -->
             </div>
             <!--additional modal form-->
-            <div class="modal fade" id="modal-default-additional">
+            <div class="modal fade" id="modal-default-additional-info">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span></button>
-                          <h4 class="modal-title">Default Modal</h4>
+                          <h4 class="modal-title">Additional Information Form</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Type</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control" placeholder="type">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Type</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control" placeholder="number">
+                                </div>
+                            </div>
+                          </form>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+                          <button type="button" class="btn btn-success">Save changes</button>
                         </div>
                       </div>
                       <!-- /.modal-content -->
@@ -801,9 +825,6 @@
         $(function() {
             $('#example1').DataTable({
             });
-            $("address_table_new").DataTable();
-            $("#legal_table_new").DataTable();
-            $("#addtional_table_new").DataTable();
         })
         $.each(option, function(i, data) {
             $(".select_option").append('<option>' + data.name + '</option>');
