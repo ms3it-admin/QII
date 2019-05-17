@@ -510,10 +510,13 @@
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span></button>
-                          <h4 class="modal-title">Saved!</h4>
-                          <p>successfully saved new customer.</p>
+                          <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>-->
+                            <div class="col-sm-6">
+                            <h4 class="modal-title">Saved!</h4>
+                            <p>successfully saved new customer.</p>
+                            </div>
+                            <button id="open_details_form" type="button" class="btn btn-outline pull-right" data-dismiss="modal">Fill Details</button>
                         </div>
                       </div>
                       <!-- /.modal-content -->
@@ -531,6 +534,27 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Discard</button>
+                          <button type="button" class="btn btn-outline">Save changes</button>
+                        </div>
+                      </div>
+                      <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+            </div>
+            <!--warning modal-->
+            <div class="modal modal-warning fade" id="modal-warning">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                          <h4 class="modal-title">Warning Modal</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>One fine body…</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
                           <button type="button" class="btn btn-outline">Save changes</button>
                         </div>
                       </div>
@@ -801,7 +825,7 @@
         //console.log($("#search_result").css("display"));
         //Initially the new customer form is hidden
         $("#new_customer").hide();
-
+        $("#new_customer_details").hide();
         function create_new() {
             //if search_result div or edit customer's div style==block make is none
            if(($("#search_result").css("display") === "block") || ($("#edit_customer").css("display") === "block")){
@@ -815,8 +839,11 @@
         }
         function save_customer() {
             $("#new_customer").slideUp();
+            //$("#new_customer_details").show();
         }
-
+        $("#open_details_form").on("click", function(){
+            $("#new_customer_details").show();
+        });
     </script>
     <script>
         $(function() {
