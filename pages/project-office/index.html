@@ -205,6 +205,9 @@
                                     <div class="tab-content">
                                         <!--address tab-->
                                         <div class="tab-pane active" id="address_new">
+                                                <button id="address_input_button" class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#modal-default-address">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
                                             <table id="address_table_new" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
@@ -223,6 +226,9 @@
                                         </div>
                                         <!--lagel tab-->
                                         <div class="tab-pane" id="legal_new">
+                                            <button id="legal_input_button" class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#modal-default-legal">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
                                             <table id="legal_table_new" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
@@ -240,6 +246,9 @@
                                         </div>
                                         <!--additional info tab-->
                                         <div class="tab-pane" id="additional_info_new">
+                                            <button id="additional_info_new_button" class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#modal-default-additional">
+
+                                            </button>
                                             <table id="additional_table_new" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
@@ -505,40 +514,149 @@
                     </div>
                 </div>
                 <!--Opens when new customer is added, - to add customer address, legal, and additional information -->
-                <!-- Success modal-->
-                <div class="modal modal-success fade" id="modal-success">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span></button>
-                              <h4 class="modal-title">Saved!</h4>
-                              <p>successfully saved new customer.</p>
-                            </div>
-                          </div>
-                          <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                </div>
-                <!--danger modal-->
-                <div class="modal modal-danger fade" id="modal-danger">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span></button>
-                              <h4 class="modal-title">Warning!</h4>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Discard</button>
-                              <button type="button" class="btn btn-outline">Save changes</button>
-                            </div>
-                          </div>
-                          <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                </div>
+                
             </section>
+            <!-- Success modal-->
+            <div class="modal modal-success fade" id="modal-success">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                          <h4 class="modal-title">Saved!</h4>
+                          <p>successfully saved new customer.</p>
+                        </div>
+                      </div>
+                      <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+            </div>
+            <!--danger modal-->
+            <div class="modal modal-danger fade" id="modal-danger">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                          <h4 class="modal-title">Warning!</h4>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Discard</button>
+                          <button type="button" class="btn btn-outline">Save changes</button>
+                        </div>
+                      </div>
+                      <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+            </div>
+            <!-- info modal-->
+            <!--address modal form-->
+            <div class="modal fade" id="modal-default-address">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                          <h4 class="modal-title">Address Form</h4>
+                        </div>
+                        <div class="modal-body">
+                          <!-- address form-->
+                          <!-- type select-->
+                          <form class="form-horizontal">
+                            <div class="form-group">
+                                        <label class="control-label col-sm-3">Type</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control customer-type-select" style="width:100%">
+                                                <option selected="selected">choose address type</option>
+                                                <option>Registered Address</option>
+                                                <option>Office Addess</option>
+                                                <option>Mailing Address</option>
+                                            </select>
+                                        </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Address Line1</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control" placeholder="address line 1">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                    <label class="control-label col-sm-3">Address Line2</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" placeholder="address line 2">
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                    <label class="control-label col-sm-3">District</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" placeholder="district">
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                    <label class="control-label col-sm-3">Pin Code</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" placeholder="pin code">
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                    <label class="control-label col-sm-3">Country</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" placeholder="country">
+                                    </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+                          <button type="button" class="btn btn-success">Save changes</button>
+                        </div>
+                      </div>
+                      <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+            </div>
+            <!--legal modal form-->
+            <div class="modal fade" id="modal-default-legal">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                          <h4 class="modal-title">Default Modal</h4>
+                        </div>
+                        <div class="modal-body">
+                          
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                      <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+            </div>
+            <!--additional modal form-->
+            <div class="modal fade" id="modal-default-additional">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                          <h4 class="modal-title">Default Modal</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>One fine body…</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                      <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+            </div>
         </div>
         <!-- /.content -->
         <!-- /.content-wrapper -->
