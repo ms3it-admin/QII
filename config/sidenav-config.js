@@ -54,17 +54,17 @@ var qiiSidenav = {
                     children: []
                 },
                 {
-                    id: "qii_menu_vendorassignment",
-                    name: "Vendor Assignment",
-                    iconClass: "fa fa-link",
-                    href: "/pages/purchase-office/Vendorassignment.html",
-                    children: []
-                },
-                {
                     id: "qii_menu_vendormanagement",
                     name: "Vendor Management",
                     iconClass: "fa fa-link",
-                    href: "/pages/purchase-office/vendormanagement.html",
+                    href: "/pages/purchase-office/Vendormanagement.html",
+                    children: []
+                },
+                {
+                    id: "qii_menu_vendorassignment",
+                    name: "Vendor Assignment",
+                    iconClass: "fa fa-link",
+                    href: "/pages/purchase-office/vendorassignment.html",
                     children: []
                 },
                 {
