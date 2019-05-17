@@ -200,7 +200,7 @@
                                         <h4 class="modal-title ">Saved!</h4>
                                         <p>successfully assigned.</p>
                                     </div>
-                                    <button id="visit_po " type="button " class="btn btn-outline pull-right " style="margin-right: 10px ">Visit PO</button>
+                                    <button id="visit_po" type="button" class="btn btn-outline pull-right" style="margin-right: 10px">Visit PO</button>
                                 </div>
                               </div>
                               <!-- /.modal-content -->
@@ -333,25 +333,25 @@
         user experience. -->
     </body>
     <script>
-        $("#qii_header ").qiiHeader();
-         $("#qii_sidenav ").qiiSidenav({
-            activeLinks: ["qii_menu_purchase_office ", "qii_menu_vendorassignment "],
-            openTrees: ["qii_menu_purchase_office "]
+        $("#qii_header").qiiHeader();
+         $("#qii_sidenav").qiiSidenav({
+            activeLinks: ["qii_menu_purchase_office", "qii_menu_vendorassignment"],
+            openTrees: ["qii_menu_purchase_office"]
         });
-         $("#qii_footer ").qiiFooter();
+         $("#qii_footer").qiiFooter();
         function ShowResult() {
-            $("#assigne_vendor ").removeAttr("style ");
+            $("#assigne_vendor").removeAttr("style");
         }
-        $("#visit_po ").on("click ", function(){
-            location.href = "purchaseorder.html ";
+        $("#visit_po").on("click", function(){
+            location.href = "purchaseorder.html";
         });
 
         function closeVendorAssign(){
             //location.href = "purchaseorder.html ";
-            $("#assigne_vendor ").hide(1000);
+            $("#assigne_vendor").hide(1000);
         }
         $(function() {
-            $("#address_table ").DataTable();
+            $("#address_table").DataTable();
         });
     </script>
 </html>
