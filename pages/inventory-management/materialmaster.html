@@ -14,6 +14,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Data tables css -->
+    <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
@@ -229,16 +231,16 @@ desired effect
                                         <label class="col-sm-3 control-label">Material Type</label>
                                         <div class="col-sm-6">
                                             <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                                            <option selected="selected">Choose Material Type </option>
-                                                            <option>Concrete</option>
-                                                            <option>Plumbing</option>
-                                                            <option>Road</option>
-                                                        </select>
+                                                <option selected="selected">Choose Material Type </option>
+                                                <option>Concrete</option>
+                                                <option>Plumbing</option>
+                                                <option>Road</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="box-footer">
-                                        <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" >Save</button>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">Cancel</button>
+                                        <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" onclick="hideAddMaterial()">Save</button>
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" onclick="hideAddMaterial()">Cancel</button>
                                     </div>
                                 </form>
                             </div>
@@ -246,8 +248,9 @@ desired effect
                         </div>
 
                     </div>
+                    </div>
                     <!--success modal-->
-                    <div class="modal modal-success fade" id="modal-success" style="display: none;" onclick="hideAddMaterial()">
+                    <div class="modal modal-success fade" id="modal-success" style="display: none;">
                         <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -381,6 +384,9 @@ desired effect
         <script src="../../components/footer/footer.js"></script>
         <script src="../../components/header/header.js"></script>
         <script src="../../components/sidenav/sidenav.js"></script>
+        <!-- Data tables js-->
+        <script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
         <!-- Date picker -->
         <script src="../../bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
         <script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
@@ -402,15 +408,18 @@ desired effect
             $("#Add_material").hide();
             function ShowResult() {
                 $("#Add_material").show();
-                $("#search_result").hide();
+                $("#search_result").hide(1000);
             }
             function ShowSearchResult() {
                 $("#search_result").removeAttr("style");
-                $("#Add_material").hide();
+                $("#Add_material").hide(1000);
             }
             function hideAddMaterial() {
-                $("#Add_material").hide();
+                $("#Add_material").hide(1000);
             }
+            $(function() {
+                $("#address_table").DataTable();
+            });
         </script>
 </body>
 

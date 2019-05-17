@@ -79,8 +79,7 @@ desired effect
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Purchase Order
-                    <small>Vendor Selection</small>
+                    Purchase Order 
                 </h1>
             </section>
             <!-- Main content -->
@@ -106,19 +105,23 @@ desired effect
                                         <label class="col-sm-3 control-label">Site</label>
                                         <div class="col-sm-6">
                                             <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                      <option selected="selected">Choose Your Site </option>
-                                      <option>Site 1</option>
-                                      <option>Site 2</option>
-                                      <option>Site 3</option>
-                                  </select>
+                                                <option selected="selected">Choose Your Site </option>
+                                                <option>Site 1</option>
+                                                <option>Site 2</option>
+                                                <option>Site 3</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-success" onclick="ShowResult()">
+                                                <i class="fa fa-search"></i>
+                                            </button>
                                         </div>
                                     </div>
 
                                     <!-- /.box-body -->
-                                    <div class="box-footer">
-                                        <button type="button" class="btn btn-info pull-right">Create Vendor</button>
+                                   <!-- <div class="box-footer">
                                         <button type="button" class="btn btn-default" onclick="ShowResult()">Search</button>
-                                    </div>
+                                    </div>-->
                                     <!-- /.box-footer -->
                                 </form>
                             </div>
@@ -131,7 +134,7 @@ desired effect
                         <!-- general form elements -->
                         <div class="box box-success box-solid">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Vendor Selection</h3>
+                                <h3 class="box-title">XXXXXXXXXXX</h3>
                                 <div class="box-tools pull-right">
 
                                 </div>
@@ -150,16 +153,19 @@ desired effect
                                             <table id="address_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
+                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Vendor">PO Number</th>
                                                         <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address Type">Material Description</th>
                                                         <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address">Material Code</th>
-                                                        <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Unit Required</th>
+                                                        <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Unit Required By</th>
                                                         <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Needed By</th>
                                                         <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Vendor">Vendor</th>
+                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Vendor"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr role="row" class="odd">
-                                                        <td>Sand For Dhalai</td>
+                                                        <td><p>POnumber0001</p></td>
+                                                        <td><p>Sand For Dhalai</p></td>
                                                         <td>
                                                             <p id="material_code1" style="width:100%">sand</p>
                                                         </td>
@@ -167,50 +173,40 @@ desired effect
                                                             <p id="unit_required1" style="width: 100%">2000sqft</p>
                                                         </td>
                                                         <td>
-                                                            <div class="input-group date" style="width:100%">
-                                                                <div class="input-group-addon">
-                                                                    <i class="fa fa-calendar"></i>
-                                                                </div>
-                                                                <input type="text" class="form-control pull-right" id="date_picker">
-                                                            </div>
+                                                            <p>17/06/2019</p>
                                                         </td>
                                                         <td>
-                                                            <select style="width:100%">
-                                                                <option>Select vendor</option>
-                                                                <option>vendor1</option>
-                                                                <option>vendor2</option>
-                                                                <option>vendor3</option>
-                                                                <option>vendor4</option>
-                                                            </select>
+                                                            <p>Vendor 0001</p>
+                                                        </td>
+                                                        <td>
+                                                            <button type="submit" class="btn btn-info">
+                                                                <i class="fa fa-check"></i>
+                                                            </button>
                                                         </td>
                                                     </tr>
                                                     <tr role="row" class="even">
+                                                        <td><p>POnumber0002</p></td>
                                                         <td>Cement</td>
                                                         <td>
                                                             <p id="material_code2" style="width:100%">cement</p>
-                                                        </td>
+                                                        </td>+
                                                         <td>
                                                             <p id="unit_required2" style="width:100%">500units</p>
                                                         </td>
                                                         <td>
-                                                            <div class="input-group date" style="width:100%">
-                                                                <div class="input-group-addon">
-                                                                    <i class="fa fa-calendar"></i>
-                                                                </div>
-                                                                <input type="text" class="form-control pull-right" id="date_picker">
-                                                            </div>
+                                                            <p>05/06/2019</p>
                                                         </td>
                                                         <td>
-                                                            <select style="width:100%">
-                                                                <option>Select vendor</option>
-                                                                <option>vendor1</option>
-                                                                <option>vendor2</option>
-                                                                <option>vendor3</option>
-                                                                <option>vendor4</option>
-                                                            </select>
+                                                            <p>Vendor 0002</p>
+                                                        </td>
+                                                        <td>
+                                                            <button type="submit" class="btn btn-info">
+                                                                <i class="fa fa-check"></i>
+                                                            </button>
                                                         </td>
                                                     </tr>
                                                     <tr role="row" class="odd">
+                                                        <td><p>POnumber0003</p></td>
                                                         <td>Iron rod</td>
                                                         <td>
                                                             <p id="material_code2" style="width:100%">ironrod</p>
@@ -219,21 +215,15 @@ desired effect
                                                             <p id="unit_required2" style="width:100%">800units</p>
                                                         </td>
                                                         <td>
-                                                            <div class="input-group date" style="width:100%">
-                                                                <div class="input-group-addon">
-                                                                    <i class="fa fa-calendar"></i>
-                                                                </div>
-                                                                <input type="text" class="form-control pull-right" id="date_picker">
-                                                            </div>
+                                                            <p>09/05/2019</p>
                                                         </td>
                                                         <td>
-                                                            <select style="width:100%">
-                                                                    <option>Select vendor</option>
-                                                                    <option>vendor1</option>
-                                                                    <option>vendor2</option>
-                                                                    <option>vendor3</option>
-                                                                    <option>vendor4</option>
-                                                                </select>
+                                                            <p>Vendor 0003</p>
+                                                        </td>
+                                                        <td>
+                                                            <button type="submit" class="btn btn-info">
+                                                                <i class="fa fa-check"></i>
+                                                            </button>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -242,9 +232,7 @@ desired effect
                                     </div>
 
                                 </div>
-                                <div class="box-footer">
-                                    <button type="button" class="btn btn-info pull-right" onclick="generatePo"><a href="generatepo.html">Submit</a></button>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
