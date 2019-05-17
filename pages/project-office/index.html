@@ -214,10 +214,9 @@
                                                         <th class="sorting col-sm-3" tabindex="0"  rowspan="1" colspan="1" aria-label="Address Type">Type</th>
                                                         <th class="sorting col-sm-5" tabindex="0"  rowspan="1" colspan="1" aria-label="Address">Address</th>
                                                         <th class="sorting col-sm-3" tabindex="0"  rowspan="1" colspan="1" aria-label="Default">Default</th>
-                                                        <th class="sorting col-sm-1" tabinex="0"   rowspan="1" colspan="1" aria-label="remove"></th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="address_new_tbody">
                                                 </tbody>
                                             </table>
                                         </div>
@@ -229,12 +228,11 @@
                                             <table id="legal_table_new" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
-                                                        <th class="sorting col-sm-3" tabindex="0"  rowspan="1" colspan="1" aria-label="Address Type">Type</th>
-                                                        <th class="sorting col-sm-5" tabindex="0"  rowspan="1" colspan="1" aria-label="Address">Number</th>
-                                                        <th class="sorting col-sm-3" tabindex="0"  rowspan="1" colspan="1" aria-label="Default"></th>
+                                                        <th class="sorting col-sm-2" tabindex="0"  rowspan="1" colspan="1" aria-label="Address Type">Type</th>
+                                                        <th class="sorting col-sm-4" tabindex="0"  rowspan="1" colspan="1" aria-label="Address">Number</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="legal_new_tbody">
                                                 </tbody>
                                             </table>
                                         </div>
@@ -246,12 +244,11 @@
                                             <table id="additional_table_new" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
-                                                        <th class="sorting col-sm-3" tabindex="0"  rowspan="1" colspan="1" aria-label="Address Type">Type</th>
-                                                        <th class="sorting col-sm-5" tabindex="0"  rowspan="1" colspan="1" aria-label="Address">Number</th>
-                                                        <th class="sorting col-sm-3" tabindex="0"  rowspan="1" colspan="1" aria-label="Default"></th> 
+                                                        <th class="sorting col-sm-2" tabindex="0"  rowspan="1" colspan="1" aria-label="Address Type">Type</th>
+                                                        <th class="sorting col-sm-4" tabindex="0"  rowspan="1" colspan="1" aria-label="Address">Number</th> 
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="additional_info_new_tbody">
 
                                                 </tbody>
                                             </table>
@@ -558,49 +555,49 @@
                             <div class="form-group">
                                         <label class="control-label col-sm-3">Type</label>
                                         <div class="col-sm-6">
-                                            <select class="form-control customer-type-select" style="width:100%">
+                                            <select id="select_address_type" class="form-control customer-type-select" style="width:100%">
                                                 <option selected="selected">choose address type</option>
-                                                <option>Registered Address</option>
-                                                <option>Office Addess</option>
-                                                <option>Mailing Address</option>
+                                                <option value="Registered Address">Registered Address</option>
+                                                <option value="Office Address">Office Addess</option>
+                                                <option value="Mailing Address">Mailing Address</option>
                                             </select>
                                         </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-3">Address Line1</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" placeholder="address line 1">
+                                    <input id="address_line_one" class="form-control" placeholder="address line 1">
                                 </div>
                             </div>
                             <div class="form-group">
                                     <label class="control-label col-sm-3">Address Line2</label>
                                     <div class="col-sm-6">
-                                        <input class="form-control" placeholder="address line 2">
+                                        <input id="address_line_two" class="form-control" placeholder="address line 2">
                                     </div>
                             </div>
                             <div class="form-group">
                                     <label class="control-label col-sm-3">District</label>
                                     <div class="col-sm-6">
-                                        <input class="form-control" placeholder="district">
+                                        <input id="district" class="form-control" placeholder="district">
                                     </div>
                             </div>
                             <div class="form-group">
                                     <label class="control-label col-sm-3">Pin Code</label>
                                     <div class="col-sm-6">
-                                        <input class="form-control" placeholder="pin code">
+                                        <input id="pin_code" class="form-control" placeholder="pin code">
                                     </div>
                             </div>
                             <div class="form-group">
                                     <label class="control-label col-sm-3">Country</label>
                                     <div class="col-sm-6">
-                                        <input class="form-control" placeholder="country">
+                                        <input id="country" class="form-control" placeholder="country">
                                     </div>
                             </div>
                           </form>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
-                          <button type="button" class="btn btn-success">Save changes</button>
+                          <button id="save_new_address" type="button" class="btn btn-success" data-dismiss="modal">Save changes</button>
                         </div>
                       </div>
                       <!-- /.modal-content -->
@@ -621,8 +618,8 @@
                                 <div class="form-group">
                                         <label class="control-label col-sm-3">Type</label>
                                         <div class="col-sm-6">
-                                            <select class="form-control customer-type-select" style="width:100%">
-                                                <option selected="selected">choose address type</option>
+                                            <select id="select_legal_type" class="form-control customer-type-select" style="width:100%">
+                                                <option selected="selected">choose legal type</option>
                                                 <option>PAN</option>
                                                 <option>TAN</option>
                                                 <option>CIN</option>
@@ -633,14 +630,14 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-3">Number</label>
                                     <div class="col-sm-6">
-                                        <input class="form-control" placeholder="number">
+                                        <input id="legal_number_new" class="form-control" placeholder="number">
                                     </div>
                                 </div>
                           </form>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
-                          <button type="button" class="btn btn-success">Save changes</button>
+                          <button id="save_new_legal" type="button" class="btn btn-success" data-dismiss="modal">Save changes</button>
                         </div>
                       </div>
                       <!-- /.modal-content -->
@@ -661,20 +658,20 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-3">Type</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" placeholder="type">
+                                    <input id="additional_new_type" class="form-control" placeholder="type">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-3">Type</label>
+                                <label class="control-label col-sm-3">Number</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" placeholder="number">
+                                    <input id="additional_new_number" class="form-control" placeholder="number">
                                 </div>
                             </div>
                           </form>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
-                          <button type="button" class="btn btn-success">Save changes</button>
+                          <button id="save_new_additional_info" type="button" class="btn btn-success" data-dismiss="modal">Save changes</button>
                         </div>
                       </div>
                       <!-- /.modal-content -->
@@ -801,7 +798,7 @@
         }
     </script>
     <script>
-        console.log($("#search_result").css("display"));
+        //console.log($("#search_result").css("display"));
         //Initially the new customer form is hidden
         $("#new_customer").hide();
 
@@ -828,6 +825,36 @@
         })
         $.each(option, function(i, data) {
             $(".select_option").append('<option>' + data.name + '</option>');
+        });
+    </script>
+    <!--Form submission-->
+    <script>
+        $("#save_new_address").on("click", function(){
+            //get the inserted value by user
+            var addressType = $("#select_address_type").val();
+            var addressLine1 = $("#address_line_one").val();
+            var addressLine2 = $("#address_line_two").val();
+            var district = $("#district").val();
+            var country = $("#country").val();
+            var pinCode = $("#pin_code").val();
+            //append a row to the table 
+            ////get the tbody using it's id
+            ////append a row to it with values
+            var address = addressLine1 + " " + addressLine2 + "," + district +","+pinCode;
+            var markup = '<tr><td>'+ addressType +'</td><td>'+ address +'</td></tr>';
+            $("#address_new_tbody").append(markup);
+        });
+        $("#save_new_legal").on("click", function(){
+            var legalType = $("#select_legal_type").val();
+            var number = $("#legal_number_new").val();
+            var markup = '<tr><td>'+ legalType+'</td><td>'+ number +'</td></tr>';
+            $("#legal_new_tbody").append(markup);
+        });
+        $("#save_new_additional_info").on("click", function(){
+            var type = $("#additional_new_type").val();
+            var number = $("#additional_new_number").val();
+            var markup = '<tr><td>'+ type +'</td><td>'+ number +'</td></tr>';
+            $("#additional_info_new_tbody").append(markup);
         });
     </script>
 </body>
