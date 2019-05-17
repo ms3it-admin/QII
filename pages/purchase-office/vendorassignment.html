@@ -83,13 +83,15 @@
                                                 <option>Site 3</option>
                                             </select>
                                             </div>
+                                            <div>
+                                                <button type="button" class="btn btn-info" onclick="ShowResult()">Assign vendor</button>
+                                            </div>
                                         </div>
-                    
+                                        
                                         <!-- /.box-body -->
-                                        <div class="box-footer">
+                                        <!-- <div class="box-footer">
                                             <button type="button" class="btn btn-info pull-right" onclick="ShowResult()">Assign vendor</button>
-                                            <button type="button" class="btn btn-default">Search</button>
-                                        </div>
+                                        </div> -->
                                         <!-- /.box-footer -->
                                     </form>
                                 </div>
@@ -173,7 +175,8 @@
                                                     </tbody>
                                                 </table>
                                                 <div class="box-footer">
-                                                    <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-success">Raise Request</button>
+                                                    <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-success" onclick="closeVendorAssign()">Submit</button>
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" onclick="closeVendorAssign()">Cancel</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -189,7 +192,7 @@
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <button  id="close_modal" type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeVendorAssign()">
+                                  <button  id="close_modal" type="button" class="close" data-dismiss="modal" aria-label="Close"">
                                     <span aria-hidden="true">×</span></button>
                                     <div class="col-sm-6">
                                         <h4 class="modal-title">Saved!</h4>
@@ -201,6 +204,27 @@
                               <!-- /.modal-content -->
                             </div>
                             <!-- /.modal-dialog -->
+                    </div>
+                    <!--danger modal-->
+                    <div class="modal modal-danger fade" id="modal-danger">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                              <h4 class="modal-title">Warning Modal</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p>One fine body…</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-outline">Save changes</button>
+                            </div>
+                          </div>
+                          <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
                     </div>
                 </section>  
             </div>
@@ -322,7 +346,10 @@
 
         function closeVendorAssign(){
             //location.href = "purchaseorder.html";
-            $("#assigne_vendor").hide();
+            $("#assigne_vendor").hide(1000);
         }
+        $(function() {
+            $("#address_table").DataTable();
+        });
     </script>
 </html>

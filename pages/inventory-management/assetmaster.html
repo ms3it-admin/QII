@@ -16,6 +16,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Data tables css -->
+    <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
     <!-- Date picker -->
@@ -258,8 +260,8 @@ desired effect
                                         </div>
                                     </div>
                                     <div class="box-footer">
-                                            <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" onclick="save_asset()">Save</button>
-                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">Cancel</button>
+                                            <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" onclick="hideAddAsset()">Save</button>
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" onclick="hideAddAsset()">Cancel</button>
                                     </div>
                                 </form>
                             </div>
@@ -273,7 +275,7 @@ desired effect
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideAddAsset()">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span></button>
                                   <h4 class="modal-title">Saved!</h4>
                                   <p>successfully saved new asset.</p>
@@ -403,6 +405,9 @@ desired effect
         <script src="../../components/footer/footer.js"></script>
         <script src="../../components/header/header.js"></script>
         <script src="../../components/sidenav/sidenav.js"></script>
+        <!-- Data tables js-->
+        <script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
         <!-- Date picker -->
         <script src="../../bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
         <script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
@@ -426,19 +431,22 @@ desired effect
             ////////////////////////
             $("#add_asset").hide();
             function ShowResult() {
-                $("#add_asset").show();
-                $("#search_result ").hide();
+                $("#add_asset").show(1000);
+                $("#search_result ").hide(1000);
             }
             function save_asset(){
                 //$("#add_asset").slideUp();
             }
             function ShowSearchResult() {
                 $("#search_result ").removeAttr("style ");
-                $("#add_asset").hide();
+                $("#add_asset").hide(1000);
             }
             function hideAddAsset() {
-                $("#add_asset").hide();
+                $("#add_asset").hide(1000);
             }
+            $(function() {
+                $("#address_table").DataTable();
+            });
         </script>
 </body>
 

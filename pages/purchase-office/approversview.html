@@ -112,12 +112,13 @@ desired effect
                                       <option>Site 3</option>
                                   </select>
                                         </div>
+                                        <div class="col-sm-1">
+                                            <button type="button" class="btn btn-success btn-lg fa fa-search " onclick="ShowResult()"></button>
+                                        </div>
                                     </div>
 
                                     <!-- /.box-body -->
-                                    <div class="box-footer">
-                                        <button type="button" class="btn btn-default" onclick="ShowResult()">Search</button>
-                                    </div>
+
                                     <!-- /.box-footer -->
                                 </form>
                             </div>
@@ -149,8 +150,9 @@ desired effect
                                             <table id="address_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
-                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address Type">Material Description</th>
-                                                        <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address">Material Code</th>
+                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address Type">PR No</th>
+                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address Type">Material Code</th>
+                                                        <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address">Material Description</th>
                                                         <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Unit Required</th>
                                                         <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Needed By</th>
                                                         <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Vendor">Status</th>
@@ -159,11 +161,15 @@ desired effect
                                                 <tbody>
                                                     <tr role="row" class="odd">
                                                         <td>
-                                                            <p>Sand For Dhalai</p>
+                                                            001
                                                         </td>
                                                         <td>
                                                             <p>Sand</p>
                                                         </td>
+                                                        <td>
+                                                            <p>Sand For Dhalai</p>
+                                                        </td>
+
                                                         <td>
                                                             <p>2000 sqft</p>
                                                         </td>
@@ -172,22 +178,24 @@ desired effect
                                                         </td>
                                                         <td>
                                                             <select style="width:100%">
-                                                                        <option>Choose Material Code</option>
-                                                                        <option>Sand</option>
-                                                                        <option>Cement</option>
-                                                                        <option>Iron Rod</option>
-                                                                        <option>Material 4</option>
-                                                                        <option>Material 5</option>
-                                                                    </select>
+                                                                        <option>-:Status:-</option>
+                                                                        <option>Approve</option>
+                                                                        <option>Send Back</option>
+                                                                        <option>Reject</option>
+                                                            </select>
                                                         </td>
                                                     </tr>
                                                     <tr role="row" class="even">
                                                         <td>
-                                                            <p>Cement For Dhalai</p>
+                                                            002
                                                         </td>
                                                         <td>
                                                             <p>Cement</p>
                                                         </td>
+                                                        <td>
+                                                            <p>Cement For Dhalai</p>
+                                                        </td>
+
                                                         <td>
                                                             <p>500 Basta</p>
                                                         </td>
@@ -196,22 +204,24 @@ desired effect
                                                         </td>
                                                         <td>
                                                             <select style="width:100%">
-                                                                        <option>Choose Material Code</option>
-                                                                        <option>Sand</option>
-                                                                        <option>Cement</option>
-                                                                        <option>Iron Rod</option>
-                                                                        <option>Material 4</option>
-                                                                        <option>Material 5</option>
+                                                                    <option>-:Status:-</option>
+                                                                    <option>Approve</option>
+                                                                    <option>Send Back</option>
+                                                                    <option>Reject</option>
                                                                     </select>
                                                         </td>
                                                     </tr>
                                                     <tr role="row" class="odd">
                                                         <td>
-                                                            <p>Iron Rod</p>
+                                                            003
                                                         </td>
                                                         <td>
                                                             <p>Rod</p>
                                                         </td>
+                                                        <td>
+                                                            <p>Iron Rod</p>
+                                                        </td>
+
                                                         <td>
                                                             <p>2000</p>
                                                         </td>
@@ -220,11 +230,10 @@ desired effect
                                                         </td>
                                                         <td>
                                                             <select style="width:100%">
-                                                                        <option>Choose Material Code</option>
-                                                                        <option>Pending</option>
-                                                                        <option>Internal Sourcing</option>
-                                                                        <option>External Purchase</option>
-                                                                        <option>Cancel</option>
+                                                                    <option>-:Status:-</option>
+                                                                    <option>Approve</option>
+                                                                    <option>Send Back</option>
+                                                                    <option>Reject</option>
                                                                       </select>
                                                         </td>
                                                     </tr>
@@ -235,8 +244,8 @@ desired effect
 
                                 </div>
                                 <div class="box-footer">
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">Cancel</button>
-                                    <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-success">Submit</button>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" onclick="cancel()">Cancel</button>
+                                    <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-success" onclick="closed()">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -413,6 +422,15 @@ desired effect
         function Show() {
             $("#search_result").hide(1000);
             $("#search").show(1000);
+        }
+
+        function cancel() {
+            $("#search_result").hide(1000);
+
+        }
+
+        function closed() {
+            $("#search_result").hide(1000);
         }
     </script>
 </body>
