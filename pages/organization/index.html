@@ -208,7 +208,7 @@ desired effect
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label">Organization Level</label>
                                                 <div class="col-sm-8 control-label">
-                                                    <p class="pull-left" id="edit_org_level"></p>
+                                                    <p class="pull-left" id="edit_org_level">Legal Entity</p>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -266,406 +266,476 @@ desired effect
                     </div>
                 </div>
                 <!-- Company Demographics -->
-                <div class="row" id="company_demographics" style="display:none">
+                <!--New customer's details -->
+                <div class="row" id="new_customer_details" style="display: none">
                     <div class="col-md-12">
-                        <div class="box box-success box-solid">
+                        <div class="box box-warning box-solid">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Company Demographics</h3>
+                                <h3 class="box-title">
+                                    Company Demographics
+                                </h3>
                             </div>
                             <div class="box-body">
-                                <div class="nav-tabs-custom tab-success">
+                                <div class="nav-tabs-custom tab-warning">
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#address" data-toggle="tab" aria-expanded="true">Address</a>
+                                        <li class="active"><a href="#address_new" data-toggle="tab" aria-expanded="true">Address</a>
                                         </li>
-                                        <li class=""><a href="#legal" data-toggle="tab" aria-expanded="false">Legal</a>
+                                        <li class=""><a href="#legal_new" data-toggle="tab" aria-expanded="false">Legal</a>
                                         </li>
-                                        <li class=""><a href="#additional" data-toggle="tab" aria-expanded="false">Additional
-                                                    Information</a>
+                                        <li class=""><a href="#additional_new" data-toggle="tab" aria-expanded="false">Additional Information</a>
                                         </li>
                                     </ul>
                                     <div class="tab-content">
-                                        <div class="tab-pane active" id="address">
-                                            <table id="address_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
+                                        <!--address tab-->
+                                        <div class="tab-pane active" id="address_new">
+                                            <button id="address_input_button" class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#modal-default-address">
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
+                                            <table id="address_table_new" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
-                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address Type">Type</th>
-                                                        <th class="sorting col-sm-5" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address">Address</th>
-                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Default</th>
-                                                        <th class="sorting col-sm-1" tabinex="0" aria-control="example1" rowspan="1" colspan="1" aria-label="remove"></th>
+                                                        <th class="sorting col-sm-3" tabindex="0" rowspan="1" colspan="1" aria-label="Address Type">Type</th>
+                                                        <th class="sorting col-sm-5" tabindex="0" rowspan="1" colspan="1" aria-label="Address">Address</th>
+                                                        <th class="sorting col-sm-3" tabindex="0" rowspan="1" colspan="1" aria-label="Default">Default</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr role="row" class="odd">
-                                                        <td>Registered Address</td>
-                                                        <td>ABC Street, Kolkata</td>
-                                                        <td>
-                                                            <input type="checkbox" checked="checked">
-                                                        </td>
-                                                        <td>
-                                                            <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
-                                                                        style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
-                                                                <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
-                                                                <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
-                                                                <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr role="row" class="even">
-                                                        <td>Office Address</td>
-                                                        <td>XYZ Avenue, Kolkata</td>
-                                                        <td>
-                                                            <input type="checkbox">
-                                                        </td>
-                                                        <td>
-                                                            <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
-                                                                        style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
-                                                                <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
-                                                                <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
-                                                                <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr role="row" class="odd">
-                                                        <td>Mailing Address</td>
-                                                        <td>XYZ Avenue, Kolkata</td>
-                                                        <td>
-                                                            <input type="checkbox">
-                                                        </td>
-                                                        <td>
-                                                            <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
-                                                                        style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
-                                                                <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
-                                                                <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
-                                                                <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                <tbody id="address_new_tbody">
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div class="tab-pane" id="legal">
-                                            <table id="legal_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
+                                        <!--lagel tab-->
+                                        <div class="tab-pane" id="legal_new">
+                                            <button id="legal_input_button" class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#modal-default-legal">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                            <table id="legal_table_new" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
-                                                        <th class="sorting col-sm-5" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Info Type">Type</th>
-                                                        <th class="sorting col-sm-5" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number">Number</th>
-                                                        <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number"></th>
+                                                        <th class="sorting col-sm-2" tabindex="0" rowspan="1" colspan="1" aria-label="Address Type">Type</th>
+                                                        <th class="sorting col-sm-4" tabindex="0" rowspan="1" colspan="1" aria-label="Address">Number</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr role="row" class="odd">
-                                                        <td>GST</td>
-                                                        <td>ABCD1234XYZ1</td>
-                                                        <td>
-                                                            <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
-                                                                        style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
-                                                                <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
-                                                                <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
-                                                                <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr role="row" class="even">
-                                                        <td>PAN</td>
-                                                        <td>ABCD1234X</td>
-                                                        <td>
-                                                            <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
-                                                                        style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
-                                                                <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
-                                                                <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
-                                                                <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr role="row" class="even">
-                                                        <td>CIN</td>
-                                                        <td>ABCD1235T</td>
-                                                        <td>
-                                                            <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
-                                                                        style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
-                                                                <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
-                                                                <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
-                                                                <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr role="row" class="even">
-                                                        <td>TAN</td>
-                                                        <td>ABCD1238J</td>
-                                                        <td>
-                                                            <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
-                                                                        style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
-                                                                <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
-                                                                <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
-                                                                <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                <tbody id="legal_new_tbody">
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div class="tab-pane" id="additional">
-                                            <table id="legal_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
+                                        <!--dditional information tab-->
+                                        <div class="tab-pane" id="additional_new">
+                                            <button id="abbditiona_input_button" type="button" class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#modal-default-additional-info">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                            <table id="additional_table_new" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
-                                                        <th class="sorting col-sm-6" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number">Type</th>
-                                                        <th class="sorting col-sm-6" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number">Number</th>
-                                                        <th class="sorting col-sm-6" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number"></th>
+                                                        <th class="sorting col-sm-2" tabindex="0" rowspan="1" colspan="1" aria-label="Address Type">Type</th>
+                                                        <th class="sorting col-sm-4" tabindex="0" rowspan="1" colspan="1" aria-label="Address">Number</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr role="row" class="odd">
-                                                        <td><input type="textbox" placeholder="Type" class="check" disabled="disabled"></td>
-                                                        <td><input type="textbox" placeholder="Number" class="check" disabled="disabled"></td>
-                                                        <td><input type="checkbox" id="idchk" checked="checked" onclick="add()"></td>
-                                                    </tr>
-                                                </tbody>
-                                        </div>
-                                    </div>
-                                    </table>
-                                    <div class="col-md-12" id="edit" style="display: none">
-                                        <div class="box-footer">
-                                            <button type="button" class="btn btn-danger">Cancel</button>
-                                            <button type="button" class="btn btn-info pull-right">Save</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
+                                                <tbody id="additional_info_new_tbody">
 
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
             </section>
 
             <!-- /.content -->
-            </div>
-            <!-- /.content-wrapper -->
-            <!--success modal-->
-            <div class="modal modal-success fade" id="modal-success">
+            <!--address modal form-->
+            <div class="modal fade" id="modal-default-address">
                 <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span></button>
-                      <h4 class="modal-title">Saved!</h4>
-                      <p>successfully saved new customer.</p>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Address Form</h4>
+                        </div>
+                        <div class="modal-body">
+                            <!-- address form-->
+                            <!-- type select-->
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">Type</label>
+                                    <div class="col-sm-6">
+                                        <select id="select_address_type" class="form-control customer-type-select" style="width:100%">
+                                                <option selected="selected">choose address type</option>
+                                                <option value="Registered Address">Registered Address</option>
+                                                <option value="Office Address">Office Addess</option>
+                                                <option value="Mailing Address">Mailing Address</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">Address Line1</label>
+                                    <div class="col-sm-6">
+                                        <input id="address_line_one" class="form-control" placeholder="address line 1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">Address Line2</label>
+                                    <div class="col-sm-6">
+                                        <input id="address_line_two" class="form-control" placeholder="address line 2">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">District</label>
+                                    <div class="col-sm-6">
+                                        <input id="district" class="form-control" placeholder="district">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">Pin Code</label>
+                                    <div class="col-sm-6">
+                                        <input id="pin_code" class="form-control" placeholder="pin code">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">Country</label>
+                                    <div class="col-sm-6">
+                                        <input id="country" class="form-control" placeholder="country">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">Default</label>
+                                    <div class="col-sm-6">
+                                        <input type="radio" name='s_2_1_6_0' value='Yes' id="myRadio" onchange='SWESubmitForm(document.SWEForm2_0,s_4,"","1-DPWJJF")' style="height:20;width:25" tabindex=-1>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+                            <button id="save_new_address" type="button" class="btn btn-success" data-dismiss="modal">Save changes</button>
+                        </div>
                     </div>
-                  </div>
-                  <!-- /.modal-content -->
+                    <!-- /.modal-content -->
                 </div>
                 <!-- /.modal-dialog -->
             </div>
-            <!--dnger modal-->
-            <div class="modal modal-danger fade" id="modal-danger">
+            <!--legal modal form-->
+            <div class="modal fade" id="modal-default-legal">
                 <div class="modal-dialog">
-                  <div class="modal-content">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Legal Information Form</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">Type</label>
+                                    <div class="col-sm-6">
+                                        <select id="select_legal_type" class="form-control customer-type-select" style="width:100%">
+                                                <option selected="selected">choose legal type</option>
+                                                <option>PAN</option>
+                                                <option>TAN</option>
+                                                <option>CIN</option>
+                                                <option>GST</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">Number</label>
+                                    <div class="col-sm-6">
+                                        <input id="legal_number_new" class="form-control" placeholder="number">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+                            <button id="save_new_legal" type="button" class="btn btn-success" data-dismiss="modal">Save changes</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!--additional modal form-->
+            <div class="modal fade" id="modal-default-additional-info">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Additional Information Form</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">Type</label>
+                                    <div class="col-sm-6">
+                                        <input id="additional_new_type" class="form-control" placeholder="type">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">Number</label>
+                                    <div class="col-sm-6">
+                                        <input id="additional_new_number" class="form-control" placeholder="number">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+                            <button id="save_new_additional_info" type="button" class="btn btn-success" data-dismiss="modal">Save changes</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+        </div>
+        <!-- /.content-wrapper -->
+        <!--success modal-->
+        <div class="modal modal-success fade" id="modal-success">
+            <div class="modal-dialog">
+                <div class="modal-content">
                     <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span></button>
-                      <h4 class="modal-title">Warning!</h4>
+                        <h4 class="modal-title">Saved!</h4>
+                        <p>successfully saved new customer.</p>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!--dnger modal-->
+        <div class="modal modal-danger fade" id="modal-danger">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title">Warning!</h4>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Discard</button>
-                      <button type="button" class="btn btn-outline">Save changes</button>
+                        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Discard</button>
+                        <button type="button" class="btn btn-outline">Save changes</button>
                     </div>
-                  </div>
-                  <!-- /.modal-content -->
                 </div>
-                <!-- /.modal-dialog -->
+                <!-- /.modal-content -->
             </div>
-            <!-- Main Footer -->
-            <div id="qii_footer">
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- Main Footer -->
+        <div id="qii_footer">
 
-            </div>
-            <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark ">
-                <!-- Create the tabs -->
-                <ul class="nav nav-tabs nav-justified control-sidebar-tabs ">
-                    <li class="active "><a href="#control-sidebar-home-tab " data-toggle="tab "><i class="fa fa-home "></i></a></li>
-                    <li><a href="#control-sidebar-settings-tab " data-toggle="tab "><i class="fa fa-gears "></i></a></li>
-                </ul>
-                <!-- Tab panes -->
-                <div class="tab-content ">
-                    <!-- Home tab content -->
-                    <div class="tab-pane active " id="control-sidebar-home-tab ">
-                        <h3 class="control-sidebar-heading ">Recent Activity</h3>
-                        <ul class="control-sidebar-menu ">
-                            <li>
-                                <a href="javascript:; ">
-                                    <i class="menu-icon fa fa-birthday-cake bg-red "></i>
-                                    <div class="menu-info ">
-                                        <h4 class="control-sidebar-subheading ">Langdon's Birthday</h4>
-                                        <p>Will be 23 on April 24th</p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- /.control-sidebar-menu -->
-                        <h3 class="control-sidebar-heading ">Tasks Progress</h3>
-                        <ul class="control-sidebar-menu ">
-                            <li>
-                                <a href="javascript:; ">
-                                    <h4 class="control-sidebar-subheading ">
-                                        Custom Template Design
-                                        <span class="pull-right-container ">
+        </div>
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark ">
+            <!-- Create the tabs -->
+            <ul class="nav nav-tabs nav-justified control-sidebar-tabs ">
+                <li class="active "><a href="#control-sidebar-home-tab " data-toggle="tab "><i class="fa fa-home "></i></a></li>
+                <li><a href="#control-sidebar-settings-tab " data-toggle="tab "><i class="fa fa-gears "></i></a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content ">
+                <!-- Home tab content -->
+                <div class="tab-pane active " id="control-sidebar-home-tab ">
+                    <h3 class="control-sidebar-heading ">Recent Activity</h3>
+                    <ul class="control-sidebar-menu ">
+                        <li>
+                            <a href="javascript:; ">
+                                <i class="menu-icon fa fa-birthday-cake bg-red "></i>
+                                <div class="menu-info ">
+                                    <h4 class="control-sidebar-subheading ">Langdon's Birthday</h4>
+                                    <p>Will be 23 on April 24th</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
+                    <h3 class="control-sidebar-heading ">Tasks Progress</h3>
+                    <ul class="control-sidebar-menu ">
+                        <li>
+                            <a href="javascript:; ">
+                                <h4 class="control-sidebar-subheading ">
+                                    Custom Template Design
+                                    <span class="pull-right-container ">
                                         <span class="label label-danger pull-right ">70%</span>
-                                        </span>
-                                    </h4>
-                                    <div class="progress progress-xxs ">
-                                        <div class="progress-bar progress-bar-danger " style="width: 70% "></div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- /.control-sidebar-menu -->
+                                    </span>
+                                </h4>
+                                <div class="progress progress-xxs ">
+                                    <div class="progress-bar progress-bar-danger " style="width: 70% "></div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
 
-                    </div>
-                    <!-- /.tab-pane -->
-                    <!-- Stats tab content -->
-                    <div class="tab-pane " id="control-sidebar-stats-tab ">Stats Tab Content</div>
-                    <!-- /.tab-pane -->
-                    <!-- Settings tab content -->
-                    <div class="tab-pane " id="control-sidebar-settings-tab ">
-                        <form method="post ">
-                            <h3 class="control-sidebar-heading ">General Settings</h3>
-                            <div class="form-group ">
-                                <label class="control-sidebar-subheading ">
+                </div>
+                <!-- /.tab-pane -->
+                <!-- Stats tab content -->
+                <div class="tab-pane " id="control-sidebar-stats-tab ">Stats Tab Content</div>
+                <!-- /.tab-pane -->
+                <!-- Settings tab content -->
+                <div class="tab-pane " id="control-sidebar-settings-tab ">
+                    <form method="post ">
+                        <h3 class="control-sidebar-heading ">General Settings</h3>
+                        <div class="form-group ">
+                            <label class="control-sidebar-subheading ">
                                 Report panel usage
                                 <input type="checkbox " class="pull-right " checked>
                             </label>
-                                <p>
-                                    Some information about this general settings option
-                                </p>
-                            </div>
-                            <!-- /.form-group -->
-                        </form>
-                    </div>
-                    <!-- /.tab-pane -->
+                            <p>
+                                Some information about this general settings option
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+                    </form>
                 </div>
-            </aside>
-            <!-- /.control-sidebar -->
-            <!-- Add the sidebar's background. This div must be placed
+                <!-- /.tab-pane -->
+            </div>
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->
-            <div class="control-sidebar-bg "></div>
-        </div>
-        <!-- ./wrapper -->
+        <div class="control-sidebar-bg "></div>
+    </div>
+    <!-- ./wrapper -->
 
-        <!-- REQUIRED JS SCRIPTS -->
+    <!-- REQUIRED JS SCRIPTS -->
 
-        <!-- jQuery 3 -->
-        <script src="../../bower_components/jquery/dist/jquery.min.js "></script>
-        <!-- Bootstrap 3.3.7 -->
-        <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js "></script>
-        <!-- Datatable plugins
+    <!-- jQuery 3 -->
+    <script src="../../bower_components/jquery/dist/jquery.min.js "></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js "></script>
+    <!-- Datatable plugins
     <script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
      -->
-        <!-- Bootstrap-treeview js plugin-->
-        <script src="../../bower_components/bootstrap-treeview/src/js/bootstrap-treeview.js"></script>
+    <!-- Bootstrap-treeview js plugin-->
+    <script src="../../bower_components/bootstrap-treeview/src/js/bootstrap-treeview.js"></script>
 
-        <!-- AdminLTE App -->
-        <script src="../../dist/js/adminlte.min.js "></script>
-        <script src="../../components/footer/footer.js "></script>
-        <script src="../../components/header/header.js "></script>
-        <script src="../../components/sidenav/sidenav.js "></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js "></script>
+    <script src="../../components/footer/footer.js "></script>
+    <script src="../../components/header/header.js "></script>
+    <script src="../../components/sidenav/sidenav.js "></script>
 
-        <!-- Optionally, you can add Slimscroll and FastClick plugins.
+    <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
-        <script>
-            $("#qii_header ").qiiHeader();
-            $("#qii_sidenav ").qiiSidenav({
-                activeLinks: ['qii_menu_organization']
+    <script>
+        $("#qii_header ").qiiHeader();
+        $("#qii_sidenav ").qiiSidenav({
+            activeLinks: ['qii_menu_organization']
+        });
+        $("#qii_footer ").qiiFooter();
+
+        function editFields() {
+            $("#edit_form ").removeAttr("style");
+            $("#company_definition").hide(1000);
+            $("#new_customer_details").hide(1000);
+        }
+
+        function add() {
+            $("#edit").removeAttr("style");
+        }
+
+        function view() {
+            //when view is clicked we should be able to see 
+            // the selected level company level
+            //$("#company_hierarchy").on('nodeSelected', function(event, node){
+            //    var level = node.text;
+            //now set the level to organization level para
+            ////get the organization level and set value
+            //    $("#company_level").text(node.text);
+            //});
+            $("#company_definition").removeAttr("style");
+            $("#new_customer_details").removeAttr("style");
+            $("#hide").slideToggle('slow');
+            $("#edit_form").hide();
+        }
+
+        function saveChanges() {
+            $("#edit_form").hide();
+            $("#new_customer_details").show();
+            $("#company_definition").show();
+        }
+        $("#add_row").click(function() {
+            var type = '<td> <select class="customer-type-select form-control"> <option>Registered Address</option> <option>Mailling Address</option><option>Office Address</option></select> </td>';
+            var address = '<td><input class="form-control" type="text" placeholder="Type your address"> </td>';
+            var dfault = '<td><input type="checkbox"></td>';
+            var remove = '<td><button class="fa fa-minus"></button></td>'
+            var markup = "<tr>" + type + address + dfault + remove + "</tr>";
+            $("#address_table").append(markup);
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            //console.log(tree);
+            $("#company_hierarchy").treeview({
+                data: tree
             });
-            $("#qii_footer ").qiiFooter();
-
-            function editFields() {
-                $("#edit_form ").removeAttr("style");
-                $("#company_definition").hide(1000);
-                $("#company_demographics").hide(1000);
-            }
-
-            function add() {
-                $("#edit").removeAttr("style");
-            }
-
-            function view() {
-                //when view is clicked we should be able to see 
-                // the selected level company level
-                //$("#company_hierarchy").on('nodeSelected', function(event, node){
-                //    var level = node.text;
-                    //now set the level to organization level para
-                    ////get the organization level and set value
-                //    $("#company_level").text(node.text);
-                //});
-                $("#company_definition").removeAttr("style");
-                $("#company_demographics").removeAttr("style");
-                $("#hide").slideToggle('slow');
-                $("#edit_form").hide();
-            }
-
-            function saveChanges() {
-                $("#edit_form").hide();
-                $("#company_demographics").show();
-                $("#company_definition").show();
-            }
-            $(function() {
-                $("#address_table").DataTable();
-                $("#legal_table").DataTable()
+            $("#company_hierarchy").on('nodeSelected', function(event, node) {
+                console.log('node event ' + event);
+                console.log('node data ' + node.text);
+                $("#organization_level").text(node.text);
+                $("#edit_org_level").text(node.text);
+                var parent = $("#company_hierarchy").treeview('getParent', node);
+                console.log('selected node parent' + parent.text);
             });
-            $("#add_row").click(function() {
-                var type = '<td> <select class="customer-type-select form-control"> <option>Registered Address</option> <option>Mailling Address</option><option>Office Address</option></select> </td>';
-                var address = '<td><input class="form-control" type="text" placeholder="Type your address"> </td>';
-                var dfault = '<td><input type="checkbox"></td>';
-                var remove = '<td><button class="fa fa-minus"></button></td>'
-                var markup = "<tr>" + type + address + dfault + remove + "</tr>";
-                $("#address_table").append(markup);
-            });
-        </script>
-        <script>
-            $(document).ready(function() {
-                //console.log(tree);
-                $("#company_hierarchy").treeview({
-                    data: tree
-                });
-                $("#company_hierarchy").on('nodeSelected', function(event, node){
-                    console.log('node event ' + event);
-                    console.log('node data ' + node.text);
-                    $("#organization_level").text(node.text);
-                    $("#edit_org_level").text(node.text);
-                    var parent = $("#company_hierarchy").treeview('getParent', node);
-                    console.log('selected node parent' + parent.text);
-                });
 
 
-                //console.log(option);
-                $.each(option, function(i, data) {
-                    $(".select_option").append('<option>' + data.name + '</option>');
-                });
+            //console.log(option);
+            $.each(option, function(i, data) {
+                $(".select_option").append('<option>' + data.name + '</option>');
             });
-        </script>
-        <script type="text/javascript">
-            $(function() {
-                $("#idchk").change(function() {
-                    var st = this.checked;
-                    if (st) {
-                        $(".check").prop("enabled", true);
-                    } else {
-                        $(".check").prop("disabled", false);
-                    }
-                });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $("#idchk").change(function() {
+                var st = this.checked;
+                if (st) {
+                    $(".check").prop("enabled", true);
+                } else {
+                    $(".check").prop("disabled", false);
+                }
             });
-        </script>
+        });
+    </script>
+    <script>
+        $("#save_new_address").on("click", function() {
+            //get the inserted value by user
+            var addressType = $("#select_address_type").val();
+            var addressLine1 = $("#address_line_one").val();
+            var addressLine2 = $("#address_line_two").val();
+            var district = $("#district").val();
+            var country = $("#country").val();
+            var pinCode = $("#pin_code").val();
+            var yes_no = $("#myRadio").val();
+            //append a row to the table 
+            ////get the tbody using it's id
+            ////append a row to it with values
+            var address = addressLine1 + " " + addressLine2 + "," + district + "," + pinCode;
+            var markup = '<tr><td>' + addressType + '</td><td>' + address + '</td><td>' + yes_no + '</td></tr>';
+            $("#address_new_tbody").append(markup);
+        });
+        $("#save_new_legal").on("click", function() {
+            var legalType = $("#select_legal_type").val();
+            var number = $("#legal_number_new").val();
+            var markup = '<tr><td>' + legalType + '</td><td>' + number + '</td></tr>';
+            $("#legal_new_tbody").append(markup);
+        });
+        $("#save_new_additional_info").on("click", function() {
+            var type = $("#additional_new_type").val();
+            var number = $("#additional_new_number").val();
+            var markup = '<tr><td>' + type + '</td><td>' + number + '</td></tr>';
+            $("#additional_info_new_tbody").append(markup);
+        });
+    </script>
 </body>
 
 </html>
