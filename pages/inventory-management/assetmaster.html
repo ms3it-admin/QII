@@ -202,67 +202,74 @@ desired effect
                             <!-- form start -->
                             <div class="box-body">
                                 <form class="form-horizontal">
-                                    <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-3 control-label">Asset Name</label>
-
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="inputEmail3" placeholder="Type Asset Name">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-4 control-label">Asset Name</label>
+                
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="inputEmail3" placeholder="Type Asset Name">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-3 control-label">Asset Description</label>
-
-                                        <div class="col-sm-6">
-                                            <textarea rows="4" class="form-control" id="inputEmail3" placeholder="Type Asset Name"></textarea>
-
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-3 control-label">Procurement Date</label>
-
-                                        <div class="col-sm-6">
-                                            <div class="input-group date">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-calendar"></i>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Procurement Date</label>
+                                            <div class="col-sm-8">
+                                                <div class="input-group date">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </div>
+                                                    <input type="text" class="form-control pull-right" id="date_picker">
                                                 </div>
-                                                <input type="text" class="form-control pull-right" id="date_picker">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-3 control-label">Asset Code</label>
-
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="inputEmail3" placeholder="Type Asset Name">
-
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-4 control-label">Asset Code</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="inputEmail3" placeholder="Type Asset Code">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Asset Type</label>
+                                            <div class="col-sm-8">
+                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
+                                                    <option selected="selected">Choose Your Asset Type </option>
+                                                    <option>Machine</option>
+                                                    <option>Safety Equipment</option>
+                                                    <option>Utensils</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Asset Type</label>
-                                        <div class="col-sm-6">
-                                            <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                                            <option selected="selected">Choose Your Asset Type </option>
-                                                            <option>Machine</option>
-                                                            <option>Safety Equipment</option>
-                                                            <option>Utensils</option>
-                                                        </select>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-4 control-label">Store Location</label>
+                                            <div class="col-sm-8">
+                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
+                                                    <option selected="selected">Choose Your Store Location </option>
+                                                    <option>Site Location 1</option>
+                                                    <option>Site Location 2</option>
+                                                    <option>Site Location 3</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Store Location</label>
-                                        <div class="col-sm-6">
-                                            <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                                                <option selected="selected">Choose Your Store Location </option>
-                                                                <option>Site Location 1</option>
-                                                                <option>Site Location 2</option>
-                                                                <option>Site Location 3</option>
-                                                            </select>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label">Asset Description</label>
+                                            <div class="col-sm-10">
+                                                <textarea rows="3" class="form-control" id="inputEmail3" placeholder="Type Asset Description"></textarea>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="box-footer">
+                                    <!-- /.box-body -->
+                                    <div class="col-md-12">
+                                        <div class="box-footer">
                                             <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" onclick="hideAddAsset()">Save</button>
                                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" onclick="hideAddAsset()">Cancel</button>
+                                        </div>
                                     </div>
+                                    <!-- /.box-footer -->
                                 </form>
                             </div>
 
