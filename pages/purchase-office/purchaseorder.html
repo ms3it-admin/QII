@@ -79,7 +79,7 @@ desired effect
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Purchase Order 
+                    Purchase Order
                 </h1>
             </section>
             <!-- Main content -->
@@ -94,7 +94,7 @@ desired effect
                         <!-- general form elements -->
                         <div class="box box-primary box-solid">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Sites</h3>
+                                <h3 class="box-title"></h3>
                             </div>
                             <!-- /.box-header -->
                             <!-- form start -->
@@ -102,24 +102,30 @@ desired effect
                                 <form class="form-horizontal">
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Site</label>
+                                        <label class="col-sm-3 control-label">Search</label>
                                         <div class="col-sm-6">
-                                            <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                                <option selected="selected">Choose Your Site </option>
-                                                <option>Site 1</option>
-                                                <option>Site 2</option>
-                                                <option>Site 3</option>
-                                            </select>
+                                            <input id="select_address_Type" class="form-control" placeholder="Search Result">
+
                                         </div>
                                         <div>
                                             <button type="button" class="btn btn-success" onclick="ShowResult()">
                                                 <i class="fa fa-search"></i>
                                             </button>
+
+
+                                            <button id="address_input_button" type="button" class="btn btn-success" class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#modal-default-address">
+                                                <i class="fa fa-filter"></i>
+                                            </button>
+
+
+                                            <button id="address_input_button" type="button" class="btn btn-default" class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#modal-default">
+                                                Raised PO
+                                            </button>
                                         </div>
                                     </div>
 
                                     <!-- /.box-body -->
-                                   <!-- <div class="box-footer">
+                                    <!-- <div class="box-footer">
                                         <button type="button" class="btn btn-default" onclick="ShowResult()">Search</button>
                                     </div>-->
                                     <!-- /.box-footer -->
@@ -129,12 +135,123 @@ desired effect
                         <!-- /.box -->
                     </div>
                 </div>
+                <div class="modal fade" id="modal-default-address">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                                <h4 class="modal-title">Filter Search</h4>
+                            </div>
+                            <div class="modal-body">
+                                <!-- address form-->
+                                <!-- type select-->
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">PO No</label>
+                                        <div class="col-sm-6">
+                                            <input id="select_address_Type" class="form-control" placeholder="PO No">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Site</label>
+                                        <div class="col-sm-6">
+                                            <select id="select_address_type" class="form-control customer-type-select" style="width:100%">
+                                                <option selected="selected">-:choose Site:-</option>
+                                                <option value="Site 1">Site 1</option>
+                                                <option value="Site 2">Site 2</option>
+                                                <option value="Site 3">Site 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Vendor</label>
+                                        <div class="col-sm-6">
+                                            <select id="select_vendor" class="form-control customer-type-select" style="width:100%">
+                                                <option selected="selected">-:choose Vendor:-</option>
+                                                <option value="Vendor 1">Vendor 1</option>
+                                                <option value="Vendor 2">Vendor 2</option>
+                                                <option value="Vendor 3">Vendor 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Item Code</label>
+                                        <div class="col-sm-6">
+                                            <input id="district" class="form-control" placeholder="Item Code">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+                                <button id="save_new_address" type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <div class="modal fade" id="modal-default">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                                <h4 class="modal-title">New PO</h4>
+                            </div>
+                            <div class="modal-body">
+                                <!-- address form-->
+                                <!-- type select-->
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Vendor for PO</label>
+                                        <div class="col-sm-6">
+                                            <select id="select_address_type" class="form-control customer-type-select" style="width:100%">
+                                                <option selected="selected">-:choose Vendor:-</option>
+                                                <option value="Site 1">Vendor 1</option>
+                                                <option value="Site 2">Vendor 2</option>
+                                                <option value="Site 3">Vendor 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Item for the PO</label>
+                                        <div class="col-sm-3">
+                                            <input id="district" class="form-control" placeholder="Item Name">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <select id="select_vendor" class="form-control customer-type-select" style="width:100%">
+                                                <option selected="selected">-:choose Unit:-</option>
+                                                <option value="Vendor 1">sqft</option>
+                                                <option value="Vendor 2">Bags</option>
+                                                <option value="Vendor 3">Kg</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Item Name</label>
+                                        <div class="col-sm-6">
+                                            <input id="district" class="form-control" placeholder="Item Code">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+                                <button id="save_new_address" type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
                 <div class="row" id="search_result" style="display:none;">
                     <div class="col-md-12">
                         <!-- general form elements -->
                         <div class="box box-success box-solid">
                             <div class="box-header with-border">
-                                <h3 class="box-title">XXXXXXXXXXX</h3>
+                                <h3 class="box-title">Search Result</h3>
                                 <div class="box-tools pull-right">
 
                                 </div>
@@ -159,13 +276,17 @@ desired effect
                                                         <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Unit Required By</th>
                                                         <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Needed By</th>
                                                         <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Vendor">Vendor</th>
-                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Vendor"></th>
+                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Vendor">Status</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr role="row" class="odd">
-                                                        <td><p>POnumber0001</p></td>
-                                                        <td><p>Sand For Dhalai</p></td>
+                                                        <td>
+                                                            <p>POnumber0001</p>
+                                                        </td>
+                                                        <td>
+                                                            <p>Sand For Dhalai</p>
+                                                        </td>
                                                         <td>
                                                             <p id="material_code1" style="width:100%">sand</p>
                                                         </td>
@@ -179,13 +300,18 @@ desired effect
                                                             <p>Vendor 0001</p>
                                                         </td>
                                                         <td>
-                                                            <button type="submit" class="btn btn-info">
-                                                                <i class="fa fa-check"></i>
-                                                            </button>
+                                                            <select style="width:100%">
+                                                                <option>-:Status:-</option>
+                                                                <option>Approve</option>
+                                                                <option>Send Back</option>
+                                                                <option>Reject</option>
+                                                    </select>
                                                         </td>
                                                     </tr>
                                                     <tr role="row" class="even">
-                                                        <td><p>POnumber0002</p></td>
+                                                        <td>
+                                                            <p>POnumber0002</p>
+                                                        </td>
                                                         <td>Cement</td>
                                                         <td>
                                                             <p id="material_code2" style="width:100%">cement</p>
@@ -200,13 +326,18 @@ desired effect
                                                             <p>Vendor 0002</p>
                                                         </td>
                                                         <td>
-                                                            <button type="submit" class="btn btn-info">
-                                                                <i class="fa fa-check"></i>
-                                                            </button>
+                                                            <select style="width:100%">
+                                                                <option>-:Status:-</option>
+                                                                <option>Approve</option>
+                                                                <option>Send Back</option>
+                                                                <option>Reject</option>
+                                                    </select>
                                                         </td>
                                                     </tr>
                                                     <tr role="row" class="odd">
-                                                        <td><p>POnumber0003</p></td>
+                                                        <td>
+                                                            <p>POnumber0003</p>
+                                                        </td>
                                                         <td>Iron rod</td>
                                                         <td>
                                                             <p id="material_code2" style="width:100%">ironrod</p>
@@ -221,9 +352,12 @@ desired effect
                                                             <p>Vendor 0003</p>
                                                         </td>
                                                         <td>
-                                                            <button type="submit" class="btn btn-info">
-                                                                <i class="fa fa-check"></i>
-                                                            </button>
+                                                            <select style="width:100%">
+                                                                <option>-:Status:-</option>
+                                                                <option>Approve</option>
+                                                                <option>Send Back</option>
+                                                                <option>Reject</option>
+                                                    </select>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -232,7 +366,7 @@ desired effect
                                     </div>
 
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -365,6 +499,25 @@ desired effect
             $(function() {
                 $("#address_table").DataTable();
             })
+        </script>
+        <script>
+            $("#save_new_address").on("click", function() {
+                //get the inserted value by user
+                var addressType = $("#select_address_type").val();
+                var addressLine1 = $("#address_line_one").val();
+                var addressLine2 = $("#address_line_two").val();
+                var district = $("#district").val();
+                var country = $("#country").val();
+                var pinCode = $("#pin_code").val();
+                var choice = $('input[name=choice]:checked').val();
+                console.log(choice);
+                //append a row to the table 
+                ////get the tbody using it's id
+                ////append a row to it with values
+                var address = addressLine1 + " " + addressLine2 + "," + district + "," + pinCode;
+                var markup = '<tr><td>' + addressType + '</td><td>' + address + '</td><td>' + choice + '</td></tr>';
+                $("#address_new_tbody").append(markup);
+            });
         </script>
 </body>
 
