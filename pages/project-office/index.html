@@ -113,7 +113,7 @@
                                     <div class="col-md-12">
                                         <div class="box-footer">
                                                 <button type="button" class="btn btn-info pull-right" onclick="create_new()">Add Customer</button>
-                                                <button type="button" class="btn btn-default" onclick="ShowResult()">Search</button>
+                                                <button type="button" class="btn btn-default" id="show_result">Search</button>
                                         </div>
                                     </div>
                                     <!-- /.box-footer -->
@@ -836,10 +836,6 @@
 
         $("#qii_footer").qiiFooter();
 
-        function ShowResult() {
-            $("#search_result").css("display", "block");
-        }
-
         function edit_customer() {
             $("#search_result_boxbody").slideToggle('slow');
             $("#edit_customer").removeAttr("style");
@@ -861,6 +857,17 @@
                $("#new_customer").show();
            }
         }
+        //customer search action --function
+        $("#show_result").on("click", function(){
+            //if the add new customer form is open make it 
+            //hide
+            if($("#new_customer").css("display") === "block"){
+                $("#new_customer").css("display", "none");
+                $("#search_result").css("display", "block");
+            }else{
+                $("#search_result").css("display", "block");
+            }
+        });
         //save a new customer action -- function
          $("#save_customer").on("click", function(){
             $("#new_customer").slideUp();
