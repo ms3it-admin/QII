@@ -45,8 +45,8 @@ var tree = [{
             }
         ]
 
-    }
-    /*{
+    },
+    {
         text: "company2",
         color: "#3836bc",
         href: "",
@@ -69,5 +69,5 @@ var tree = [{
                 }]
             }]
         }]
-    }*/
+    }
 ];
