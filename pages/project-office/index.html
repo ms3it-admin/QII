@@ -173,7 +173,7 @@
                                     <!-- /.box-body -->
                                     <div class="col-md-12">
                                         <div class="box-footer">
-                                            <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" onclick="save_customer()">Save</button>
+                                            <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" id="save_customer">Save</button>
                                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">Cancel</button>
                                         </div>
                                     </div>
@@ -861,13 +861,25 @@
                $("#new_customer").show();
            }
         }
-        function save_customer() {
+        //save a new customer action -- function
+         $("#save_customer").on("click", function(){
             $("#new_customer").slideUp();
+            setTimeout(
+                function(){
+                    $("#modal-success").modal('hide')
+                },2000
+            );
             $("#new_customer_details").show();
-        }
+        });
+        //save newly added customer's detail action -- function
         $("#save_details").on("click", function(){
             //hide the new_customer's details div
             $("#new_customer_details").hide();
+            setTimeout(
+                function() {
+                    $("#modal-success2").modal('hide')
+                },2000
+            );
         });
     </script>
     <script>
