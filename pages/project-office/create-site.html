@@ -190,7 +190,7 @@
                                                         placeholder="Type Area" value="Earth Excavation">
                                                 </div>
                                                 <div class="col-sm-3">
-                                                <button type="button" class="btn btn-info pull-right" id="add_field">
+                                                <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-new-field" id="add_field">
                                                     <i class="fa fa-plus"></i>
                                                 </button>
                                             </div>
@@ -276,6 +276,40 @@
                 </div>
             </section>
             <!-- /.content -->
+            <!-- add new field to site design-->
+            <div class="modal fade" id="modal-new-field">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                      <h4 class="modal-title">Additional Template Field Form</h4>
+                    </div>
+                    <div class="modal-body">
+                      <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Template Field No.</label>
+                            <div class="col-sm-6">
+                                <input id="template_field_no" class="form-control" placeholder="Field No.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Field Name</label>
+                            <div class="col-sm-6">
+                                <input id="template_field_name" class="form-control" placeholder="Field Name">
+                            </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+                      <button id="save_new_field" type="button" class="btn btn-success" data-dismiss="modal">Save changes</button>
+                    </div>
+                  </div>
+                  <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
         </div>
         <!-- /.content-wrapper -->
 
@@ -405,8 +439,17 @@
     <script>
         ////////////////////////////////////////
         $("#add_field").on("click", function(){
-            $("#other_details").append('<div class="form-group"><label class="col-sm-3 control-label">Template Field5</label>'+ 
-                                        '<div class="col-sm-6"><input type="text" class="form-control"></div>'+'</div>');
+            //open a modal form to add filed 
+        });
+        $("#save_new_field").on("click", function(){
+            var fieldno = $("#template_field_no").val();
+            var fieldname = $("#template_field_name").val();
+            //append a form-group to the box-body
+            //get the box-body using it's id
+            var boxbody = $("#other_details");
+            var formlabel = "Template Field" + fieldno;
+            var markup = '<div class="form-group"><label class="col-sm-3 control-label">'+ formlabel +'</label><div class="col-sm-6"><p>'+ fieldname +'</p></div></div>';
+            boxbody.append(markup);
         });
     </script>
     <script>
