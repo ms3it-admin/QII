@@ -112,7 +112,7 @@ desired effect
                                 <div class="col-md-12">
                                     <div class="box-footer">
                                         <button type="button" class="btn btn-default btn1" onclick="view()">View</button>
-                                        <button type="button" class="btn btn-info pull-right" onclick="editFields()">Add Company</button>
+                                        <button type="button" class="btn btn-info pull-right" onclick="editFields()">Add New</button>
                                     </div>
                                 </div>
 
@@ -402,9 +402,9 @@ desired effect
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-3">Default</label>
-                                    <div class="col-sm-6">
-                                        <input type="radio" name='s_2_1_6_0' value='Yes' id="myRadio" onchange='SWESubmitForm(document.SWEForm2_0,s_4,"","1-DPWJJF")' style="height:20;width:25" tabindex=-1>
-
+                                    <div class="col-sm-9">
+                                        <input type="radio" name="choice" id="default_yes" value="Yes">Yes&nbsp;
+                                        <input type="radio" name="choice" id="deault_no" value="No" checked>No
                                     </div>
                                 </div>
                             </form>
@@ -694,18 +694,7 @@ desired effect
             });
         });
     </script>
-    <script type="text/javascript">
-        $(function() {
-            $("#idchk").change(function() {
-                var st = this.checked;
-                if (st) {
-                    $(".check").prop("enabled", true);
-                } else {
-                    $(".check").prop("disabled", false);
-                }
-            });
-        });
-    </script>
+
     <script>
         $("#save_new_address").on("click", function() {
             //get the inserted value by user
@@ -715,12 +704,13 @@ desired effect
             var district = $("#district").val();
             var country = $("#country").val();
             var pinCode = $("#pin_code").val();
-            var yes_no = $("#myRadio").val();
+            var choice = $('input[name=choice]:checked').val();
+            console.log(choice);
             //append a row to the table 
             ////get the tbody using it's id
             ////append a row to it with values
             var address = addressLine1 + " " + addressLine2 + "," + district + "," + pinCode;
-            var markup = '<tr><td>' + addressType + '</td><td>' + address + '</td><td>' + yes_no + '</td></tr>';
+            var markup = '<tr><td>' + addressType + '</td><td>' + address + '</td><td>' + choice + '</td></tr>';
             $("#address_new_tbody").append(markup);
         });
         $("#save_new_legal").on("click", function() {
