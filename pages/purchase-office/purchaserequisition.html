@@ -115,7 +115,7 @@ desired effect
 
                                     <!-- /.box-body -->
                                     <div class="box-footer">
-                                        <button id="address_input_button" type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-default"> New Requisition </button>
+                                        <button id="address_input_button" type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-default" onclick="new_requisition()"> New Requisition </button>
                                         <button type="button" class="btn btn-default" onclick="ShowResult()">Search</button>
                                     </div>
                                     <!-- /.box-footer -->
@@ -440,12 +440,12 @@ desired effect
         }
         $(document).ready(function() {
             $("#date_picker").datepicker();
-            for(i=0; i<site.length; i++) {
-              $("#purchaserequisition_site").append("<option>"+site[i]['name']+"</option>");
-              $("#select_address_type").append("<option>"+site[i]['name']+"</option>");
+            for (i = 0; i < site.length; i++) {
+                $("#purchaserequisition_site").append("<option>" + site[i]['name'] + "</option>");
+                $("#select_address_type").append("<option>" + site[i]['name'] + "</option>");
             }
-            for(j=0; j<material.length; j++) {
-                $("#select_material").append("<option>"+material[j]['name']+"</option>");
+            for (j = 0; j < material.length; j++) {
+                $("#select_material").append("<option>" + material[j]['name'] + "</option>");
             }
         });
         $(function() {
@@ -489,6 +489,9 @@ desired effect
                 $("#select_material").append("<option>"+material[j]['name']+"</option>");
             }
         }*/
+        function new_requisition() {
+            $("#search_result").hide(1000);
+        }
     </script>
 </body>
 
