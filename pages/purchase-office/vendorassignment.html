@@ -36,6 +36,7 @@
     <script src="../../config/footer-config.js"></script>
     <script src="../../config/header-config.js"></script>
     <script src="../../config/sidenav-config.js"></script>
+    <script src="../../config/site_name.js"></script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -78,11 +79,8 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Site</label>
                                         <div class="col-sm-6">
-                                            <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                                <option selected="selected">Choose Your Site </option>
-                                                <option>Site 1</option>
-                                                <option>Site 2</option>
-                                                <option>Site 3</option>
+                                            <select id="assignvendor_site" class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
+                                            
                                             </select>
                                         </div>
                                         <div>
@@ -138,11 +136,8 @@
                                                         <td>Cement</td>
                                                         <td>11/05/2019</td>
                                                         <td>
-                                                            <select style="width:100%">
-                                                                    <option>Select Vendor</option>
-                                                                    <option>Vendor 1</option>
-                                                                    <option>Vendor 2</option>
-                                                                    <option>Vendor 3</option>
+                                                            <select style="width:100%" id="vendors1">
+                                                                    
                                                                 </select>
                                                         </td>
                                                     </tr>
@@ -152,11 +147,8 @@
                                                         <td>Sand</td>
                                                         <td>16/05/2019</td>
                                                         <td>
-                                                            <select style="width:100%">
-                                                                    <option>Select Vendor</option>
-                                                                    <option>Vendor 1</option>
-                                                                    <option>Vendor 2</option>
-                                                                    <option>Vendor 3</option>
+                                                            <select style="width:100%" id="vendors2">
+                                                                    
                                                                 </select>
                                                         </td>
                                                     </tr>
@@ -166,11 +158,8 @@
                                                         <td>Spad</td>
                                                         <td>07/06/2019</td>
                                                         <td>
-                                                            <select style="width:100%">
-                                                                    <option>Select Vendor</option>
-                                                                    <option>Vendor 1</option>
-                                                                    <option>Vendor 2</option>
-                                                                    <option>Vendor 3</option>
+                                                            <select style="width:100%" id="vendors3">
+                                                                   
                                                                 </select>
                                                         </td>
                                                     </tr>
@@ -328,6 +317,7 @@
         <!--Date picker-->
         <script src="../../bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js "></script>
         <script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js "></script>
+        <script src="../../config/vendor_names.js"></script>
         <!-- Optionally, you can add Slimscroll and FastClick plugins.
         Both of these plugins are recommended to enhance the
         user experience. -->
@@ -352,6 +342,16 @@
         }
         $(function() {
             $("#address_table").DataTable();
+            for(i=0; i<site.length; i++) {
+                $("#assignvendor_site").append("<option>"+site[i]['name']+"</option>");
+            }
+            for(i=0;i<vendoe.length;i++)
+            {
+                $("#vendors1").append("<option>"+vendoe[i]['name']+"</option>");
+                $("#vendors2").append("<option>"+vendoe[i]['name']+"</option>");
+                $("#vendors3").append("<option>"+vendoe[i]['name']+"</option>");
+            }
         });
+
     </script>
 </html>
