@@ -40,6 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="../../config/footer-config.js"></script>
     <script src="../../config/header-config.js"></script>
     <script src="../../config/sidenav-config.js"></script>
+    <script src="../../config/site_name.js"></script>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -105,12 +106,9 @@ desired effect
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Site</label>
                                         <div class="col-sm-6">
-                                            <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                      <option selected="selected">Choose Your Site </option>
-                                      <option>Site 1</option>
-                                      <option>Site 2</option>
-                                      <option>Site 3</option>
-                                  </select>
+                                            <select class="customer-type-select form-control" id="purchaserequisition_site" style="width: 100%;" name="CustomerType" tabindex="-1">
+                                      
+                                            </select>
                                         </div>
                                     </div>
 
@@ -271,7 +269,7 @@ desired effect
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-3">Unit Required</label>
+                                        <label class="control-label col-sm-3">Needed By</label>
                                         <div class="col-sm-6">
                                             <input type="date" id="district" class="form-control">
                                         </div>
@@ -447,6 +445,9 @@ desired effect
         }
         $(document).ready(function() {
             $("#date_picker").datepicker();
+            for(i=0; i<site.length; i++) {
+              $("#purchaserequisition_site").append("<option>"+site[i]['name']+"</option>");
+            }
         });
         $(function() {
             $("#address_table").DataTable();
