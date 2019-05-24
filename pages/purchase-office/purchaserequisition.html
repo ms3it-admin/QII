@@ -41,6 +41,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="../../config/header-config.js"></script>
     <script src="../../config/sidenav-config.js"></script>
     <script src="../../config/site_name.js"></script>
+    <script src="../../config/material_name.js"></script>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -144,7 +145,7 @@ desired effect
                                         <div class="col-sm-6"></div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-12 table-responsive">
                                             <table id="address_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
@@ -236,22 +237,16 @@ desired effect
                                         <label class="control-label col-sm-3">Site</label>
                                         <div class="col-sm-6">
                                             <select id="select_address_type" class="form-control customer-type-select" style="width:100%">
-                                                    <option selected="selected">-:choose Site:-</option>
-                                                    <option value="Site 1">Site 1</option>
-                                                    <option value="Site 2">Site 2</option>
-                                                    <option value="Site 3">Site 3</option>
-                                                </select>
+                                                    
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-sm-3">Material</label>
                                         <div class="col-sm-6">
-                                            <select id="select_vendor" class="form-control customer-type-select" style="width:100%">
-                                                    <option selected="selected">-:choose Material:-</option>
-                                                    <option value="Material 1">Sand</option>
-                                                    <option value="Material 2">Iron Rod</option>
-                                                    <option value="Material 3">Cement</option>
-                                                </select>
+                                            <select id="select_material" class="form-control customer-type-select" style="width:100%">
+                                                
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -447,6 +442,10 @@ desired effect
             $("#date_picker").datepicker();
             for(i=0; i<site.length; i++) {
               $("#purchaserequisition_site").append("<option>"+site[i]['name']+"</option>");
+              $("#select_address_type").append("<option>"+site[i]['name']+"</option>");
+            }
+            for(j=0; j<material.length; j++) {
+                $("#select_material").append("<option>"+material[j]['name']+"</option>");
             }
         });
         $(function() {
@@ -485,6 +484,11 @@ desired effect
                 }, 2000
             );
         });
+        /*function loadJson() {
+            for(j=0; j<material.length; j++) {
+                $("#select_material").append("<option>"+material[j]['name']+"</option>");
+            }
+        }*/
     </script>
 </body>
 
