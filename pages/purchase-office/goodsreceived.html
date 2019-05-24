@@ -106,23 +106,16 @@ desired effect
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Site</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                      <option selected="selected">Choose Your Site </option>
-                                      <option>Site 1</option>
-                                      <option>Site 2</option>
-                                      <option>All</option>
+                                                <select id="sites" class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
+                                      
                                   </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Active PO#</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                        <option selected="selected">Choose Active PO#</option>
-                                        <option>PO0001</option>
-                                        <option>PO0002</option>
-                                        <option>All</option>
-                                       
+                                                <select id="activepo" class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
+                                      
                                     </select>
                                             </div>
                                         </div>
@@ -131,11 +124,7 @@ desired effect
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Vendor</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                            <option selected="selected">Choose Your Vendor</option>
-                                            <option>PO0001</option>
-                                            <option>PO0002</option>
-                                            <option>All</option>
+                                                <select id="vendors" class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
                                            
                                         </select>
                                             </div>
@@ -257,9 +246,7 @@ desired effect
                                         <td>
                                             <input type="text" list="storelist">
                                             <datalist id="storelist">
-                                                <option>store 1 </option>
-                                                <option>store 2 </option>
-                                                <option>store 3 </option>
+                                               
                                             </datalist>
                                         </td>
                                     </tr>
@@ -463,5 +450,29 @@ desired effect
                
             }
         </script>
+         <script src="../../config/site_name.js"></script>
+         <script src="../../config/pono.js"></script>
+         <script src="../../config/vendor_names.js"></script>
+         <script src="../../config/storeloc.js"></script>
+         <script>
+             for(i=0;i<site.length;i++)
+             {
+                 $("#sites").append("<option>"+site[i]['name']+"</option>");
+             }
+             
+             for(i=0;i<pon.length;i++)
+             {
+                 $("#activepo").append("<option>"+pon[i]['name']+"</option>");
+             }
+             for(i=0;i<vendoe.length;i++)
+            {
+                $("#vendors").append("<option>"+vendoe[i]['name']+"</option>");
+            }
+            
+            for(i=0;i<store.length;i++)
+            {
+                $("#storelist").append("<option>"+store[i]['name']+"</option>");
+            }
+         </script>
 </body>
 </html>

@@ -104,11 +104,8 @@ desired effect
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Site</label>
                                         <div class="col-sm-6">
-                                            <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                                <option selected="selected">Choose Your Site </option>
-                                                <option>Site 1</option>
-                                                <option>Site 2</option>
-                                                <option>Site 3</option>
+                                            <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1" id="cys">
+                                               
                                             </select>
 
                                         </div>
@@ -213,10 +210,7 @@ desired effect
                                         <label class="control-label col-sm-3">PO Number</label>
                                         <div class="col-sm-6">
                                             <select id="po_number" class="form-control customer-type-select" style="width:100%" onchange="Show(this.value)">
-                                                <option selected="selected">choose PO NO</option>
-                                                <option value="PR001">PR001</option>
-                                                <option value="PR002" >PR002</option>
-                                                <option value="PR003" >PR003</option>
+                                               
                                             </select>
                                         </div>
                                     </div>
@@ -557,6 +551,19 @@ desired effect
                 var markup = '<tr><td>' + prno + '</td><td>' + Material + '</td><td>' + Unit + '</td><td>' + Need + '</td></tr>';
                 $("#result").append(markup);
             });
+        </script>
+        <script src="../../config/site_name.js"></script>
+        <script src="../../config/pono.js"></script>
+        <script>
+            for(i=0;i<site.length;i++)
+            {
+                $("#cys").append("<option>"+site[i]['name']+"</option>");
+            }
+            
+            for(i=0;i<pon.length;i++)
+            {
+                $("#po_number").append("<option>"+pon[i]['name']+"</option>");
+            }
         </script>
 </body>
 

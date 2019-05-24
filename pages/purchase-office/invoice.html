@@ -110,24 +110,18 @@ desired effect
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Site</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                      <option selected="selected">Choose Your Site </option>
-                                      <option>Site 1</option>
-                                      <option>Site 2</option>
-                                      <option>All</option>
-                                  </select>
+                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1" id="sites">
+                                     
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Active PO#</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                        <option selected="selected">Choose Active PO#</option>
-                                        <option>PO0001</option>
-                                        <option>PO0002</option>
-                                        <option>All</option>
+                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1" id="activepo">
+                                        
                                        
-                                    </select>
+                                                 </select>
                                             </div>
                                         </div>
                                     </div>
@@ -135,11 +129,8 @@ desired effect
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Vendor</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                            <option selected="selected">Choose Your Vendor</option>
-                                            <option>PO0001</option>
-                                            <option>PO0002</option>
-                                            <option>All</option>
+                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1" id="vendors">
+                                            
                                            
                                         </select>
                                             </div>
@@ -172,15 +163,16 @@ desired effect
                             <!-- form start -->
 
                             <div class="box-body">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12 table-responsive">
                                     <table id="invoice" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                         <thead>
                                             <tr role="row">
                                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Invoice</th>
                                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Invoice Date</th>
                                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">PO#</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Vendor</th>
                                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Amount</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code"></th>
+                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Invoice</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -192,7 +184,7 @@ desired effect
                                                 <td>PO00001</td>
                                                 <td>Vendor 1</td>
                                                 <td>Rs 2,00,000/-</td>
-                                                <td><a href="pdf.html" target="_blank"><i class="btn btn-success btn-lg fa fa-search"></i></a></td>
+                                                <td><a href="pdf.html" target="_blank" class="btn btn-primary btn-sm"><i class=" fa fa-file"></i> invoice_001.pdf</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -320,6 +312,24 @@ desired effect
                 $("#invoice").DataTable();
             });
         </script>
+          <script src="../../config/site_name.js"></script>
+          <script src="../../config/pono.js"></script>
+          <script src="../../config/vendor_names.js"></script>
+            <script>
+                for(i=0;i<site.length;i++)
+                {
+                    $("#sites").append("<option>"+site[i]['name']+"</option>");
+                }
+                
+                for(i=0;i<pon.length;i++)
+                {
+                    $("#activepo").append("<option>"+pon[i]['name']+"</option>");
+                }
+                for(i=0;i<vendoe.length;i++)
+               {
+                   $("#vendors").append("<option>"+vendoe[i]['name']+"</option>");
+               }
+            </script>
 </body>
 
 </html>
