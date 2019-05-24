@@ -1,5 +1,9 @@
 var site = [
     {
+        id:"0",
+        name:"Select Site Template"
+    },
+    {
         id:"1",
         name:"Shopping Complex"
     },
