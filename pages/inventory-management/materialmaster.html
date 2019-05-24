@@ -40,6 +40,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="../../config/footer-config.js"></script>
     <script src="../../config/sidenav-config.js"></script>
     <script src="../../config/header-config.js"></script>
+    <script src="../../config/materialmaster.js"></script>
+    <script src="../../config/unittype.js"></script>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -111,17 +113,13 @@ desired effect
                                             <label for="inputEmail3" class="col-sm-4 control-label">Material Name</label>
 
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="inputEmail3" placeholder="Type Asset Name">
+                                                <input type="text" class="form-control" id="inputEmail3" placeholder="Type Material Name">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Material Code</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                                    <option selected="selected">Choose Asset Code</option>
-                                                    <option></option>
-                                                    <option></option>
-                                                    <option></option>
+                                                <select id="material_code" class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
                                                 </select>
                                             </div>
                                         </div>
@@ -131,7 +129,7 @@ desired effect
                                             <label for="inputEmail3" class="col-sm-4 control-label">Material Description</label>
 
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="inputEmail3" placeholder="Type Asset Description">
+                                                <input type="text" class="form-control" id="inputEmail3" placeholder="Type Material Description">
                                             </div>
                                         </div>
                                     </div>
@@ -162,7 +160,7 @@ desired effect
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body" id="search_result_boxbody">
-                
+
                                 <div class="col-sm-12 table-responsive">
                                     <table id="address_table" class="table table-bordered table-striped table-hover dataTable" role="grid" aria-describedby="example1_info">
                                         <thead>
@@ -174,7 +172,7 @@ desired effect
                                         </thead>
                                         <tbody>
                                             <tr role="row" class="odd">
-                
+
                                                 <td>Sand</td>
                                                 <td>MAT001</td>
                                                 <td>Xyz</td>
@@ -194,7 +192,7 @@ desired effect
                             <div class="box-header with-border">
                                 <h3 class="box-title">Material Definition>>Add Material</h3>
                                 <div class="box-tools pull-right">
-                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
                                             class="fa fa-minus"></i>
                                         </button>
                                 </div>
@@ -202,240 +200,252 @@ desired effect
                             <!-- /.box-header -->
                             <!-- form start -->
                             <div class="box-body">
-                                    <form class="form-horizontal">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="inputEmail3" class="col-sm-4 control-label">Material Name</label>
-                    
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Type Material Name">
-                                                </div>
+                                <form class="form-horizontal">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-4 control-label">Material Name</label>
+
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="inputEmail3" placeholder="Type Material Name">
                                             </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-4 control-label">Material Type</label>
-                                                <div class="col-sm-8">
-                                                    <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                                        <option selected="selected">Choose Material Type </option>
-                                                        <option>Concrete</option>
-                                                        <option>Plumbing</option>
-                                                        <option>Road</option>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Material Type</label>
+                                            <div class="col-sm-8">
+                                                <select id="material_type" class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
+                                                    
                                                     </select>
-                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="inputEmail3" class="col-sm-4 control-label">Material Code</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Type Material Code">
-                                                </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-4 control-label">Material Code</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="inputEmail3" placeholder="Type Material Code">
                                             </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-4 control-label">Unit Type</label>
-                                                <div class="col-sm-8">
-                                                    <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                                        <option selected="selected">Choose Unit Type </option>
-                                                        <option>sqft</option>
-                                                        <option>kg</option>
-                                                        <option>bags</option>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Unit Type</label>
+                                            <div class="col-sm-8">
+                                                <select id="unit_type" class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
+                                                        
                                                     </select>
-                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="inputEmail3" class="col-sm-2 control-label">Material Description</label>
-                                                <div class="col-sm-10">
-                                                    <textarea rows="3" class="form-control" id="inputEmail3" placeholder="Type Material Name"></textarea>
-                                                </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label">Material Description</label>
+                                            <div class="col-sm-10">
+                                                <textarea rows="3" class="form-control" id="inputEmail3" placeholder="Type Material Name"></textarea>
                                             </div>
                                         </div>
-                                        <!-- /.box-body -->
-                                        <div class="col-md-12">
-                                            <div class="box-footer">
-                                                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" onclick="hideAddMaterial()">Save</button>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" onclick="hideAddMaterial()">Cancel</button>
-                                            </div>
+                                    </div>
+                                    <!-- /.box-body -->
+                                    <div class="col-md-12">
+                                        <div class="box-footer">
+                                            <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" onclick="hideAddMaterial()">Save</button>
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" onclick="hideAddMaterial()">Cancel</button>
                                         </div>
-                                        <!-- /.box-footer -->
-                                    </form>
-                                </div>
+                                    </div>
+                                    <!-- /.box-footer -->
+                                </form>
+                            </div>
                         </div>
 
                     </div>
                 </div>
-                    <!--success modal-->
-                    <div class="modal modal-success fade" id="modal-success" style="display: none;">
-                        <div class="modal-dialog">
+                <!--success modal-->
+                <div class="modal modal-success fade" id="modal-success" style="display: none;">
+                    <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span></button>
-                            <h4 class="modal-title">Saved!</h4>
-                            <p>successfully saved new material.</p>
+                                <h4 class="modal-title">Saved!</h4>
+                                <p>successfully saved new material.</p>
                             </div>
                         </div>
                         <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
                     </div>
-                    <!--danger modal-->
-                    <div class="modal modal-danger fade" id="modal-danger">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
+                    <!-- /.modal-dialog -->
+                </div>
+                <!--danger modal-->
+                <div class="modal modal-danger fade" id="modal-danger">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span></button>
                                 <h4 class="modal-title">Warning Modal</h4>
-                                </div>
-                                <div class="modal-body">
+                            </div>
+                            <div class="modal-body">
                                 <p>One fine body…</p>
-                                </div>
-                                <div class="modal-footer">
+                            </div>
+                            <div class="modal-footer">
                                 <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
                                 <button type="button" class="btn btn-outline">Save changes</button>
-                                </div>
                             </div>
-                            <!-- /.modal-content -->
                         </div>
-                        <!-- /.modal-dialog -->
-                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
             </section>
             <!-- /.content -->
-            </div>
-            <!-- /.content-wrapper -->
+        </div>
+        <!-- /.content-wrapper -->
 
-            <!-- Main Footer -->
-            <div id="qii_footer">
-                Footer should come here
-            </div>
-            <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
-                <!-- Create the tabs -->
-                <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-                    <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-                    <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-                </ul>
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <!-- Home tab content -->
-                    <div class="tab-pane active" id="control-sidebar-home-tab">
-                        <h3 class="control-sidebar-heading">Recent Activity</h3>
-                        <ul class="control-sidebar-menu">
-                            <li>
-                                <a href="javascript:;">
-                                    <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+        <!-- Main Footer -->
+        <div id="qii_footer">
+            Footer should come here
+        </div>
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Create the tabs -->
+            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+                <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- Home tab content -->
+                <div class="tab-pane active" id="control-sidebar-home-tab">
+                    <h3 class="control-sidebar-heading">Recent Activity</h3>
+                    <ul class="control-sidebar-menu">
+                        <li>
+                            <a href="javascript:;">
+                                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
 
-                                    <div class="menu-info">
-                                        <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
 
-                                        <p>Will be 23 on April 24th</p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- /.control-sidebar-menu -->
+                                    <p>Will be 23 on April 24th</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
 
-                        <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                        <ul class="control-sidebar-menu">
-                            <li>
-                                <a href="javascript:;">
-                                    <h4 class="control-sidebar-subheading">
-                                        Custom Template Design
-                                        <span class="pull-right-container">
+                    <h3 class="control-sidebar-heading">Tasks Progress</h3>
+                    <ul class="control-sidebar-menu">
+                        <li>
+                            <a href="javascript:;">
+                                <h4 class="control-sidebar-subheading">
+                                    Custom Template Design
+                                    <span class="pull-right-container">
                     <span class="label label-danger pull-right">70%</span>
-                                        </span>
-                                    </h4>
+                                    </span>
+                                </h4>
 
-                                    <div class="progress progress-xxs">
-                                        <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- /.control-sidebar-menu -->
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
 
-                    </div>
-                    <!-- /.tab-pane -->
-                    <!-- Stats tab content -->
-                    <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-                    <!-- /.tab-pane -->
-                    <!-- Settings tab content -->
-                    <div class="tab-pane" id="control-sidebar-settings-tab">
-                        <form method="post">
-                            <h3 class="control-sidebar-heading">General Settings</h3>
+                </div>
+                <!-- /.tab-pane -->
+                <!-- Stats tab content -->
+                <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+                <!-- /.tab-pane -->
+                <!-- Settings tab content -->
+                <div class="tab-pane" id="control-sidebar-settings-tab">
+                    <form method="post">
+                        <h3 class="control-sidebar-heading">General Settings</h3>
 
-                            <div class="form-group">
-                                <label class="control-sidebar-subheading">
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
                 Report panel usage
                 <input type="checkbox" class="pull-right" checked>
               </label>
 
-                                <p>
-                                    Some information about this general settings option
-                                </p>
-                            </div>
-                            <!-- /.form-group -->
-                        </form>
-                    </div>
-                    <!-- /.tab-pane -->
+                            <p>
+                                Some information about this general settings option
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+                    </form>
                 </div>
-            </aside>
-            <!-- /.control-sidebar -->
-            <!-- Add the sidebar's background. This div must be placed
+                <!-- /.tab-pane -->
+            </div>
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->
-            <div class="control-sidebar-bg"></div>
-        </div>
-        <!-- ./wrapper -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
 
-        <!-- REQUIRED JS SCRIPTS -->
+    <!-- REQUIRED JS SCRIPTS -->
 
-        <!-- jQuery 3 -->
-        <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
-        <!-- Bootstrap 3.3.7 -->
-        <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="../../dist/js/adminlte.min.js"></script>
-        <script src="../../components/footer/footer.js"></script>
-        <script src="../../components/header/header.js"></script>
-        <script src="../../components/sidenav/sidenav.js"></script>
-        <!-- Data tables js-->
-        <script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-        <!-- Date picker -->
-        <script src="../../bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-        <script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
-        <!-- Optionally, you can add Slimscroll and FastClick plugins.
+    <!-- jQuery 3 -->
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <script src="../../components/footer/footer.js"></script>
+    <script src="../../components/header/header.js"></script>
+    <script src="../../components/sidenav/sidenav.js"></script>
+    <!-- Data tables js-->
+    <script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <!-- Date picker -->
+    <script src="../../bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+    <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
-        <script>
-            $("#qii_footer").qiiFooter();
-            $("#qii_sidenav").qiiSidenav({
-                activeLinks: ["qii_menu_inventory_management", "qii_menu_materialmaster"],
-                openTrees: ["qii_menu_inventory_management"]
-            });
-            $("#qii_header").qiiHeader();
-            $("#date_picker").datepicker({
-                autoclose: true
-            });
-        </script>
-        <script>
-            $("#Add_material").hide();
-            function ShowResult() {
-                $("#Add_material").show();
-                $("#search_result").hide(1000);
+    <script>
+        $("#qii_footer").qiiFooter();
+        $("#qii_sidenav").qiiSidenav({
+            activeLinks: ["qii_menu_inventory_management", "qii_menu_materialmaster"],
+            openTrees: ["qii_menu_inventory_management"]
+        });
+        $("#qii_header").qiiHeader();
+        $("#date_picker").datepicker({
+            autoclose: true
+        });
+    </script>
+    <script>
+        $("#Add_material").hide();
+
+        function ShowResult() {
+            $("#Add_material").show();
+            $("#search_result").hide(1000);
+        }
+
+        function ShowSearchResult() {
+            $("#search_result").removeAttr("style");
+            $("#Add_material").hide(1000);
+        }
+
+        function hideAddMaterial() {
+            $("#Add_material").hide(1000);
+        }
+        $(function() {
+            $("#address_table").DataTable();
+        });
+        $(document).ready(function() {
+            for (j = 0; j < materialcode.length; j++) {
+                $("#material_code").append("<option>" + materialcode[j]['code'] + "</option>");
             }
-            function ShowSearchResult() {
-                $("#search_result").removeAttr("style");
-                $("#Add_material").hide(1000);
+        });
+        $(document).ready(function() {
+            for (j = 0; j < materialtype.length; j++) {
+                $("#material_type").append("<option>" + materialtype[j]['type'] + "</option>");
             }
-            function hideAddMaterial() {
-                $("#Add_material").hide(1000);
+        });
+        $(document).ready(function() {
+            for (j = 0; j < unittype.length; j++) {
+                $("#unit_type").append("<option>" + unittype[j]['type'] + "</option>");
             }
-            $(function() {
-                $("#address_table").DataTable();
-            });
-        </script>
+        });
+    </script>
 </body>
 
 </html>
