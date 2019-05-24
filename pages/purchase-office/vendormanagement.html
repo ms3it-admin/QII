@@ -38,6 +38,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="../../config/footer-config.js"></script>
     <script src="../../config/header-config.js"></script>
     <script src="../../config/sidenav-config.js"></script>
+    <script src="../../config/cuntry_code.js"></script>
+    <script src="../../config/default_language.js"></script>
+    <script src="../../config/default_currancy.js"></script>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -122,12 +125,9 @@ desired effect
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Country Code</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                    <option selected="selected">Choose Your Country Code </option>
-                                    <option></option>
-                                    <option></option>
-                                    <option></option>
-                                </select>
+                                                <select id="managevendor_cuntry" class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
+                
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -135,23 +135,17 @@ desired effect
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Default Language</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerTagging" tabindex="-1">
-                                    <option selected="selected">Choose Your Default Language</option>
-                                    <option></option>
-                                    <option></option>
-                                    <option></option>
-                                </select>
+                                                <select id="managevendor_languag" class="customer-type-select form-control" style="width: 100%;" name="CustomerTagging" tabindex="-1">
+                    
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Default Currency</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerTagging" tabindex="-1">
-                                  <option selected="selected">Choose Your Default Currency</option>
-                                  <option></option>
-                                  <option></option>
-                                  <option></option>
-                              </select>
+                                                <select id="managevendor_currency" class="customer-type-select form-control" style="width: 100%;" name="CustomerTagging" tabindex="-1">
+                                  
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -397,12 +391,9 @@ desired effect
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Country Code</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                        <option selected="selected">Choose Your Country Code </option>
-                                        <option></option>
-                                        <option></option>
-                                        <option></option>
-                                    </select>
+                                                <select id="managevendor_cuntry_add" class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
+                                        
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -410,23 +401,17 @@ desired effect
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Default Language</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerTagging" tabindex="-1">
-                                        <option selected="selected">Choose Your Default Language</option>
-                                        <option></option>
-                                        <option></option>
-                                        <option></option>
-                                    </select>
+                                                <select id="managevendor_languag_add" class="customer-type-select form-control" style="width: 100%;" name="CustomerTagging" tabindex="-1">
+                                        
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Default Currency</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerTagging" tabindex="-1">
-                                      <option selected="selected">Choose Your Default Currency</option>
-                                      <option></option>
-                                      <option></option>
-                                      <option></option>
-                                  </select>
+                                                <select id="managevendor_currency_add" class="customer-type-select form-control" style="width: 100%;" name="CustomerTagging" tabindex="-1">
+                                      
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -621,6 +606,20 @@ desired effect
         function closed() {
             $("#vendor_detailing").hide(1000);
         }
+        $(document).ready(function() {
+            for(i=0; i<cuntryCode.length; i++) {
+                $("#managevendor_cuntry").append("<option>"+cuntryCode[i]['code']+"</option>");
+                $("#managevendor_cuntry_add").append("<option>"+cuntryCode[i]['code']+"</option>");
+            }
+            for(j=0; j<defaultLanguage.length; j++) {
+                $("#managevendor_languag").append("<option>"+defaultLanguage[j]['language']+"</option>");
+                $("#managevendor_languag_add").append("<option>"+defaultLanguage[j]['language']+"</option>");
+            }
+            for(k=0; k<defaultCurrency.length; k++) {
+                $("#managevendor_currency").append("<option>"+defaultCurrency[k]['currency']+"</option>");
+                $("#managevendor_currency_add").append("<option>"+defaultCurrency[k]['currency']+"</option>");
+            }
+        });
     </script>
 </body>
 
