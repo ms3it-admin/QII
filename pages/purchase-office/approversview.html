@@ -40,6 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="../../config/footer-config.js"></script>
     <script src="../../config/header-config.js"></script>
     <script src="../../config/sidenav-config.js"></script>
+    <script src="../../config/site_name.js"></script>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -105,12 +106,9 @@ desired effect
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Site</label>
                                         <div class="col-sm-6">
-                                            <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                      <option selected="selected">Choose Your Site </option>
-                                      <option>Site 1</option>
-                                      <option>Site 2</option>
-                                      <option>Site 3</option>
-                                  </select>
+                                            <select class="customer-type-select form-control" id="Approversview_site" style="width: 100%;" name="CustomerType" tabindex="-1">
+                                      
+                                            </select>
                                         </div>
                                         <div>
                                             <button type="button" class="btn btn-success" onclick="ShowResult()">
@@ -434,6 +432,11 @@ desired effect
         function closed() {
             $("#search_result").hide(1000);
         }
+        $(document).ready(function() {
+            for(i=0; i<site.length; i++) {
+              $("#Approversview_site").append("<option>"+site[i]['name']+"</option>");
+            }
+        });
     </script>
 </body>
 
