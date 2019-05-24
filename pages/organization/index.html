@@ -111,7 +111,8 @@ desired effect
 
                                 <div class="col-md-12">
                                     <div class="box-footer">
-                                        <button type="button" class="btn btn-default btn1" onclick="view()">View</button>
+                                        <button id='hv'  type="button" class="btn btn-default btn1 disabled">View</button>
+                                        <button id="sv" type="button" class="btn btn-default btn1" style="display:none;" onclick="view()">View</button>
                                         <button type="button" class="btn btn-info pull-right" onclick="editFields()">Add New</button>
                                     </div>
                                 </div>
@@ -126,7 +127,7 @@ desired effect
                         <!-- general form elements -->
                         <div class="box box-primary box-solid">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Company Definition</h3>
+                                <h3 class="box-title" id='cd_title'>Company Definition</h3>
                                 <div class="box-tools pull-right">
                                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                                 </div>
@@ -197,7 +198,7 @@ desired effect
                         <!-- general form elements -->
                         <div class="box box-primary box-solid">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Company Definition</h3>
+                                <h3 class="box-title" id='cd2_title'>Company Definition</h3>
                             </div>
                             <!-- /.box-header -->
                             <!-- form start -->
@@ -681,8 +682,44 @@ desired effect
             $("#company_hierarchy").on('nodeSelected', function(event, node) {
                 console.log('node event ' + event);
                 console.log('node data ' + node.text);
-                $("#organization_level").text(node.text);
-                $("#edit_org_level").text(node.text);
+                $("#hv").hide();
+                $("#sv").show();
+
+                var grandparent;
+                var parent;
+                
+                if(node.id!="0" || node.id!="1")
+                {
+                    parent=$("#company_hierarchy").treeview("getParent",node);
+                    grandparent=$("#company_hierarchy").treeview("getParent",parent);
+
+                    $("#cd_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;"+grandparent.text+" &nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; "+parent.text+"&nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; "+node.text);
+                    $("#cd2_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;"+grandparent.text+" &nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; "+parent.text+"&nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; "+node.text);
+                    $("#organization_level").text("Division");
+                    $("#edit_org_level").text("Division");
+                }
+                if(node.id=="1")
+                {
+                    parent=$("#company_hierarchy").treeview("getParent",node);
+                    
+
+                    $("#cd_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;"+parent.text+"&nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; "+node.text);
+                    $("#cd2_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;"+parent.text+"&nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; "+node.text);
+                    $("#organization_level").text("Subsidiary");
+                    $("#edit_org_level").text("Subsidiary");
+                }
+                if(node.id=="0")
+                {
+                   
+
+                    $("#cd_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;"+node.text);
+                    $("#cd2_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;"+node.text);
+                    $("#organization_level").text("Legal Entity");
+                    $("#edit_org_level").text("Legal Entity");
+                }
+                
+                //$("#organization_level").text(node.text);
+                //$("#edit_org_level").text(node.text);
                 var parent = $("#company_hierarchy").treeview('getParent', node);
                 console.log('selected node parent' + parent.text);
             });

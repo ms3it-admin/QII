@@ -1,5 +1,6 @@
 var tree = [{
         text: "L&T",
+        id: "0",
         color: "#3836bc",
         href: "",
         state: {
@@ -7,6 +8,7 @@ var tree = [{
         },
         nodes: [{
                 text: "L&T Construction",
+                id: "1",
                 color: "#3836bc",
                 href: "",
                 nodes: [{
@@ -29,6 +31,7 @@ var tree = [{
             },
             {
                 text: "L&T Infotech",
+                id: "1",
                 color: "#3836bc",
                 href: "",
                 nodes: [{
@@ -47,15 +50,72 @@ var tree = [{
 
     },
     {
-        text: "company2",
+        text: "TATA",
+        id: "0",
         color: "#3836bc",
         href: "",
         state: {
             expanded: false,
         },
         nodes: [{
+                text: "IT",
+                id: "1",
+                color: "#3836bc",
+                href: "",
+                nodes: [{
+                        text: "TCS",
+                        color: "#f44141",
+                        href: "#"
+                    }
+                    
+                ]
+
+            },
+            {
+                text: "Constructions",
+                id: "1",
+                color: "#3836bc",
+                href: "",
+                nodes: [{
+                        text: "Steel",
+                        color: "#f44141",
+                        href: "#"
+                    },
+                    {
+                        text: "Mechniks",
+                        color: "#f44141",
+                        href: "#"
+                    }
+                ]
+            },
+            {
+                text: "Motors",
+                id: "1",
+                color: "#3836bc",
+                href: "",
+                nodes: [{
+                        text: "Steel",
+                        color: "#f44141",
+                        href: "#"
+                    }
+                ]
+            }
+        ]
+
+    },
+    {
+        text: "company2",
+        color: "#3836bc",
+        id: "0",
+        href: "",
+        
+        state: {
+            expanded: false,
+        },
+        nodes: [{
             text: "subsidiary2",
             color: "#3836bc",
+            id: "1",
             href: "",
             nodes: [{
                 text: "division2",
