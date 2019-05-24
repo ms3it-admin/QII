@@ -116,7 +116,7 @@ desired effect
 
                                     <!-- /.box-body -->
                                     <div class="box-footer">
-                                        <button type="button" class="btn btn-info pull-right" onclick="Show()">New Requisition</button>
+                                        <button id="address_input_button" type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-default"> New Requisition </button>
                                         <button type="button" class="btn btn-default" onclick="ShowResult()">Search</button>
                                     </div>
                                     <!-- /.box-footer -->
@@ -222,113 +222,70 @@ desired effect
                         </div>
                     </div>
                 </div>
-                <div class="row" id="search" style="display:none">
-                    <div class="col-md-12">
-                        <!-- general form elements -->
-                        <div class="box box-success box-solid">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Purchase Requisition</h3>
-                                <div class="box-tools pull-right">
-
-                                </div>
+                <div class="modal fade" id="modal-default" style="display: none">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span></button>
+                                <h4 class="modal-title">New Requisition</h4>
                             </div>
-                            <!-- /.box-header -->
-                            <!-- form start -->
-
-                            <div class="box-body">
-                                <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-                                    <div class="row">
-                                        <div class="col-sm-6"></div>
-                                        <div class="col-sm-6"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <table id="address" class="table table-bordered table-striped table-hover dataTable" role="grid">
-                                                <thead>
-                                                    <tr role="row">
-                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address Type">Material Description</th>
-                                                        <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address">Material Code</th>
-                                                        <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Unit Required</th>
-                                                        <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Needed By</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr role="row" class="odd">
-                                                        <td>
-                                                            <p><input type="text"></p>
-                                                        </td>
-                                                        <td>
-                                                            <select style="width:100%">
-                                                                <option>Choose Material Code</option>
-                                                                <option>Sand</option>
-                                                                <option>Cement</option>
-                                                                <option>Iron Rod</option>
-                                                                <option>Material 4</option>
-                                                                <option>Material 5</option>
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <input style="width:100%">
-                                                        </td>
-                                                        <td>
-                                                            <input type="date">
-                                                        </td>
-                                                    </tr>
-                                                    <tr role="row" class="even">
-                                                        <td>
-                                                            <p><input type="text"></p>
-                                                        </td>
-                                                        <td>
-                                                            <select style="width:100%">
-                                                                <option>Choose Material Code</option>
-                                                                <option>Sand</option>
-                                                                <option>Cement</option>
-                                                                <option>Iron Rod</option>
-                                                                <option>Material 4</option>
-                                                                <option>Material 5</option>
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <input style="width:100%">
-                                                        </td>
-                                                        <td>
-                                                            <input type="date">
-                                                        </td>
-                                                    </tr>
-                                                    <tr role="row" class="odd">
-                                                        <td>
-                                                            <input type="text">
-                                                        </td>
-                                                        <td>
-                                                            <select style="width:100%">
-                                                                <option>Choose Material Code</option>
-                                                                <option>Sand</option>
-                                                                <option>Cement</option>
-                                                                <option>Iron Rod</option>
-                                                                <option>Material 4</option>
-                                                                <option>Material 5</option>
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <input style="width:100%">
-                                                        </td>
-                                                        <td>
-                                                            <input type="date">
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                            <div class="modal-body">
+                                <!-- address form-->
+                                <!-- type select-->
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Site</label>
+                                        <div class="col-sm-6">
+                                            <select id="select_address_type" class="form-control customer-type-select" style="width:100%">
+                                                    <option selected="selected">-:choose Site:-</option>
+                                                    <option value="Site 1">Site 1</option>
+                                                    <option value="Site 2">Site 2</option>
+                                                    <option value="Site 3">Site 3</option>
+                                                </select>
                                         </div>
                                     </div>
-
-                                </div>
-                                <div class="box-footer">
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" onclick="cancel()">Cancel</button>
-                                    <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-success" onclick="closed()">Submit</button>
-                                </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Material</label>
+                                        <div class="col-sm-6">
+                                            <select id="select_vendor" class="form-control customer-type-select" style="width:100%">
+                                                    <option selected="selected">-:choose Material:-</option>
+                                                    <option value="Material 1">Sand</option>
+                                                    <option value="Material 2">Iron Rod</option>
+                                                    <option value="Material 3">Cement</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Unit Required</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" id="unit" class="form-control" placeholder="Quantity">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <select id="select_vendor" class="form-control customer-type-select" style="width:100%">
+                                                        <option selected="selected">choose Unit</option>
+                                                        <option value="Material 1">sqft</option>
+                                                        <option value="Material 2">kg</option>
+                                                        <option value="Material 3">bags</option>
+                                                    </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Unit Required</label>
+                                        <div class="col-sm-6">
+                                            <input type="date" id="district" class="form-control">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger pull-left" data-toggle="modal" data-target="#modal-danger" data-dismiss="modal" id="cancel">Cancel</button>
+                                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" data-dismiss="modal" id="save">Save</button>
                             </div>
                         </div>
+                        <!-- /.modal-content -->
                     </div>
+                    <!-- /.modal-dialog -->
                 </div>
                 <div class="modal modal-success fade" id="modal-success" style="display: none;">
                     <div class="modal-dialog">
@@ -337,7 +294,7 @@ desired effect
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span></button>
                                 <h4 class="modal-title">Submitted!</h4>
-                                <p>All details Successfully Submitted.</p>
+                                <p>Your PR No has been Generated</p>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -345,7 +302,7 @@ desired effect
                     <!-- /.modal-dialog -->
                 </div>
                 <!--danger modal-->
-                <div class="modal modal-danger fade" id="modal-danger">
+                <div class="modal modal-danger fade" id="modal-danger" style="display: none;">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -511,6 +468,22 @@ desired effect
         function closed() {
             $("#search").hide(1000);
         }
+        $("#save").on("click", function() {
+            $("#modal-default").slideUp();
+            setTimeout(
+                function() {
+                    $("#modal-success").modal('hide')
+                }, 2000
+            );
+        });
+        $("#cancel").on("click", function() {
+            $("#modal-default").slideUp();
+            setTimeout(
+                function() {
+                    $("#modal-danger").modal('hide')
+                }, 2000
+            );
+        });
     </script>
 </body>
 
