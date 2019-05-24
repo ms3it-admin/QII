@@ -30,7 +30,7 @@ var qiiSidenav = {
                 id: "qii_menu_site",
                 name: "Site",
                 iconClass: "fa fa-building",
-                href: "/pages/project-office/create-site.html",
+                href: "/pages/project-office/site-definition.html",
                 children: []
             }]
         },
