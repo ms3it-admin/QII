@@ -349,7 +349,7 @@
                                         </li>
                                     </ul>
                                     <div class="tab-content">
-                                        <div class="tab-pane active" id="address">
+                                        <div class="tab-pane active table-responsive" id="address">
                                             <table id="address_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
@@ -361,13 +361,14 @@
                                                 </thead>
                                                 <tbody id="address_table_tbody">
                                                     <tr role="row" class="odd">
-                                                        <td>Registered Address</td>
-                                                        <td>ABC Street, Kolkata</td>
-                                                        <td>
+                                                        <td class='t1'>Registered Address</td>
+                                                        <td class='t2'>ABC Street, Kolkata</td>
+                                                        <td class="t3">
                                                             Yes
                                                         </td>
                                                         <td>
-                                                            <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-sm btn-info editbtn" onclick="make_edit()"><i class="fa fa-edit"></i></button>
+                                                            <button style='display:none;' class="btn btn-sm btn-success donebtn" onclick="make_static()"><i class="fa fa-check"></i></button>
                                                             <button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button>
                                                         </td>
                                                     </tr>
@@ -388,7 +389,7 @@
                                                 <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-default-address2">New Address</button>
                                             </div>
                                         </div>
-                                        <div class="tab-pane" id="legal">
+                                        <div class="tab-pane table-responsive" id="legal">
                                             <table id="legal_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
@@ -399,18 +400,20 @@
                                                 </thead>
                                                 <tbody id="legal_table_tbody">
                                                     <tr role="row" class="odd">
-                                                        <td>PAN</td>
-                                                        <td>ABCD1234X</td>
+                                                        <td class="t1">PAN</td>
+                                                        <td class="t2">ABCD1234X</td>
                                                         <td>
-                                                            <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-sm btn-info editbtn" onclick="make_edit()"><i class="fa fa-edit"></i></button>
+                                                            <button style="display: none" class="btn btn-sm btn-success donebtn" onclick="make_static()"><i class="fa fa-check"></i></button>
                                                             <button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button>
                                                         </td>
                                                     </tr>
                                                     <tr role="row" class="even">
-                                                        <td>CIN</td>
-                                                        <td>ABCD1235T</td>
+                                                        <td class="t1">CIN</td>
+                                                        <td class="t2">ABCD1235T</td>
                                                         <td>
-                                                            <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-sm btn-info editbtn" onclick="make_edit()"><i class="fa fa-edit"></i></button>
+                                                            <button style="display: none" class="btn btn-sm btn-success donebtn" onclick="make_static()"><i class="fa fa-check"></i></button>
                                                             <button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button>
                                                         </td>
                                                     </tr>
@@ -418,7 +421,8 @@
                                                         <td>TAN</td>
                                                         <td>ABCD1238J</td>
                                                         <td>
-                                                            <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-sm btn-info editbtn"><i class="fa fa-edit"></i></button>
+                                                            <button style="display: none" class="btn btn-sm btn-success donebtn"><i class="fa fa-check"></i></button>
                                                             <button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button>
                                                         </td>
                                                     </tr>
@@ -428,7 +432,7 @@
                                                 <button class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-default-legal2">New Legal Information</button>
                                             </div>
                                         </div>
-                                        <div class="tab-pane" id="additional">
+                                        <div class="tab-pane table-responsive" id="additional">
                                             <table id="additional_info_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
@@ -439,10 +443,11 @@
                                                 </thead>
                                                 <tbody id="additional_info_tbody">
                                                     <tr role="row" class="odd">
-                                                            <td>GST</td>
-                                                            <td>ABCD1234XYZ1</td>
+                                                            <td class="t1">GST</td>
+                                                            <td class="t2">ABCD1234XYZ1</td>
                                                         <td>
-                                                            <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-sm btn-info editbtn" onclick="make_edit()"><i class="fa fa-edit"></i></button>
+                                                            <button style="display:none" class="btn btn-sm btn-success donebtn" onclick="make_static()"><i class="fa fa-check"></i></button>
                                                             <button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button>
                                                         </td>
                                                     </tr>
@@ -957,7 +962,7 @@
         $("#show_result").on("click", function(){
             //if the add new customer form is open make it 
             //hide
-            if($("#new_customer").css("display") === "block"){
+            if(($("#new_customer").css("display") === "block")){
                 $("#new_customer").css("display", "none");
                 $("#search_result").css("display", "block");
             }else{
@@ -1059,6 +1064,26 @@
             var markup = '<tr><td>'+ type +'</td><td>'+ number +'</td><td><button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button> <button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button></td></tr>';
             $("#additional_info_tbody").append(markup);
         });
+    </script>
+    <script>
+            function make_edit()
+            {
+                $(".editbtn").hide();
+                $(".donebtn").show();
+
+                //$("#t1").attr('contentEditable',true);
+                $(".t2").attr('contentEditable', true);
+                $(".t3").attr('contentEditable', true);
+            }
+            function make_static()
+            {
+                $(".editbtn").show();
+                $(".donebtn").hide();
+
+                $(".t1").attr('contentEditable',false);
+                $(".t2").attr('contentEditable',false);
+                $(".t3").attr('contentEditable', false);
+            }
     </script>
 </body>
 
