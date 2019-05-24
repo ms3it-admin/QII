@@ -159,10 +159,7 @@ desired effect
                                         <label class="control-label col-sm-3">Site</label>
                                         <div class="col-sm-6">
                                             <select id="select_address_type" class="form-control customer-type-select" style="width:100%">
-                                                <option selected="selected">-:choose Site:-</option>
-                                                <option value="Site 1">Site 1</option>
-                                                <option value="Site 2">Site 2</option>
-                                                <option value="Site 3">Site 3</option>
+                                               
                                             </select>
                                         </div>
                                     </div>
@@ -170,10 +167,7 @@ desired effect
                                         <label class="control-label col-sm-3">Vendor</label>
                                         <div class="col-sm-6">
                                             <select id="select_vendor" class="form-control customer-type-select" style="width:100%">
-                                                <option selected="selected">-:choose Vendor:-</option>
-                                                <option value="Vendor 1">Vendor 1</option>
-                                                <option value="Vendor 2">Vendor 2</option>
-                                                <option value="Vendor 3">Vendor 3</option>
+                                                
                                             </select>
                                         </div>
                                     </div>
@@ -206,14 +200,26 @@ desired effect
                                 <!-- address form-->
                                 <!-- type select-->
                                 <form class="form-horizontal">
-                                    <div class="form-group">
-                                        <label class="control-label col-sm-3">PO Number</label>
-                                        <div class="col-sm-6">
-                                            <select id="po_number" class="form-control customer-type-select" style="width:100%" onchange="Show(this.value)">
+                                    <div class="form-group row container-fluid">
+                                       
+                                        <div class="col-sm-5">
+                                                <label class="control-label col-sm-3">PR Number</label>
+                                            <select id="pr_number" class="form-control customer-type-select" style="width:100%" onchange="Show(this.value)">
+                                               
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <center><br><br><br>OR</center>
+                                        </div>
+                                       
+                                        <div class="col-sm-5">
+                                                <label class="control-label col-sm-3">Select Vendor</label>
+                                            <select id="po_vendor" class="form-control customer-type-select" style="width:100%" onchange="Showv(this.value)">
                                                
                                             </select>
                                         </div>
                                     </div>
+                                    
                                 </form>
                                 <div class="box-body" style="display: none" id="open">
                                     <form class="form-horizontal">
@@ -236,6 +242,39 @@ desired effect
                                             </div>
                                         </div>
                                     </form>
+                                </div>
+                                <div class="box-body" style="display: none" id="openv">
+                                    <div class="col-sm-12 table-responsive">
+                                        <table id="address_table" class="table table-bordered table-striped table-hover dataTable" role="grid" aria-describedby="example1_info">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code"><input type="checkbox" onchange="$('.checks').attr('checked',true);"> Select All</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">PR.No:</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Vendor Name</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr role="row" class="odd">
+                    
+                                                    <td><input type="checkbox" class='checks'></td>
+                                                    <td>PR_001</td>
+                                                    <td>Ambuja</td>
+                                                </tr>
+                                                <tr role="row" class="odd">
+                    
+                                                        <td><input type="checkbox"  class='checks'></td>
+                                                        <td>PR_002</td>
+                                                        <td>Ambuja</td>
+                                                    </tr>
+                                                    <tr role="row" class="odd">
+                    
+                                                            <td><input type="checkbox"  class='checks'></td>
+                                                            <td>PR_003</td>
+                                                            <td>Ambuja</td>
+                                                        </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger pull-left" data-toggle="modal" data-target="#modal-danger" data-dismiss="modal" id="cancel">Cancel</button>
@@ -318,7 +357,7 @@ desired effect
                                                 <tbody id="result">
                                                     <tr role="row" class="odd">
                                                         <td>
-                                                            <p>POnumber0001</p>
+                                                            <a href="#">POnumber0001</a>
                                                         </td>
 
                                                         <td>
@@ -339,7 +378,7 @@ desired effect
                                                     </tr>
                                                     <tr role="row" class="even">
                                                         <td>
-                                                            <p>POnumber0002</p>
+                                                            <a href="#">POnumber0002</a>
                                                         </td>
                                                         <td>
                                                             <p id="material_code2" style="width:100%">cement</p>
@@ -359,7 +398,7 @@ desired effect
                                                     </tr>
                                                     <tr role="row" class="odd">
                                                         <td>
-                                                            <p>POnumber0003</p>
+                                                            <a href="#">POnumber0003</a>
                                                         </td>
                                                         <td>
                                                             <p id="material_code2" style="width:100%">ironrod</p>
@@ -517,6 +556,12 @@ desired effect
             function Show() {
 
                 $("#open").show();
+                $("#openv").hide();
+            }
+            function Showv() {
+
+                $("#openv").show();
+                $("#open").hide();
             }
 
             $("#address_input").on("click", function() {
@@ -554,15 +599,27 @@ desired effect
         </script>
         <script src="../../config/site_name.js"></script>
         <script src="../../config/pono.js"></script>
+        <script src="../../config/vendor_names.js"></script>
         <script>
             for(i=0;i<site.length;i++)
             {
                 $("#cys").append("<option>"+site[i]['name']+"</option>");
             }
-            
+            for(i=0;i<site.length;i++)
+            {
+                $("#select_address_type").append("<option>"+site[i]['name']+"</option>");
+            }
             for(i=0;i<pon.length;i++)
             {
-                $("#po_number").append("<option>"+pon[i]['name']+"</option>");
+                $("#pr_number").append("<option>"+pon[i]['name']+"</option>");
+            }
+            for(i=0;i<vendoe.length;i++)
+            {
+                $("#po_vendor").append("<option>"+vendoe[i]['name']+"</option>");
+            }
+            for(i=0;i<vendoe.length;i++)
+            {
+                $("#select_vendor").append("<option>"+vendoe[i]['name']+"</option>");
             }
         </script>
 </body>
