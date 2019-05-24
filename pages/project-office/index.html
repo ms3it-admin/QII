@@ -327,7 +327,6 @@
                                     </table>
                                 </div>
                                 <!-- /.box-body -->
-
                             </div>
                         </div>
                     </div>
@@ -360,59 +359,33 @@
                                                         <th class="sorting col-sm-1" tabinex="0" aria-control="example1" rowspan="1" colspan="1" aria-label="remove"></th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="address_table_tbody">
                                                     <tr role="row" class="odd">
                                                         <td>Registered Address</td>
                                                         <td>ABC Street, Kolkata</td>
                                                         <td>
-                                                            <input type="checkbox" checked="checked">
+                                                            Yes
                                                         </td>
                                                         <td>
-                                                            <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
-                                                                        style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
-                                                                <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
-                                                                <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
-                                                                <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
-                                                            </div>
+                                                            <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button>
                                                         </td>
                                                     </tr>
-                                                    <tr role="row" class="even">
+                                                <!--<tr role="row" class="even">
                                                         <td>Office Address</td>
                                                         <td>XYZ Avenue, Kolkata</td>
                                                         <td>
-                                                            <input type="checkbox">
+                                                            Yes
                                                         </td>
                                                         <td>
-                                                            <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
-                                                                        style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
-                                                                <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
-                                                                <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
-                                                                <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
-                                                            </div>
+                                                            <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button>
                                                         </td>
-                                                    </tr>
-                                                    <tr role="row" class="odd">
-                                                        <td>Mailing Address</td>
-                                                        <td>XYZ Avenue, Kolkata</td>
-                                                        <td>
-                                                            <input type="checkbox">
-                                                        </td>
-                                                        <td>
-                                                            <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
-                                                                        style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
-                                                                <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
-                                                                <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
-                                                                <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                    </tr> -->
                                                 </tbody>
                                             </table>
                                             <div class="box-footer">
-                                                <button type="button" class="btn btn-info pull-right">Add Address</button>
+                                                <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-default-address2">New Address</button>
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="legal">
@@ -424,64 +397,39 @@
                                                         <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number"></th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="legal_table_tbody">
                                                     <tr role="row" class="odd">
-                                                        <td>GST</td>
-                                                        <td>ABCD1234XYZ1</td>
-                                                        <td>
-                                                            <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
-                                                                        style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
-                                                                <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
-                                                                <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
-                                                                <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr role="row" class="even">
                                                         <td>PAN</td>
                                                         <td>ABCD1234X</td>
                                                         <td>
-                                                            <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
-                                                                        style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
-                                                                <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
-                                                                <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
-                                                                <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
-                                                            </div>
+                                                            <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button>
                                                         </td>
                                                     </tr>
                                                     <tr role="row" class="even">
                                                         <td>CIN</td>
                                                         <td>ABCD1235T</td>
                                                         <td>
-                                                            <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
-                                                                        style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
-                                                                <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
-                                                                <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
-                                                                <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
-                                                            </div>
+                                                            <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button>
                                                         </td>
                                                     </tr>
-                                                    <tr role="row" class="even">
+                                                    <tr role="row" class="odd">
                                                         <td>TAN</td>
                                                         <td>ABCD1238J</td>
                                                         <td>
-                                                            <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
-                                                                <div class="btn-group btn-group-sm" style="float: none;"><button type="button" class="tabledit-edit-button btn btn-sm btn-default" style="float: none;"><span class="glyphicon glyphicon-pencil"></span></button><button type="button" class="tabledit-delete-button btn btn-sm btn-default"
-                                                                        style="float: none;"><span class="glyphicon glyphicon-trash"></span></button></div>
-                                                                <button type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none; display: none;">Save</button>
-                                                                <button type="button" class="tabledit-confirm-button btn btn-sm btn-danger" style="float: none; display: none;">Confirm</button>
-                                                                <button type="button" class="tabledit-restore-button btn btn-sm btn-warning" style="float: none; display: none;">Restore</button>
-                                                            </div>
+                                                            <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button>
                                                         </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
+                                            <div class="box-footer">
+                                                <button class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-default-legal2">New Legal Information</button>
+                                            </div>
                                         </div>
                                         <div class="tab-pane" id="additional">
-                                            <table id="legal_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
+                                            <table id="additional_info_table" class="table table-bordered table-striped table-hover dataTable" role="grid">
                                                 <thead>
                                                     <tr role="row">
                                                         <th class="sorting col-sm-4" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number">Type</th>
@@ -489,17 +437,20 @@
                                                         <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Legal Number"></th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="additional_info_tbody">
                                                     <tr role="row" class="odd">
-                                                        <td><input type="textbox" style="width:100%"></td>
-                                                        <td><input type="textbox" style="width: 100%"></td>
+                                                            <td>GST</td>
+                                                            <td>ABCD1234XYZ1</td>
                                                         <td>
-                                                            <button class="btn btn-sm btn-success"><i class="fa fa-check"></i></button>
-                                                            <button class="btn btn-sm btn-danger"><i class="fa fa-close"></i></button>
+                                                            <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button>
                                                         </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
+                                            <div class="box-footer">
+                                                    <button class="btn btn-info pull-right" data-toggle="modal" data-target="#modal-default-additional-info2">New Additional Information</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -726,6 +677,150 @@
                     </div>
                     <!-- /.modal-dialog -->
             </div>
+            <!--edit modal-->
+            <div class="modal fade" id="modal-default-address2">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                          <h4 class="modal-title">Address Form</h4>
+                        </div>
+                        <div class="modal-body">
+                          <!-- address form-->
+                          <!-- type select-->
+                          <form class="form-horizontal">
+                            <div class="form-group">
+                                        <label class="control-label col-sm-3">Type</label>
+                                        <div class="col-sm-6">
+                                            <select id="select_address_type2" class="form-control customer-type-select" style="width:100%">
+                                                <option selected="selected">choose address type</option>
+                                                <option value="Registered Address">Registered Address</option>
+                                                <option value="Office Address">Office Addess</option>
+                                                <option value="Mailing Address">Mailing Address</option>
+                                            </select>
+                                        </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Address Line1</label>
+                                <div class="col-sm-6">
+                                    <input id="address_line_one2" class="form-control" placeholder="address line 1">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                    <label class="control-label col-sm-3">Address Line2</label>
+                                    <div class="col-sm-6">
+                                        <input id="address_line_two2" class="form-control" placeholder="address line 2">
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                    <label class="control-label col-sm-3">District</label>
+                                    <div class="col-sm-6">
+                                        <input id="district2" class="form-control" placeholder="district">
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                    <label class="control-label col-sm-3">Pin Code</label>
+                                    <div class="col-sm-6">
+                                        <input id="pin_code2" class="form-control" placeholder="pin code">
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                    <label class="control-label col-sm-3">Country</label>
+                                    <div class="col-sm-6">
+                                        <input id="country2" class="form-control" placeholder="country">
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Default</label>
+                                <div class="col-sm-9">
+                                    <input type="radio" name="choice2" id="default_yes" value="Yes">Yes&nbsp;
+                                    <input type="radio" name="choice2" id="deault_no" value="No" checked>No
+                                </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+                          <button id="save_new_address2" type="button" class="btn btn-success" data-dismiss="modal">Save changes</button>
+                        </div>
+                      </div>
+                      <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+            </div>
+            <div class="modal fade" id="modal-default-legal2">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                      <h4 class="modal-title">Legal Information Form</h4>
+                    </div>
+                    <div class="modal-body">
+                      <form class="form-horizontal">
+                            <div class="form-group">
+                                    <label class="control-label col-sm-3">Type</label>
+                                    <div class="col-sm-6">
+                                        <select id="select_legal_type2" class="form-control customer-type-select" style="width:100%">
+                                            <option selected="selected">choose legal type</option>
+                                            <option>PAN</option>
+                                            <option>TAN</option>
+                                            <option>CIN</option>
+                                            <option>GST</option>
+                                        </select>
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Number</label>
+                                <div class="col-sm-6">
+                                    <input id="legal_number_new2" class="form-control" placeholder="number">
+                                </div>
+                            </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+                      <button id="save_new_legal2" type="button" class="btn btn-success" data-dismiss="modal">Save changes</button>
+                    </div>
+                  </div>
+                  <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <div class="modal fade" id="modal-default-additional-info2">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                      <h4 class="modal-title">Additional Information Form</h4>
+                    </div>
+                    <div class="modal-body">
+                      <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Type</label>
+                            <div class="col-sm-6">
+                                <input id="additional_new_type2" class="form-control" placeholder="type">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Number</label>
+                            <div class="col-sm-6">
+                                <input id="additional_new_number2" class="form-control" placeholder="number">
+                            </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+                      <button id="save_new_additional_info2" type="button" class="btn btn-success" data-dismiss="modal">Save changes</button>
+                    </div>
+                  </div>
+                  <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
         </div>
         <!-- /.content -->
         <!-- /.content-wrapper -->
@@ -827,6 +922,7 @@
     <script src="../../components/footer/footer.js"></script>
     <script src="../../components/sidenav/sidenav.js"></script>
     <script src="../../components/header/header.js"></script>
+    <!--header, footer, sidenav scripts-->
     <script>
         $("#qii_header").qiiHeader();
         $("#qii_sidenav").qiiSidenav({
@@ -889,11 +985,14 @@
             );
         });
     </script>
+    <!--DataTable-->
     <script>
         $(function() {
-            $('#example1').DataTable({
-            });
+            $('#address_table').DataTable();
+            $('#legal_table').DataTable();
+            $("#additional_info_table").DataTable();
         })
+
         $.each(option, function(i, data) {
             $(".select_option").append('<option>' + data.name + '</option>');
         });
@@ -928,6 +1027,37 @@
             var number = $("#additional_new_number").val();
             var markup = '<tr><td>'+ type +'</td><td>'+ number +'</td></tr>';
             $("#additional_info_new_tbody").append(markup);
+        });
+    </script>
+    <script>
+        $("#save_new_address2").on("click", function(){
+            //get the inserted value by user
+            var addressType = $("#select_address_type2").val();
+            var addressLine1 = $("#address_line_one2").val();
+            var addressLine2 = $("#address_line_two2").val();
+            var district = $("#district2").val();
+            var country = $("#country2").val();
+            var pinCode = $("#pin_code2").val();
+            var choice = $('input[name=choice2]:checked').val();
+            //console.log(choice);
+            //append a row to the table 
+            ////get the tbody using it's id
+            ////append a row to it with values
+            var address = addressLine1 + " " + addressLine2 + "," + district +","+pinCode;
+            var markup = '<tr><td>'+ addressType +'</td><td>'+ address +'</td><td>'+ choice +'</td><td><button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button> <button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button></td></tr>';
+            $("#address_table_tbody").append(markup);
+        });
+        $("#save_new_legal2").on("click", function(){
+            var legalType = $("#select_legal_type2").val();
+            var number = $("#legal_number_new2").val();
+            var markup = '<tr><td>'+ legalType+'</td><td>'+ number +'</td><td><button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button> <button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button></td></tr>';
+            $("#legal_table_tbody").append(markup);
+        });
+        $("#save_new_additional_info2").on("click", function(){
+            var type = $("#additional_new_type2").val();
+            var number = $("#additional_new_number2").val();
+            var markup = '<tr><td>'+ type +'</td><td>'+ number +'</td><td><button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button> <button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button></td></tr>';
+            $("#additional_info_tbody").append(markup);
         });
     </script>
 </body>
