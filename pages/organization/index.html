@@ -111,7 +111,7 @@ desired effect
 
                                 <div class="col-md-12">
                                     <div class="box-footer">
-                                        <button id='hv'  type="button" class="btn btn-default btn1 disabled">View</button>
+                                        <button id='hv' type="button" class="btn btn-default btn1 disabled">View</button>
                                         <button id="sv" type="button" class="btn btn-default btn1" style="display:none;" onclick="view()">View</button>
                                         <button type="button" class="btn btn-info pull-right" onclick="editFields()">Add New</button>
                                     </div>
@@ -154,7 +154,7 @@ desired effect
                                                 <label for="inputPassword3" class="col-sm-4 control-label">Company Name</label>
 
                                                 <div class="col-sm-4 control-label">
-                                                    <p id="company_name" class="pull-left">MSQUBE</p>
+                                                    <p id="company_name" class="pull-left"></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -255,8 +255,8 @@ desired effect
                                     <!-- /.box-body -->
                                     <div class="col-md-12">
                                         <div class="box-footer">
-                                            <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" onclick="saveChanges()">Save</button>
-                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">Cancel</button>
+                                            <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" onclick="saveChanges()" id="save">Save</button>
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" id="cancel">Cancel</button>
                                         </div>
                                     </div>
                                     <!-- /.box-footer -->
@@ -336,6 +336,11 @@ desired effect
 
                                                 </tbody>
                                             </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="box-footer">
+                                            <button id="save_details" type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success2" onclick="demographics_save()">Save</button>
                                         </div>
                                     </div>
                                 </div>
@@ -654,7 +659,7 @@ desired effect
             //    $("#company_level").text(node.text);
             //});
             $("#company_definition").removeAttr("style");
-            $("#new_customer_details").removeAttr("style");
+            $("#new_customer_details").hide(1000);
             $("#hide").slideToggle('slow');
             $("#edit_form").hide();
         }
@@ -663,6 +668,9 @@ desired effect
             $("#edit_form").hide();
             $("#new_customer_details").show();
             $("#company_definition").show();
+            $("#cd_title").text("L&T");
+            $("#organization_level").text("Legal Entity");
+            $("#company_name").text("L&T");
         }
         $("#add_row").click(function() {
             var type = '<td> <select class="customer-type-select form-control"> <option>Registered Address</option> <option>Mailling Address</option><option>Office Address</option></select> </td>';
@@ -687,37 +695,38 @@ desired effect
 
                 var grandparent;
                 var parent;
-                
-                if(node.id!="0" || node.id!="1")
-                {
-                    parent=$("#company_hierarchy").treeview("getParent",node);
-                    grandparent=$("#company_hierarchy").treeview("getParent",parent);
 
-                    $("#cd_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;"+grandparent.text+" &nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; "+parent.text+"&nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; "+node.text);
-                    $("#cd2_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;"+grandparent.text+" &nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; "+parent.text+"&nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; "+node.text);
+                if (node.id != "0" || node.id != "1") {
+                    parent = $("#company_hierarchy").treeview("getParent", node);
+                    grandparent = $("#company_hierarchy").treeview("getParent", parent);
+
+                    $("#cd_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;" + grandparent.text + " &nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; " + parent.text + "&nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; " + node.text);
+                    $("#cd2_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;" + grandparent.text + " &nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; " + parent.text + "&nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; " + node.text);
                     $("#organization_level").text("Division");
                     $("#edit_org_level").text("Division");
-                }
-                if(node.id=="1")
-                {
-                    parent=$("#company_hierarchy").treeview("getParent",node);
-                    
+                    $("#company_name").text("" + grandparent.text + "");
 
-                    $("#cd_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;"+parent.text+"&nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; "+node.text);
-                    $("#cd2_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;"+parent.text+"&nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; "+node.text);
+                }
+                if (node.id == "1") {
+                    parent = $("#company_hierarchy").treeview("getParent", node);
+
+
+                    $("#cd_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;" + parent.text + "&nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; " + node.text);
+                    $("#cd2_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;" + parent.text + "&nbsp;&nbsp;<i class='fa fa-caret-right'></i> &nbsp;&nbsp; " + node.text);
                     $("#organization_level").text("Subsidiary");
                     $("#edit_org_level").text("Subsidiary");
+                    $("#company_name").text(parent.text);
                 }
-                if(node.id=="0")
-                {
-                   
+                if (node.id == "0") {
 
-                    $("#cd_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;"+node.text);
-                    $("#cd2_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;"+node.text);
+
+                    $("#cd_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;" + node.text);
+                    $("#cd2_title").html("<i class='fa fa-circle'></i> &nbsp;&nbsp;" + node.text);
                     $("#organization_level").text("Legal Entity");
                     $("#edit_org_level").text("Legal Entity");
+                    $("#company_name").text(node.text);
                 }
-                
+
                 //$("#organization_level").text(node.text);
                 //$("#edit_org_level").text(node.text);
                 var parent = $("#company_hierarchy").treeview('getParent', node);
@@ -729,6 +738,19 @@ desired effect
             $.each(option, function(i, data) {
                 $(".select_option").append('<option>' + data.name + '</option>');
             });
+        });
+
+        function demographics_save() {
+            $("#new_customer_details").hide(1000);
+
+        }
+        $("#save").on("click", function() {
+            $("#modal-default").slideUp();
+            setTimeout(
+                function() {
+                    $("#edit_form").modal('hide')
+                }, 2000
+            );
         });
     </script>
 
