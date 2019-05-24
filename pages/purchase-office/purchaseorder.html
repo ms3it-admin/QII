@@ -94,7 +94,7 @@ desired effect
                         <!-- general form elements -->
                         <div class="box box-primary box-solid">
                             <div class="box-header with-border">
-                                <h3 class="box-title"></h3>
+                                <h3 class="box-title">Sites</h3>
                             </div>
                             <!-- /.box-header -->
                             <!-- form start -->
@@ -102,9 +102,14 @@ desired effect
                                 <form class="form-horizontal">
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Search</label>
+                                        <label class="col-sm-3 control-label">Site</label>
                                         <div class="col-sm-6">
-                                            <input id="select_address_Type" class="form-control" placeholder="Search Result">
+                                            <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
+                                                <option selected="selected">Choose Your Site </option>
+                                                <option>Site 1</option>
+                                                <option>Site 2</option>
+                                                <option>Site 3</option>
+                                            </select>
 
                                         </div>
                                         <div>
@@ -118,7 +123,7 @@ desired effect
                                             </button>
 
 
-                                            <button id="address_input_button" type="button" class="btn btn-default" class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#modal-default">
+                                            <button id="address_input" type="button" class="btn btn-default" class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#modal-default">
                                                 Raised PO
                                             </button>
                                         </div>
@@ -185,7 +190,7 @@ desired effect
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
-                                <button id="save_new_address" type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+                                <button id="save_new_po" type="button" class="btn btn-success" data-dismiss="modal">Save</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -205,28 +210,86 @@ desired effect
                                 <!-- type select-->
                                 <form class="form-horizontal">
                                     <div class="form-group">
-                                        <label class="control-label col-sm-3">Vendor for PO</label>
+                                        <label class="control-label col-sm-3">PO Number</label>
                                         <div class="col-sm-6">
-                                            <select id="select_address_type" class="form-control customer-type-select" style="width:100%">
-                                                <option selected="selected">-:choose Vendor:-</option>
-                                                <option value="Site 1">Vendor 1</option>
-                                                <option value="Site 2">Vendor 2</option>
-                                                <option value="Site 3">Vendor 3</option>
+                                            <select id="po_number" class="form-control customer-type-select" style="width:100%" onchange="Show(this.value)">
+                                                <option selected="selected">choose PO NO</option>
+                                                <option value="PR001">PR001</option>
+                                                <option value="PR002" >PR002</option>
+                                                <option value="PR003" >PR003</option>
                                             </select>
                                         </div>
                                     </div>
                                 </form>
+                                <div class="box-body" style="display: none" id="open">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-3">Material</label>
+                                            <div class="col-sm-6">
+                                                <p id="material">Cement</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-3">Unit Req</label>
+                                            <div class="col-sm-6">
+                                                <p id="unit">20 Bags</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-3">Needed By</label>
+                                            <div class="col-sm-6">
+                                                <p id="need">27/04/2019</p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger pull-left" data-toggle="modal" data-target="#modal-danger" data-dismiss="modal" id="cancel">Cancel</button>
+                                    <button id="save" type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-success" data-dismiss="modal">Save</button>
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
-                                <button id="save_new_address" type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+
+                </div>
+                <div class="modal modal-success fade" id="modal-success">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                                <h4 class="modal-title">Submitted!</h4>
+                                <p>Your PO No PO0089 has been Generated Successfully!!</p>
                             </div>
                         </div>
                         <!-- /.modal-content -->
                     </div>
                     <!-- /.modal-dialog -->
                 </div>
-                <div class="row" id="search_result" style="display:none;">
+                <!--danger modal-->
+                <div class="modal modal-danger fade" id="modal-danger">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                                <h4 class="modal-title">Warning Modal</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>One fine body…</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-outline">Save changes</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <div class="row" id="search_result" style="display: none">
                     <div class="col-md-12">
                         <!-- general form elements -->
                         <div class="box box-success box-solid">
@@ -251,22 +314,19 @@ desired effect
                                                 <thead>
                                                     <tr role="row">
                                                         <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Vendor">PO Number</th>
-                                                        <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address Type">Material Description</th>
-                                                        <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address">Material Code</th>
-                                                        <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Unit Required By</th>
+                                                        <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Address">Material</th>
+                                                        <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Unit Required</th>
                                                         <th class="sorting col-sm-2" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Default">Needed By</th>
                                                         <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Vendor">Vendor</th>
                                                         <th class="sorting col-sm-3" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Vendor">Status</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="result">
                                                     <tr role="row" class="odd">
                                                         <td>
                                                             <p>POnumber0001</p>
                                                         </td>
-                                                        <td>
-                                                            <p>Sand For Dhalai</p>
-                                                        </td>
+
                                                         <td>
                                                             <p id="material_code1" style="width:100%">sand</p>
                                                         </td>
@@ -280,22 +340,16 @@ desired effect
                                                             <p>Vendor 0001</p>
                                                         </td>
                                                         <td>
-                                                            <select style="width:100%">
-                                                                <option>-:Status:-</option>
-                                                                <option>Approve</option>
-                                                                <option>Send Back</option>
-                                                                <option>Reject</option>
-                                                    </select>
+                                                            <p>Approve</p>
                                                         </td>
                                                     </tr>
                                                     <tr role="row" class="even">
                                                         <td>
                                                             <p>POnumber0002</p>
                                                         </td>
-                                                        <td>Cement</td>
                                                         <td>
                                                             <p id="material_code2" style="width:100%">cement</p>
-                                                        </td>+
+                                                        </td>
                                                         <td>
                                                             <p id="unit_required2" style="width:100%">500units</p>
                                                         </td>
@@ -306,19 +360,13 @@ desired effect
                                                             <p>Vendor 0002</p>
                                                         </td>
                                                         <td>
-                                                            <select style="width:100%">
-                                                                <option>-:Status:-</option>
-                                                                <option>Approve</option>
-                                                                <option>Send Back</option>
-                                                                <option>Reject</option>
-                                                    </select>
+                                                            <p>Pending</p>
                                                         </td>
                                                     </tr>
                                                     <tr role="row" class="odd">
                                                         <td>
                                                             <p>POnumber0003</p>
                                                         </td>
-                                                        <td>Iron rod</td>
                                                         <td>
                                                             <p id="material_code2" style="width:100%">ironrod</p>
                                                         </td>
@@ -332,12 +380,7 @@ desired effect
                                                             <p>Vendor 0003</p>
                                                         </td>
                                                         <td>
-                                                            <select style="width:100%">
-                                                                <option>-:Status:-</option>
-                                                                <option>Approve</option>
-                                                                <option>Send Back</option>
-                                                                <option>Reject</option>
-                                                    </select>
+                                                            <p>Approve</p>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -473,30 +516,46 @@ desired effect
                 $("#search_result").removeAttr("style");
             }
 
-            function generatePo() {
-
-            }
             $(function() {
                 $("#address_table").DataTable();
             })
+
+            function Show() {
+
+                $("#open").show();
+            }
+
+            $("#address_input").on("click", function() {
+                $("#search_result").hide(1000);
+            });
+            $("#save").on("click", function() {
+                $("#modal-default").slideUp();
+                setTimeout(
+                    function() {
+                        $("#modal-success").modal('hide')
+                    }, 2000
+                );
+            });
+            $("#cancel").on("click", function() {
+                $("#modal-default").slideUp();
+                setTimeout(
+                    function() {
+                        $("#modal-danger").modal('hide')
+                    }, 2000
+                );
+            });
         </script>
         <script>
-            $("#save_new_address").on("click", function() {
-                //get the inserted value by user
-                var addressType = $("#select_address_type").val();
-                var addressLine1 = $("#address_line_one").val();
-                var addressLine2 = $("#address_line_two").val();
-                var district = $("#district").val();
-                var country = $("#country").val();
-                var pinCode = $("#pin_code").val();
-                var choice = $('input[name=choice]:checked').val();
-                console.log(choice);
-                //append a row to the table 
-                ////get the tbody using it's id
-                ////append a row to it with values
-                var address = addressLine1 + " " + addressLine2 + "," + district + "," + pinCode;
-                var markup = '<tr><td>' + addressType + '</td><td>' + address + '</td><td>' + choice + '</td></tr>';
-                $("#address_new_tbody").append(markup);
+            $("#save").on("click", function() {
+                console.log("hi");
+                var prno = "PO0089";
+                var ponumber = $("#po_number").val();
+                var Material = $("#material").text();
+                var Unit = $("#unit").text();
+                var Need = $("#need").text();
+                console.log(ponumber);
+                var markup = '<tr><td>' + prno + '</td><td>' + Material + '</td><td>' + Unit + '</td><td>' + Need + '</td></tr>';
+                $("#result").append(markup);
             });
         </script>
 </body>
