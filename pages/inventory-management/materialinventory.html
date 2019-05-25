@@ -38,6 +38,9 @@
     <script src="../../config/footer-config.js"></script>
     <script src="../../config/header-config.js"></script>
     <script src="../../config/sidenav-config.js"></script>
+    <script src="../../config/materialmaster.js"></script>
+    <script src="../../config/storelocation.js"></script>
+    <script src="../../config/sitelocation.js"></script>
 </head>
 <!--
     BODY TAG OPTIONS:
@@ -114,11 +117,8 @@
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Material Code</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                                        <option selected="selected">Choose Your Material Code </option>
-                                                        <option></option>
-                                                        <option></option>
-                                                        <option></option>
+                                                <select id="material_code" class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
+                                                        
                                                     </select>
                                             </div>
                                         </div>
@@ -127,11 +127,8 @@
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Store Location</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerTagging" tabindex="-1">
-                                                        <option selected="selected">Choose Your Store Location</option>
-                                                        <option></option>
-                                                        <option></option>
-                                                        <option></option>
+                                                <select id="store_location" class="customer-type-select form-control" style="width: 100%;" name="CustomerTagging" tabindex="-1">
+                                                       
                                                     </select>
                                             </div>
                                         </div>
@@ -140,11 +137,8 @@
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Site</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerTagging" tabindex="-1">
-                                                        <option selected="selected">Choose Your Site</option>
-                                                        <option></option>
-                                                        <option></option>
-                                                        <option></option>
+                                                <select id="site" class="customer-type-select form-control" style="width: 100%;" name="CustomerTagging" tabindex="-1">
+                                                       
                                                     </select>
                                             </div>
                                         </div>
@@ -514,6 +508,21 @@
         }
         $(function() {
             $("#address_table").DataTable();
+        });
+        $(document).ready(function() {
+            for (j = 0; j < materialcode.length; j++) {
+                $("#material_code").append("<option>" + materialcode[j]['code'] + "</option>");
+            }
+        });
+        $(document).ready(function() {
+            for (j = 0; j < storelocation.length; j++) {
+                $("#store_location").append("<option>" + storelocation[j]['location'] + "</option>");
+            }
+        });
+        $(document).ready(function() {
+            for (j = 0; j < sitelocation.length; j++) {
+                $("#site").append("<option>" + sitelocation[j]['location'] + "</option>");
+            }
         });
     </script>
 </body>
