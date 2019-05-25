@@ -40,6 +40,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="../../config/footer-config.js"></script>
     <script src="../../config/header-config.js"></script>
     <script src="../../config/sidenav-config.js"></script>
+    <script src="../../config/assetmaster.js"></script>
+    <script src="../../config/storelocation.js"></script>
+    <script src="../../config/sitelocation.js"></script>
 </head>
 <!--
     BODY TAG OPTIONS:
@@ -116,12 +119,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Asset Code</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                    <option selected="selected">Choose Your Asset Code </option>
-                                    <option></option>
-                                    <option></option>
-                                    <option></option>
-                                </select>
+                                                <select id="asset_code" class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
+                                    
+                                               </select>
                                             </div>
                                         </div>
                                     </div>
@@ -129,12 +129,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Store Location</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerTagging" tabindex="-1">
-                                    <option selected="selected">Choose Your Store Location</option>
-                                    <option></option>
-                                    <option></option>
-                                    <option></option>
-                                </select>
+                                                <select id="store_location" class="customer-type-select form-control" style="width: 100%;" name="CustomerTagging" tabindex="-1">
+                                                     </select>
                                             </div>
                                         </div>
 
@@ -405,7 +401,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Current Allocation End Date</th>
                                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">New Allocation Start Date</th>
                                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">New Allocation End Date</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">Nwe Sit Location</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">New Site Location</th>
                                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Customer Code">submit</th>
                                                     </tr>
                                                 </thead>
@@ -433,12 +429,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                             <input type="date" />
                                                         </td>
                                                         <td>
-                                                            <select>
-                                                                <option>Site002</option>
-                                                                <option>Site010</option>
-                                                                <option>Site008</option>
-                                                                <option>Site006</option>
-                                                                <option>Site005</option>
+                                                            <select id="new_site_location">
+                                                               
                                                             </select>
                                                         </td>
                                                         <td>
@@ -470,12 +462,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                             <input type="date" />
                                                         </td>
                                                         <td>
-                                                            <select>
-                                                                <option>Site002</option>
-                                                                <option>Site010</option>
-                                                                <option>Site008</option>
-                                                                <option>Site006</option>
-                                                                <option>Site005</option>
+                                                            <select id="new_site_location1">
+                                                                
                                                             </select>
                                                         </td>
                                                         <td>
@@ -507,12 +495,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                             <input type="date" />
                                                         </td>
                                                         <td>
-                                                            <select>
-                                                                <option>Site002</option>
-                                                                <option>Site010</option>
-                                                                <option>Site008</option>
-                                                                <option>Site006</option>
-                                                                <option>Site005</option>
+                                                            <select id="new_site_location2">
+                                                                
                                                             </select>
                                                         </td>
                                                         <td>
@@ -667,6 +651,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
         $(function() {
             $("#address_table").DataTable();
+        });
+        $(document).ready(function() {
+            for (j = 0; j < assetCode.length; j++) {
+                $("#asset_code").append("<option>" + assetCode[j]['code'] + "</option>");
+            }
+        });
+        $(document).ready(function() {
+            for (j = 0; j < storelocation.length; j++) {
+                $("#store_location").append("<option>" + storelocation[j]['location'] + "</option>");
+            }
+        });
+        $(document).ready(function() {
+            for (j = 0; j < sitelocation.length; j++) {
+                $("#new_site_location").append("<option>" + sitelocation[j]['location'] + "</option>");
+            }
+        });
+        $(document).ready(function() {
+            for (j = 0; j < sitelocation.length; j++) {
+                $("#new_site_location1").append("<option>" + sitelocation[j]['location'] + "</option>");
+            }
+        });
+        $(document).ready(function() {
+            for (j = 0; j < sitelocation.length; j++) {
+                $("#new_site_location2").append("<option>" + sitelocation[j]['location'] + "</option>");
+            }
         });
     </script>
 </body>
