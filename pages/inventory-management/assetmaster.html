@@ -41,6 +41,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="../../config/sidenav-config.js"></script>
     <script src="../../config/header-config.js"></script>
     <script src="../../config/assetmaster.js"></script>
+    <script src="../../config/storelocation.js"></script>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -240,11 +241,8 @@ desired effect
                                         <div class="form-group">
                                             <label for="inputEmail3" class="col-sm-4 control-label">Store Location</label>
                                             <div class="col-sm-8">
-                                                <select class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
-                                                    <option selected="selected">Choose Your Store Location </option>
-                                                    <option>Site Location 1</option>
-                                                    <option>Site Location 2</option>
-                                                    <option>Site Location 3</option>
+                                                <select id="store_location" class="customer-type-select form-control" style="width: 100%;" name="CustomerType" tabindex="-1">
+                                                    
                                                 </select>
                                             </div>
                                         </div>
@@ -459,6 +457,11 @@ desired effect
         $(document).ready(function() {
             for (j = 0; j < assettype.length; j++) {
                 $("#asset_type").append("<option>" + assettype[j]['type'] + "</option>");
+            }
+        });
+        $(document).ready(function() {
+            for (j = 0; j < storelocation.length; j++) {
+                $("#store_location").append("<option>" + storelocation[j]['location'] + "</option>");
             }
         });
     </script>
